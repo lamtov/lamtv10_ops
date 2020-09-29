@@ -1,0 +1,88 @@
+---
+
+- name: cp -r /etc/filebeat /etc/filebeat-ocs
+  shell: cp -r /etc/filebeat /etc/filebeat-ocs
+
+
+- name:  mkdir /var/lib/filebeat-ocs
+  shell:  mkdir /var/lib/filebeat-ocs
+
+- name:  mkdir /var/log/filebeat-ocs
+  shell:  mkdir /var/log/filebeat-ocs
+- name: cp filebeat /etc/filebeat/filebeat_controller.yml
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'filebeat.yml.j2', dest: '/etc/filebeat/filebeat.yml' }
+    - { src: 'filebeat-ocs.service.j2', dest: '/usr/lib/systemd/system/filebeat-ocs.service' }
+    - { src: 'filebeat.yml.controller.j2', dest: '/etc/filebeat-ocs/filebeat.yml' }
+
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "controller" )
+
+
+- name: cp filebeat /etc/filebeat/filebeat_compute.yml
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'filebeat.yml.j2', dest: '/etc/filebeat/filebeat.yml' }
+    - { src: 'filebeat-ocs.service.j2', dest: '/usr/lib/systemd/system/filebeat-ocs.service' }
+    - { src: 'filebeat.yml.compute.j2', dest: '/etc/filebeat-ocs/filebeat.yml' }
+
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "compute" )
+
+
+- name: cp filebeat /etc/filebeat/filebeat_ceph.yml
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'filebeat.yml.j2', dest: '/etc/filebeat/filebeat.yml' }
+    - { src: 'filebeat-ocs.service.j2', dest: '/usr/lib/systemd/system/filebeat-ocs.service' }
+    - { src: 'filebeat.yml.ceph.j2', dest: '/etc/filebeat-ocs/filebeat.yml' }
+
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "ceph" )
+
+
+
+
+- name: systemctl daemon-reload
+  shell: systemctl daemon-reload
+
+- name: start filebeat.service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: filebeat
+
+- name: start filebeat.service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: filebeat-ocs
+
+
+- name: systemctl restart filebeat-ocs
+  shell: systemctl  restart filebeat-ocs
+
+#- name: systemctl stop filebeat
+#  systemd:
+#    name: filebeat
+#    state: stopped
+
+
+
+ 

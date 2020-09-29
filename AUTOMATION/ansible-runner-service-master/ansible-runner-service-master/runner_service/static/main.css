@@ -1,0 +1,114 @@
+body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button {
+    display: inline-block;
+    color: white;
+    padding: 5px;
+    margin-left:10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.get {
+    background-color: purple;
+}
+
+.put {
+    background-color: darkcyan;
+}
+
+.delete {
+    background-color: darkorange;
+}
+
+.post {
+    background-color: blue;
+}
+
+#endpoints {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+#endpoints tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#endpoints th {
+    cursor: auto;
+}
+#endpoints tr:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}
+
+#endpoints td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    vertical-align: top;
+}
+
+#endpoints th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left:5px;
+    text-align: left;
+    background-color: steelblue;
+    color: white;
+}
+
+.logo {
+    position: absolute;
+    right:20px;
+    top:1%;
+    width: 69px;
+    height: 85px;
+}
+
+.codeblock {
+    background-color: darkslategray;
+    display: block;
+    color: snow;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius:5px;
+    font-size: .9em;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.codeblock:hover {
+    box-shadow: 0 0 8px darkslategray;
+}
+
+.api-text {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: .8em;
+}
+.api-table {
+    width:98%;
+    padding-left:10px;
+}
+.api-row-container {
+    width:100%;
+    margin-right:10px;
+    height:auto;
+}
+
+.info {
+    position:relative;
+    left:10%;
+    top:-45px;
+    display:inline-block;
+    width:auto;
+}
+.method-info {
+    width:100%;
+    border-bottom: 1px solid silver;
+}

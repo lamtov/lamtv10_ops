@@ -1,0 +1,5 @@
+[rhel76]
+name=rhel76
+baseurl=http://172.16.30.89/rhel76
+enabled=1
+gpgcheck=0

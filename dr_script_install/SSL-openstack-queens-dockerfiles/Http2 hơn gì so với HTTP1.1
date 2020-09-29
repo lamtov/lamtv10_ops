@@ -1,0 +1,27 @@
+Http2 hơn gì so với HTTP1.1
+1. Multiplexing and Concurrency: Cho rendering 1 HTML thì cần một số file như JS, CSS, IMage vì vậy nếu sử dụng HTTP thì client sẽ phải request với mỗi JS, CSS,Image file độc lập. Điều này cần 1 TCP connection cho mỗi Request --<> lãng phí.
+   Cải tiến trong HTTP2 thay vì client yêu cầu cho từng tài nguyên thì một server sẽ tự push response tới client mà với mỗi TCP connection độc lập tất cả nội dung cần sẽ có mặt tới client. Điều này cho phép server hỗ trợ data cần thiết cho một web browser để render một web page mà không cần đợi cho phản hồi đầu tiên.
+
+2. Stream Prioritization: Client có thể chỉ định tài nguyên nào quan trọng hơn những tài nguyên khác đối với server. Cho cung cấp việc đánh trọng số thì HTTP2 có cung cấp weight và dependency:		
+		+ Mỗi stream ký một integer từ 1-256
+		+ Mỗi stream cung cấp sự phụ thuộc rõ ràng vào các luồng khác.
+		+ Sự kết hợp của cả phụ thuộc và trọng số sẽ cho phép khác hàng xây dựng cây ưu tiên thể hiện cách khách hàng muốn nhận các tùy chọn. Server sẽ sử dụng thông tin để ưu tiên xử lý luồng và kiểm soát tài nguyên hệ thống như CPU, bộ nhớ và các tài nguyên khác, sau khi có phản hồi nó sẽ phân bổ băng thông để đảm bảo cung cáp các phản hồi ưu tiên cao cho khách hàng. ---<> đẩy nhanh thời gian tải của trang.
+
+3. Header Compression: Mỗi HTTP transfer mang theo một tập các headers mà sẽ định nghĩa tài nguyên vận chuyển và tính chất của nó. Trong HTTP1.1 tất cả header value sẽ  phải chuyển trong một plain-text format mà sẽ cần 500-800 byte mỗi request, kích thước này sẽ tăng lên nếu HTTP cookies được sử dụng. HTTP2 cung cấp một giải pháp tốt hơn cho việc vận chuyển này bằng cách sử dụng HPACK compression format sử dụng công nghệ bên dưới:
+		- Nó cho phép việc vận chuyển các trường trong header đưuọc encode thoogn quan một Huffman code, giảm transfer size.
+		- Nó đồng thời yêu cầu cả server và client duy trì và cập nhật danh sách của các trường header đã được gửi trước đó ---> bỏ qua trùng lặp
+
+4. Server Push: Server will push all dependent resources which are not requested the client.
+5. Flow control: 
+	- Kiểm soát luồng là cơ chế để ngăn ngừa người gửi tràn ngập dữ liệu đến người nhận.
+	- HTTP2 giải quyết bằng cách cung cấp receive window thông gáo kích thước truyền dữ liệu giữa người gửi và người nhận. 
+		+Khi kết nối được thiết lập lần đầu tiên, nó sẽ sử dụng các cài đặt mặc định. 
+	 + Nếu máy chủ đang truyền một lượng lớn dữ liệu đến máy khách trong trường hợp cửa sổ tải xuống máy khách nhận được có thể trở thành yếu tố giới hạn, tương tự trong trường hợp máy khách gửi một lượng lớn dữ liệu đến máy chủ, trong trường hợp này, cửa sổ nhận máy chủ sẽ được yếu tố hạn chế.
+	 + Trong mọi trường hợp, một cửa sổ nhỏ hơn sẽ là một yếu tố hạn chế.
+
+6. ALPN
+Cho TLS (transport layer security) có thể sử dụng ALPN (Application-Layer Protocol Negotiation). ALPN cho phép TLS  connection có thể đảm phán application level protocol sẽ được chạy qua nó.
+Sau khi hình thành một HTTP2 connenction mối endpoint phải gửi một connection preface như xác nhận cuối cùng và để hình htnafh một tiền settings cho HTTP2. 
+
+
+-------------------------------------------------------

@@ -1,0 +1,57 @@
+Yêu cầu:
+Gitlab version >9.0.3 mới có CI/CD, gitlab mới nhất là 12
+
+Gitlab cài ở địa chỉ https sử dụng gitlab.crt và gitlab.key 
+
+Yêu cầu có cài đặt gitlab Container Registry ở địa chỉ https và gitlab runner có thể kết nối, push pull đến địa chỉ đó.
+
+- Gilab runner do mình cài hay do họ cài sẵn, nếu do mình cài thì phải  gửi các file crt của gitlab để register để có thể kết nối https .
+
+https://www.javadoc.io/doc/io.rest-assured/rest-assured/latest/io/restassured/RestAssured.html
+
+https://blog.knoldus.com/test-report-for-rest-assured/
+
+https://giangtester.com/bai-1-rest-assured-la-gi/
+
+https://techbeacon.com/app-dev-testing/efficient-api-testing-how-get-started-rest-assured
+
+https://www.blazemeter.com/blog/restful-api-testing-using-serenity-and-rest-assured-a-guide
+hnh213951
+17000
+
+
+
+
+1.  Viet de hon
+2. Create POJO wrapper
+Ý tưởng chính là wrapper cho HTTP request methods, làm đơn giản hóa code và làm code reusable  ---> viet test dễ hơn, quan trọng hơn là logic và maintainable 
+
+private Response addUser(String path, Object bodyData) {
+    return given()
+            .spec(specification.build())
+            .body(bodyData)
+            .when()
+            .post(path)
+            .then()
+            .extract()
+            .response();
+}
+
+#  You can create HashMap and parse it to request the body. Another way is to create proper JSON parser and send data as JSON format.
+
+private <T> T getResourceData(String path, Class<T> responseClass) {
+    return given()
+            .spec(specification.build())
+            .when()
+            .get(path)
+            .then()
+            .statusCode(200)
+            .extract()
+            .as(responseClass);
+}
+
+
+
+
+
+

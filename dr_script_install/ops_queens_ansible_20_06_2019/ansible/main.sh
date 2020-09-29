@@ -1,0 +1,2 @@
+ansible-playbook ansible_compute.yml
+ansible-playbook ansible_controller.yml

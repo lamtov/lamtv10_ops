@@ -1,0 +1,100 @@
+Dear các anh,
+
+Em xin gửi lại review cho các phần của tài liệu.
+
+Các vấn đề chính trải dài suốt toàn bộ các tài liệu:
+Một số câu lệnh k biết đầy đủ mà chỉ viết sub-command, có thể gây nhầm lẫn khi xử lý sự cố.
+Với mỗi lệnh thực hiện có yêu cầu thay đổi có ảnh hưởng hệ thống, cần có thêm bộ câu lệnh kiểm tra trước và sau tác động (lệnh backup nếu chưa có backup tự động khi có thay đổi).
+Phần lớn việc thực thi câu lệnh không nói rõ ngữ cảnh. Em đề xuất đầu mỗi mục con cần trả lời câu hỏi: Lệnh tác động ở server IP nào, đường dẫn thư mục gì, với user gì, thông qua giao thức kết nối nào (SSH, RDP,...).
+Việc troubleshooting thì ổn nhưng cảnh báo xuất hiện ở đâu (phụ thuộc việc cảnh báo bên vOCS DR tích hợp tới đâu rồi)? với mỗi cảnh báo đấy thì ánh xạ đến các lỗi có thể gặp. (Quay lại phần 3, nói rõ ngữ cảnh).
+Các tác động có thể thực hiện từ commandline và giao diện, nên có hướng dẫn cho cả 2.
+Dưới đây là các vấn đề cụ thể trong từng tài liệu mà bọn em cho là chưa ổn để ae mình tiếp tục trao đổi hoàn thiện tài liệu:
+(Bên em sẽ trích dẫn các mục của tài liệu trước nếu được và có command tương ứng đi kèm)
+
+Về phần Ceph
+
+Chỗ trouble shooting
+- Chỗ xử lý ceph-mon down: chưa nói rõ check iptables như nào (cần nêu rõ các mon giao tiếp với nhau, với các osd và với các client qua port / dải port nào).
+
+- Chỗ clock skew: chưa đưa ra được cụ thể đồng bộ thời gian đối với chrony / ntpdate thì dùng lệnh gì, kiểm tra kết quả như nào, cần lưu ý gì, và cần chú ý cấu hình như nào cho chrony/ntpdate để thời gian ít bị lệch hơn.
+
+- Chỗ osd failed: có nói chỗ check log kernel nhưng chưa đưa ra được log cụ thể như nào thì sẽ liên quan đến osd, chưa có câu lệnh cụ thể để check.
+
+- Bad sectors hoặc fragmented disk: chưa đưa ra câu lệnh kiểm tra (cần cụ thể đối với sử dụng qua card raid và không qua raid), như nào thì lỗi và như nào thì không.
+
+- Chỗ PG: Đảm bảo số lượng replica phải nhỏ hơn số lượng osd để luôn đảm bảo lưu lại số bản sao đầy đủ chỗ này chưa viết rõ, vì ceph hỗ trợ đảm bảo các replica của osd có thể nằm trên khác host, cho đến mức khác rack ... tùy thuộc vào rules của mình, nên cần viết rõ việc check rules trước như nào.
+
+- Chưa có trouble shoot cho Ceph mirroring.
+
+- Nếu có thể thì phần trouble shoot ghi lại được format như này là tốt nhất: https://support.hpe.com/hpsc/doc/public/display?docId=c04717849
+
+
+
+Tên lỗi
+Phân loại
+Nhận biết (log)
+Câu lệnh kiểm tra
+Mức độ
+Hành động
+
+
+Chỗ operator guide
+- Về các hành động sửa / xóa: chưa nói rõ cần kiểm tra gì trước khi thực hiện, ảnh hưởng như nào ...
+
+- Chưa có tài liệu về việc sử dụng câu lệnh tương ứng, trong trường hợp không vào được giao diện Ceph dashboard hoặc giao diện không lên
+
+- Về rebalance osd: chỗ sử dụng tool reweight-by-utilization chưa nói rõ mỗi lần dùng sẽ ảnh hưởng đến bao nhiêu osd, thay đổi weight của các osd như nào, cách để chỉnh số lượng osd cũng như weight theo ý muốn, và có cách gì để dry-run trước không (test-reweight-by-utilization)
+
+- Về thêm ổ mới / xóa ổ hỏng: chưa có các lưu khi thêm / xóa ổ : như check bad block trước như nào, config lại các tham số nào để không ảnh hưởng quá nhiều đến latency của client, nên để initial weight của các ổ như nào, chiến thuật tăng weight cho ổ như nào, ...
+
+- Về mirroring: chưa có tài liệu về kiểm tra trạng thái đồng bộ của image, cấu hình best practice cho mirroring
+
+- Các lệnh cần kiểm tra lại, bên em chạy thử không được
+
+ceph-mgr -i dashboard
+ceph-mon -i CAGM01DRCEPH01 --extract-monmap /tmp/monmap
+stop ceph-osd id={num}
+start ceph-osd id={num}
+
+
+
+
+
+- Phân 8.1 Mở rộng cluster cần clear hơn
+
+repository - phải cấu hình thêm vào /etc/hosts k thấy nói tới
+lệnh ceph-deloy chạy ở đâu, chạy ntn?
+lệnh wipefs cũng k rõ ràng tham số là gì
+
+
+Về phần OpenStack
+
+- Phần 1.4.1 Resize Instance
+
+Kiểm tra lại đảm bảo instance đã được di trú sang server mới là “SPGM01DRCOMP11” với cấu hình mới là 2C.4R.10D
+
+
+
+>> User thường không thể nhìn thấy host của VM được >> hướng dẫn này chưa chuẩn
+
+
+
+3.2.1. Cấu hình các network
+
+ovs-vsctl --no-wait --may-exist add-port $bridge dpdk$phys_ofport -- set Interface dpdk$phys_ofport type=dpdk other_config:pci_address=$addr other_config:driver=${OVS_INTERFACE_DRIVER} other_config:previous_driver=${driver_map[$addr]}
+
+
+
+>> Câu lệnh không clear các variable
+
+
+
+Truy cập vào địa chỉ http://localhost:15672/ trên các node Controller để đăng nhập với user openstack password ‘Y2g8AiB6DjwpvQRKqdU7mXcolwPHNQUT’ 
+
+
+
+>> Không thực tế, truy cập localhost kiểu gì, phải có phương án ứng cứu thông tin thông qua NIAM hoặc remote được qua RDP
+
+
+Best Regards,
+Đặng Văn Đại

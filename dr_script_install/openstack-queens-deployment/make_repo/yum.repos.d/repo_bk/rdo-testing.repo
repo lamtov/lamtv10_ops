@@ -1,0 +1,13 @@
+[openstack-rocky-testing]
+name=OpenStack Rocky Testing
+#baseurl=https://buildlogs.centos.org/centos/7/cloud/$basearch/openstack-queens/
+baseurl=http://172.16.30.89/buildlogs.centos.7.cloud.x86_64.openstack-queens/
+gpgcheck=0
+enabled=1
+
+[rdo-trunk-rocky-tested]
+name=OpenStack Rocky Trunk Tested
+#https://trunk.rdoproject.org/centos7-rocky/current-passed-ci/
+baseurl=http://172.16.30.89/trunk.centos7-rocky.current-passed-ci/
+gpgcheck=0
+enabled=0

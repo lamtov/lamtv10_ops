@@ -1,0 +1,53 @@
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = controller
+DNS.2 = o1.controller
+DNS.3 = o2.controller
+DNS.4 = o3.controller
+DNS.5 = o4.controller
+DNS.6 = os.controller
+
+
+### 
+#yum -y install mod_ssl
+
+##
+
+[Wed Feb 19 10:17:14.820543 2020] [suexec:notice] [pid 281466] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:17:14.821184 2020] [ssl:emerg] [pid 281466] AH01895: Unable to configure verify locations for client authentication
+[Wed Feb 19 10:17:14.821190 2020] [ssl:emerg] [pid 281466] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:17:58.690461 2020] [suexec:notice] [pid 281811] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:17:58.691102 2020] [ssl:emerg] [pid 281811] AH01895: Unable to configure verify locations for client authentication
+[Wed Feb 19 10:17:58.691106 2020] [ssl:emerg] [pid 281811] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:20:01.573723 2020] [suexec:notice] [pid 283004] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:20:01.574152 2020] [ssl:emerg] [pid 283004] AH01895: Unable to configure verify locations for client authentication
+[Wed Feb 19 10:20:01.574158 2020] [ssl:emerg] [pid 283004] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:22:50.274551 2020] [suexec:notice] [pid 284666] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:22:50.275136 2020] [ssl:emerg] [pid 284666] AH02238: Unable to configure RSA server private key
+[Wed Feb 19 10:22:50.275154 2020] [ssl:emerg] [pid 284666] SSL Library Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Wed Feb 19 10:22:50.275157 2020] [ssl:emerg] [pid 284666] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:24:18.535599 2020] [suexec:notice] [pid 285375] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:24:18.552190 2020] [lbmethod_heartbeat:notice] [pid 285375] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 19 10:24:18.552239 2020] [ssl:warn] [pid 285375] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Feb 19 10:24:18.555613 2020] [mpm_prefork:notice] [pid 285375] AH00163: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips SVN/1.7.14 mod_wsgi/3.4 Python/2.7.5 configured -- resuming normal operations
+[Wed Feb 19 10:24:18.555642 2020] [core:notice] [pid 285375] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 19 10:25:04.204515 2020] [mpm_prefork:notice] [pid 285375] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 19 10:25:05.294304 2020] [suexec:notice] [pid 285769] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:25:05.311147 2020] [lbmethod_heartbeat:notice] [pid 285769] AH02282: No slotmem from mod_heartmonitor
+[Wed Feb 19 10:25:05.311198 2020] [ssl:warn] [pid 285769] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Feb 19 10:25:05.314593 2020] [mpm_prefork:notice] [pid 285769] AH00163: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips SVN/1.7.14 mod_wsgi/3.4 Python/2.7.5 configured -- resuming normal operations
+[Wed Feb 19 10:25:05.314619 2020] [core:notice] [pid 285769] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Feb 19 10:25:34.824074 2020] [mpm_prefork:notice] [pid 285769] AH00170: caught SIGWINCH, shutting down gracefully
+[Wed Feb 19 10:25:35.937871 2020] [suexec:notice] [pid 286024] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:25:35.937973 2020] [ssl:emerg] [pid 286024] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/glance_api.conf:6)
+[Wed Feb 19 10:25:35.937978 2020] [ssl:emerg] [pid 286024] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:27:28.206720 2020] [suexec:notice] [pid 287204] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:27:28.206833 2020] [ssl:emerg] [pid 287204] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/glance_api.conf:6)
+[Wed Feb 19 10:27:28.206839 2020] [ssl:emerg] [pid 287204] AH02312: Fatal error initialising mod_ssl, exiting.
+[Wed Feb 19 10:27:46.709315 2020] [suexec:notice] [pid 287709] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Feb 19 10:27:46.709458 2020] [ssl:emerg] [pid 287709] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/glance_api.conf:6)
+[Wed Feb 19 10:27:46.709464 2020] [ssl:emerg] [pid 287709] AH02312: Fatal error initialising mod_ssl, exiting.

@@ -1,0 +1,55 @@
+---
+- name: mkdir /u01/docker/docker_graph
+  file:
+    path: '{{ VAR_LIB_DOCKER }}'
+    state: directory
+    owner: root    
+    group: root
+    mode: 0775
+    recurse: yes
+
+- name: mkdir /u01/docker/docker_log
+  file:
+    path: '{{ VAR_LOG_DIR }}'
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+    recurse: yes
+
+- name: yum install -y docker-ce docker-compose
+  yum:
+    name:
+      - docker-ce
+      - docker-compose
+    state: latest
+
+- name: cp ../docker/daemon.json /etc/docker/
+  template:
+    src: daemon.json.j2 
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: systemctl enable docker 
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+
+- name: restart docker, in all cases, also issue daemon-reload to pick up config changes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
+
+#- name: Test Command
+#  commad: docker pull docker-registry:4000/glance:q
+#  args:
+#    excutable: /bin/bash
+#  when: chrony_server is defined 
+#  notify: restart openstack-nova-compute
+
+#cp -r ../docker /usr/share 

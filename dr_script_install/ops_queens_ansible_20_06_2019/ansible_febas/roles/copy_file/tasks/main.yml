@@ -1,0 +1,8 @@
+---
+- name: fetch /etc/haproxy/haproxy.cfg 
+  fetch:
+    src: /etc/haproxy/haproxy.cfg 
+    dest:  /etc/ansible/fetch_file/{{ ansible_date_time.date }}/{{ host_name }}/etc/haproxy/haproxy.cfg 
+    mode: 0744
+    fail_on_missing: yes 
+  when: ( "{{ host_name }}" == "{{ first_controller }}" )

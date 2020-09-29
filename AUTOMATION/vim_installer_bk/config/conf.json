@@ -1,0 +1,53 @@
+{
+	"app":{
+		"_id": "57b3d7cc901e6e9574a874e6",
+		"ip": "localhost",
+		"port": 3017,
+		"name": "vim_installer"
+	},
+	"database": {
+		"name": "auto_lamtv10",
+		"ip":"172.16.29.198",
+		"port": 3306,
+		"user": "lamtv10",
+		"password":"lamtv10"
+	},
+	"ansible": {
+		"version": "2.7",
+		"folder": "/etc/ansible/"
+	},
+	"service":{
+		"core":3010,
+		"default_template": 3011,
+		"playbook_executor": 3012
+	},
+	"ui":{
+		"type": "flask"
+	}
+
+}
+
+
+
+
+
+
+{
+	"hub":"",
+	"ip":{
+		"VIP": "",
+		"ntp_server":"",
+		"controller_ip":[]
+	},
+	"password":{
+		"mysql": {"root":"", "demo":"", "keystone":"", "nova":"", "glance":"", "neutron":"", "cinder":"", "ceph":"", "swift":""},
+		"haproxy":"",
+		"rabbitMQ":"",
+		"openstack":{ "admin":"", "demo":"", "keystone":"", "nova":"", "glance":"", "neutron":"", "cinder":"", "ceph":"", "swift":""}
+	},
+	"neutron_network":{
+		"type":["flat", "vlan", "sriov"],
+		"bridge-mapping":[""],
+		"netowrk_vlan_range":["start_v"]
+	}
+}

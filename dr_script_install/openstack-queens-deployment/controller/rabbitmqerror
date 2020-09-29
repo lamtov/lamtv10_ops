@@ -1,0 +1,65 @@
+
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager [req-6c4bfdab-ccc0-4486-afdc-4b0927242d22 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Error updating resources for node compute02.: MessagingTimeout: Timed out waiting for a reply to message ID be547584511d439d8800ef716531b8ed
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager Traceback (most recent call last):
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/compute/manager.py", line 6756, in update_available_resource_for_node
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     rt.update_available_resource(context, nodename)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py", line 704, in update_available_resource
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     self._update_available_resource(context, resources)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py", line 271, in inner
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     return f(*args, **kwargs)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py", line 728, in _update_available_resource
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     self._init_compute_node(context, resources)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py", line 585, in _init_compute_node
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     self._update(context, cn)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py", line 878, in _update
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     compute_node.save()
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_versionedobjects/base.py", line 210, in wrapper
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     ctxt, self, fn.__name__, args, kwargs)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/lib/python2.7/dist-packages/nova/conductor/rpcapi.py", line 245, in object_action
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     objmethod=objmethod, args=args, kwargs=kwargs)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/rpc/client.py", line 169, in call
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     retry=self.retry)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/transport.py", line 123, in _send
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     timeout=timeout, retry=retry)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 578, in send
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     retry=retry)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 567, in _send
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     result = self._waiter.wait(msg_id, timeout)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 459, in wait
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     message = self.waiters.get(msg_id, timeout=timeout)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/oslo_messaging/_drivers/amqpdriver.py", line 347, in get
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager     'to message ID %s' % msg_id)
+2019-02-25 10:23:53.607 51524 ERROR nova.compute.manager MessagingTimeout: Timed out waiting for a reply to message ID be547584511d439d8800ef716531b8ed
+
+
+
+
+check log rabbitmq : tail -f /var/log/rabbimq/rabbitmq@controller01.log
+
+rabbitmqctl add_user openstack KFTA8eHMgiX4DDUcCKSsoTpZFGnCoBrA
+rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+
+==ERROR REPORT====
+Channel error on connection (vhost: '/', user: 'guest'), channel 1:
+{amqp_error, not_found, "no queue "}
+
+fix: de; /var/lib/rabbimq/mnesia
+
+**** Loi rabbitmq ko khoi dong dc
+ 			chown rabbitmq:rabbitmq /var/lib/rabbitmq/.earlang.cookie
+ 			chmod 600 /var/lib/rabbitmq/.earlang.cookie
+ 			log start_up
+
+*** loi ko join dc vao cluster do check log:
+		already in cluster 
+
+fix :
+	 Tai node controller02: rabbitmqctl stop_app
+	 Tai node controller01: rabbitmqctl forget_cluster_node rabbit@controller02
+	 Tai node controller02: rabbitmqctl join_cluster --ram rabbit@controller01
+	 						Clustering node rabbit@controller02 with rabbit@controller01 ...
+
+	 						rabbitmqctl start_app	
+
+
+

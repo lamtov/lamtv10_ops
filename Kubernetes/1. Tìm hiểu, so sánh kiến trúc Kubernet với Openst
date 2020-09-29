@@ -1,0 +1,38 @@
+1. Tìm hiểu, so sánh kiến trúc Kubernet với Openstack:
+	- Một Cluster vs cụm Openstack VIM
+	- Một Master node vs 1 Controller Node, 3 Master Node vs 3 Controller Node + Haproxy
+	- Một Worker Node vs với 1 Compute Node 
+	- Một Pod tương đương với 1 VM, được phân tài nguyên, network các container thuộc cùng một pod sẽ chia sẻ tài nguyên VOLUME, NIC và hoạt động như các service trong VM
+	- Docker Network vs Openvswitch: về cơ chế tạo network, phân chia IP..
+	- Deployment : Tương đương với Topca VNF 
+	- Replicaset vs Snapshot
+	- Ingress vs Neutron Security Group
+
+2. Cài đặt và triển khai Kubernet :
+	- Sử dụng tool kubeadm của Kubernet 
+	- Sử dụng tool bên ngoài như Rancher v2 
+	- Cấu hình và sử dụng Kubernet Master (openstack controller) với kubectl (openstack python client), yaml mainfest, create Pod, create ReplicaSet
+	- Tạo, quản lý container image 
+	- Triển khai, test hiệu năng ứng dụng gửi nhận test TPS
+	- Tích hợp kubernet với dpdk, sriov so sánh hiệu năng ==> normal vs dpdk vs sriov, tren cung 1 node vs tren  nhieu node. Test hieu nang kubernet POD vs openstack VM
+
+3. Test các tính năng trong Kubernet:
+	- Container Scheduling
+	- PostStart: Giống với cloud-int trong Openstack
+	- PreStop: Chạy script khi stop container 
+	- Rolling update
+	- Rollback Update 
+	- Scaling/ Auto Scaling (tự động schedule)
+	- Monitor vòng đời và tình trạng sống chết của container.
+	- Self-hearing trong trường hợp có lỗi xãy ra. (Có khả năng phát hiện và tự correct lỗi)
+	- Service discovery
+	- Load balancing
+	- Infrastructure as Code
+	- Scheduler Job
+	
+4. Liên kết Kubernet với các opensource:
+	- Ansible: Deploy container tới Kubernet 
+	- Fluentd: Gửi log của container trong Kubernetes
+	- Openstack : Cấu trúc k8s liên kết với cloud 
+	- Prometheus: Monitor Kuberetes 
+

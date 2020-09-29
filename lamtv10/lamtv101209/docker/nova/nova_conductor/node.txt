@@ -1,0 +1,4 @@
+[root@SPGM01DRCTRL01 nova_conductor]# docker cp conductor/    nova-conductor:/usr/lib/python2.7/dist-packages/nova/
+[root@SPGM01DRCTRL01 nova_conductor]# docker cp db/    nova-conductor:/usr/lib/python2.7/dist-packages/nova/
+docker restart nova-conductor
+

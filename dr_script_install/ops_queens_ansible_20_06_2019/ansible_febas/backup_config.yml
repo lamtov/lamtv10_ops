@@ -1,0 +1,29 @@
+---
+- name: backup_config
+  hosts: controller
+  remote_user: vt_admin
+  become: yes
+  become_method: su
+  become_user: root
+  roles:
+    - {role : backup_config}
+
+---
+- name: backup_config
+  hosts: compute
+  remote_user: vt_admin
+  become: yes
+  become_method: su
+  become_user: root
+  roles:
+    - {role : backup_config}
+
+---
+- name: backup_config
+  hosts: ceph
+  remote_user: vt_admin
+  become: yes
+  become_method: su
+  become_user: root
+  roles:
+    - {role : backup_config}

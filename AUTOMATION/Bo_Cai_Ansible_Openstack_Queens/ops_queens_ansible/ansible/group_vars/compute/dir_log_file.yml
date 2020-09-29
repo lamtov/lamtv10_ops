@@ -1,0 +1,8 @@
+---
+#Debug
+nova_compute_logging_debug: false
+
+# Các Folder được Docker sử dụng
+VAR_LOG_DIR: /var/log/docker
+VAR_LIB_DOCKER: /var/lib/docker
+

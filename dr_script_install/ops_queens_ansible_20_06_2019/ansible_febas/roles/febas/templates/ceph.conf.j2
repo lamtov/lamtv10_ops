@@ -1,0 +1,42 @@
+input {
+
+    beats {
+        port => 5048
+    }
+
+}
+
+filter {
+	grok {
+ # https://github.com/ceph/ceph/blob/master/src/log/Entry.h
+		match => { "message" => ["(?m)%{TIMESTAMP_ISO8601:logDate}\s%{NOTSPACE:thread}\s*%{INT:prio}\s(%{WORD:subsys}|):?\s%{GREEDYDATA:data}","%{TIMESTAMP_ISO8601:logDate}\s%{NOTSPACE:name}\s%{NOTSPACE:who_type}\s%{NOTSPACE:who_addr}\s%{INT:seq}\s:\s%{PROG:channel}\s\[%{WORD:prio}\]\s%{GREEDYDATA:data}"] }
+		add_field => ["api", "ceph"]
+	    add_tag => ["ceph"]
+ 	}
+
+	date { match => [ "logDate", "yyyy-MM-dd HH:mm:ss.SSSSSS", "ISO8601" ] }
+
+    if "beats_input_codec_plain_applied" in [tags] {
+        mutate {
+            remove_tag => ["beats_input_codec_plain_applied"]
+        }
+    }
+
+}
+
+
+output {
+
+    elasticsearch {
+        hosts => ["10.255.26.163:9200","10.255.26.164:9200","10.255.26.165:9200"]
+        sniffing => true
+        manage_template => false
+        index => "nfv-ceph-%{+YYYY.MM.dd}"
+        document_type => "%{[@metadata][type]}"
+    }
+
+
+    stdout { codec => rubydebug{} }
+
+}
+

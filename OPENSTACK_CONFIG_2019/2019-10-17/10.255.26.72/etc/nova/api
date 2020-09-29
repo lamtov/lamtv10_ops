@@ -1,0 +1,44 @@
+
+"Discover Node":
+- POST: /api/v1/hosts/add_host
+Đầu tiên thực hiện thao tác POST thêm Node lên server
+
+- POST: /api/v1/hosts/discover_hosts
+Sau đó thực hiện thao tác xác nhận đã đẩy đủ Hosts và yêu cầu lấy thông tin các Host chèn vào trong DB
+
+Thông tin HOST được đẩy vào các API bên dưới
+
+
+- GET: /api/v1/hosts
+
+- GET: /api/v1/hosts/<string:host_id>
+- GET: /api/v1/hosts/host_info?host_id=xxx
+
+- GET: /api/v1/hosts/interface_resources?interface_id=xx & device_name = xx & host_id =xxx
+- GET: /api/v1/hosts/disk_resources?disk_id = xx & device_name = xx & host_id = xxx
+
+
+
+
+
+
+"Assign Role + Service":
+
+- POST: /api/v1/roles/add_host_to_role
+THực hiện thao tác thêm role cho host
+
+
+
+- GET: /api/v1/roles
+- Get: /api/v1/roles/<int:role_id>/role_info || /api/v1/roles/<int:role_id>
+
+- GET: /api/v1/hosts/deployments || /api/v1/deployments
+- GET: /api/v1/hosts/<string:host_id>/deployments
+- GET /api/v1/deployments/<deployment_id>/service_setups
+- GET /api/v1/service_setups?deployment_id= & service_name= &
+
+- GET /api/v1/deployments/<deployment_id>/playbooks
+- GET /api/v1/deployments/<deployment_id>/playbooks ? service_setup_id=xxxx 
+- GET /api/v1/service_setups/<service_setup_id>/tasks
+- GET /api/v1/service_setups/<service_setup_id>/tasks?task_id=xxx 
+- GET /api/v1/tasks/<task_id>

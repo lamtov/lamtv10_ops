@@ -1,0 +1,83 @@
+[controller]
+
+10.255.26.100 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRctrl01#2@19" ansible_become_pass="SPGM01drCTRL01#2@19"
+
+10.255.26.101 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRctrl02#2@19" ansible_become_pass="SPGM01drCTRL02#2@19"
+
+10.255.26.103 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRctrl03#2@19" ansible_become_pass="SPGM01drCTRL03#2@19"
+
+ 
+
+[compute]
+
+10.255.26.72 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp1#2@19" ansible_become_pass="SPGM01drCOMP1#2@19"
+
+10.255.26.73 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp2#2@19" ansible_become_pass="SPGM01drCOMP2#2@19"
+
+10.255.26.74 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp3#2@19" ansible_become_pass="SPGM01drCOMP3#2@19"
+
+10.255.26.75 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp4#2@19" ansible_become_pass="SPGM01drCOMP4#2@19"
+
+10.255.26.76 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp5#2@19" ansible_become_pass="SPGM01drCOMP5#2@19"
+
+10.255.26.77 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp6#2@19" ansible_become_pass="SPGM01drCOMP6#2@19"
+
+10.255.26.78 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp7#2@19" ansible_become_pass="SPGM01drCOMP7#2@19"
+
+10.255.26.79 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp8#2@19" ansible_become_pass="SPGM01drCOMP8#2@19"
+
+10.255.26.80 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp9#2@19" ansible_become_pass="SPGM01drCOMP9#2@19"
+
+10.255.26.81 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp10#2@19" ansible_become_pass="SPGM01drCOMP10#2@19"
+
+10.255.26.82 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp11#2@19" ansible_become_pass="SPGM01drCOMP11#2@19"
+
+10.255.26.83 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp12#2@19" ansible_become_pass="SPGM01drCOMP12#2@19"
+
+10.255.26.84 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp13#2@19" ansible_become_pass="SPGM01drCOMP13#2@19"
+
+10.255.26.85 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp14#2@19" ansible_become_pass="SPGM01drCOMP14#2@19"
+
+10.255.26.86 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp15#2@19" ansible_become_pass="SPGM01drCOMP15#2@19"
+
+10.255.26.87 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp16#2@19" ansible_become_pass="SPGM01drCOMP16#2@19"
+
+10.255.26.88 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp17#2@19" ansible_become_pass="SPGM01drCOMP17#2@19"
+
+10.255.26.89 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp18#2@19" ansible_become_pass="SPGM01drCOMP18#2@19"
+
+10.255.26.90 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp19#2@19" ansible_become_pass="SPGM01drCOMP19#2@19"
+
+10.255.26.91 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp20#2@19" ansible_become_pass="SPGM01drCOMP20#2@19"
+
+10.255.26.92 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp21#2@19" ansible_become_pass="SPGM01drCOMP21#2@19"
+
+10.255.26.93 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp22#2@19" ansible_become_pass="SPGM01drCOMP22#2@19"
+
+10.255.26.94 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp23#2@19" ansible_become_pass="SPGM01drCOMP23#2@19"
+
+10.255.26.95 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp24#2@19" ansible_become_pass="SPGM01drCOMP24#2@19"
+
+10.255.26.96 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp25#2@19" ansible_become_pass="SPGM01drCOMP25#2@19"
+
+10.255.26.97 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp26#2@19" ansible_become_pass="SPGM01drCOMP26#2@19"
+
+10.255.26.98 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp27#2@19" ansible_become_pass="SPGM01drCOMP27#2@19"
+
+10.255.26.99 ansible_ssh_user=vt_admin ansible_ssh_pass="SPGM01DRcomp28#2@19" ansible_become_pass="SPGM01drCOMP28#2@19"
+
+ 
+
+[ceph]
+
+10.255.26.168 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph01#2@19" ansible_become_pass="CAGM01drCEPH01#2@19"
+
+10.255.26.169 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph02#2@19" ansible_become_pass="CAGM01drCEPH02#2@19"
+
+10.255.26.170 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph03#2@19" ansible_become_pass="CAGM01drCEPH03#2@19"
+
+10.255.26.171 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph04#2@19" ansible_become_pass="CAGM01drCEPH04#2@19"
+
+10.255.26.172 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph05#2@19" ansible_become_pass="CAGM01drCEPH05#2@19"
+
+10.255.26.173 ansible_ssh_user=vt_admin ansible_ssh_pass="CAGM01DRceph06#2@19" ansible_become_pass="CAGM01drCEPH06#2@19"

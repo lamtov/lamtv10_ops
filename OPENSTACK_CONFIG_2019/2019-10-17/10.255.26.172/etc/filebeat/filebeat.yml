@@ -1,0 +1,104 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/messages
+        - /var/log/authlog
+        - /var/log/auth.log
+        - /var/log/secure
+        - /var/log/secure.log
+        - /var/log/system.log
+        - /var/log/syslog
+        - /var/log/ipfilter.log
+        - /var/adm/ipsec.log
+        - /var/adm/syslog
+        - /var/adm/auth.log
+        - /var/adm/syslog.log
+        - /var/adm/messages
+        - /var/adm/syslog/syslog.log
+        - /var/log/userlog
+        - /var/log/security
+        - /var/log/xferlog
+        - /var/log/proftpd.log
+        - /var/log/vsftpd.log
+        - /var/log/radius.log
+        - /var/log/radius/radius.log
+        - /var/log/mail.info
+        - /var/log/mail.notice
+        - /var/log/maillog
+        - /usr/local/squid
+        - /var/logs/access.log
+        - /var/log/squid/access.log
+        - /home/log/squid/access.log
+        - /var/log/openvpn*.log
+        - /var/log/openvpn/openvpn*.log
+        - /var/log/horde.log
+        - /var/log/asl.log
+        - /var/log/dpkg.log
+        - /var/log/vmware/hostd.log
+        - /var/log/proftpd/proftpd.log
+        - /var/log/apache/error.log
+        - /var/log/apache/error_log
+        - /var/log/apache/access.log
+        - /var/log/apache/access_log
+        - /var/www/logs/access_log
+        - /var/www/logs/error_log
+        - /var/log/httpd/error_log
+        - /var/log/httpd/access_log
+        - /var/log/nginx/access.log
+        - /var/log/nginx/error.log
+        - /var/log/apache2/error.log
+        - /var/log/apache2/access.log
+        - /var/log/snort/alert        
+        - /var/log/salt/minion
+        - /var/log/cmdlog.log
+        - /u01/sso/SSO_Tomcat_*/logs/logUserActionFilterpp.log
+
+      input_type: log
+      ignore_older: 24h
+      close_timeout: 4h
+    -
+      paths:
+        - /opt/zimbra/log/audit.log
+      input_type: log
+      document_type: zimbra_audit
+      ignore_older: 24h
+      close_timeout: 4h
+    -
+      paths:
+        - /opt/zimbra/log/mailbox.log
+      input_type: log
+      document_type: zimbra
+      ignore_older: 24h
+      close_timeout: 4h
+    -
+      paths:
+        - /opt/zimbra/log/access_log.*
+      input_type: log
+      document_type: jetty_access
+      ignore_older: 24h
+  registry_file: /var/lib/filebeat/registry
+  config_dir: /etc/filebeat/filebeat.d
+
+output:
+  logstash:
+    hosts: ["10.30.160.41:5044"]
+    worker: 1
+    compression_level: 3
+    index: beat_agent
+
+shipper:
+  name: cbadr_ceph05_rhel_10.255.26.172
+name: cbadr_ceph05_rhel_10.255.26.172
+
+logging:
+
+  to_syslog: false
+  to_files: true
+  level: warning
+
+  files:
+    path: /var/log/filebeat
+    name: filebeat.log
+    rotateeverybytes: 10485760
+    keepfiles: 7  

@@ -1,0 +1,1762 @@
+Tao repo server: 
+createrepo --update /u01/ims/repo_sofware
+mkdir -p /u01/ims/repo_sofware/Packages/
+(ln -s /u01/ims/repo_sofware /var/www/html/repos/) ==> khong chay dk. Eo hieu sao luon
+mount --bind /u01/ims/repo_sofware/ /var/www/html/repos/
+mount --bind /media/iso /var/www/html/redhat7.6/
+them file vao thu muc /etc/yum.repos.d/software_ims.repo
+[software_ims]
+name=software-ims
+baseurl=http://10.55.39.72:81/repos
+enabled=1
+gpgcheck=0
+
+
+mount --bind /u01/repo/repo/centos/ /var/www/html/repository/centos
+mount --bind /u01/repo/repo/docker.centos.7.x86_64/ /var/www/html/repository/docker.centos.7.x86_64
+mount --bind /u01/repo/repo/epel7server/ /var/www/html/repository/epel7server
+mount --bind /u01/repo/repo/percona.release.7Server.RPMS.x86_64/ /var/www/html/repository/percona.release.7Server.RPMS.x86_64
+mount --bind /u01/repo/repo/percona.release.7Server.RPMS.noarch/ /var/www/html/repository/percona.release.7Server.RPMS.noarch
+mount --bind /u01/repo/repo/centos.7.virt.x86_64.kvm-common/ /var/www/html/repository/centos.7.virt.x86_64.kvm-common
+mount --bind /u01/repo/repo/centos.7.cloud.x86_64.openstack-queens/ /var/www/html/repository/centos.7.cloud.x86_64.openstack-queens
+mount --bind /u01/repo/repo/centos.7.cloud.x86_64.openstack-queens/ /var/www/html/repository/buildlogs.centos.7.cloud.x86_64.openstack-queens
+mount --bind /u01/repo/mnt/rhel7.6/rhel7.6/ /var/www/html/repository/rhel76
+mount --bind /u01/repo/repo/docker  /var/www/html/repository/docker
+
+
+createrepo --update /u01/repo/repo/centos/
+
+
+
+
+createrepo --update /u01/software
+
+
+
+
+
+ln -s /u01/repo/repo/centos/ /var/www/html/repository/centos
+ln -s /u01/repo/repo/docker.centos.7.x86_64/ /var/www/html/repository/docker.centos.7.x86_64
+ln -s /u01/repo/repo/epel7server/ /var/www/html/repository/epel7server
+ln -s /u01/repo/repo/percona.release.7Server.RPMS.x86_64/ /var/www/html/repository/percona.release.7Server.RPMS.x86_64
+ln -s /u01/repo/repo/percona.release.7Server.RPMS.noarch/ /var/www/html/repository/percona.release.7Server.RPMS.noarch
+ln -s /u01/repo/repo/centos.7.virt.x86_64.kvm-common/ /var/www/html/repository/centos.7.virt.x86_64.kvm-common
+ln -s /u01/repo/repo/centos.7.cloud.x86_64.openstack-queens/ /var/www/html/repository/centos.7.cloud.x86_64.openstack-queens
+ln -s /u01/repo/repo/centos.7.cloud.x86_64.openstack-queens/ /var/www/html/repository/buildlogs.centos.7.cloud.x86_64.openstack-queens
+ln -s /u01/repo/mnt/rhel7.6/rhel7.6/ /var/www/html/repository/rhel76
+ln -s /u01/repo/repo/docker  /var/www/html/repository/docker
+=============
+thieu user apache:
+vi /etc/passwd
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+vi /etc/group
+apache:x:48:
+
+vi /etc/shadow
+apache:!!:18128::::::
+
+Fix bug khong start dk httpd do: Failed to create shared memory segment on file /run/httpd/authdigest_shm.329261
+mkdir /run/httpd/
+chown root:httpd /run/httpd/
+chmod 0710 /run/httpd/
+
+
+==========================
+day lai file .rpm vao /u01/ims/repo_sofware/Packages/
+
+yum repolist all
+
+install ==> yum install vHA-Service.x86_64
+
+yum install  wxGTK.x86_64 wxGTK-devel.x86_64 wxGTK-media.x86_64 wxGTK3.x86_64 wxGTK3-devel.x86_64 wxGTK3-media.x86_64 wxBase.x86_64 wxBase3.x86_64
+yum install bakefile.x86_64
+yum install python-empy.noarch
+
+===============
+
+sed -i "s|^PermitRootLogin no|PermitRootLogin yes|g" /etc/ssh/sshd_config
+sed -i "s|^AllowUsers vt_admin|AllowUsers vt_admin root|g" /etc/ssh/sshd_config
+systemctl restart sshd
+
+sed -i "s|^TMOUT=300|#TMOUT=300|g" /etc/profile
+sed -i "s|^readonly TMOUT|#readonly TMOUT|g" /etc/profile
+sed -i "s|^export TMOUT|#export TMOUT|g" /etc/profile
+
+comp01
+sed -i "s|^PermitRootLogin yes|PermitRootLogin no|g" /etc/ssh/sshd_config
+sed -i "s|^AllowUsers vt_admin root|AllowUsers vt_admin|g" /etc/ssh/sshd_config
+systemctl restart sshd
+exit
+
+tao alias ssh=
+ 379  ssh-keygen
+
+
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.36
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.37
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.38
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.39
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.40
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.41
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.42
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.43
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.44
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.45
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.46
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.47
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.48
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.49
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.50
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.51
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.52
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.53
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.54
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.55
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.56
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.57
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.58
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.59
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.60
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.61
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.62
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.63
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.64
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.65
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.66
+ssh-copy-id -i ~/.ssh/id_rsa root@10.60.188.67
+
+ssh-copy-id -i ~/.ssh/id_rsa vt_admin@10.60.188.32 &&
+ssh-copy-id -i ~/.ssh/id_rsa vt_admin@10.60.188.33 &&
+ssh-copy-id -i ~/.ssh/id_rsa vt_admin@10.60.188.34 &&
+ssh-copy-id -i ~/.ssh/id_rsa vt_admin@10.60.188.35
+  
+  
+alias comp01='ssh root@10.60.188.36'
+alias comp02='ssh root@10.60.188.37'
+alias comp03='ssh root@10.60.188.38'
+alias comp04='ssh root@10.60.188.39'
+alias comp05='ssh root@10.60.188.40'
+alias comp06='ssh root@10.60.188.41'
+alias comp07='ssh root@10.60.188.42'
+alias comp08='ssh root@10.60.188.43'
+alias comp09='ssh root@10.60.188.44'
+alias comp10='ssh root@10.60.188.45'
+alias comp11='ssh root@10.60.188.46'
+alias comp12='ssh root@10.60.188.47'
+alias comp13='ssh root@10.60.188.48'
+alias comp14='ssh root@10.60.188.49'
+alias comp15='ssh root@10.60.188.50'
+alias comp16='ssh root@10.60.188.51'
+alias comp17='ssh root@10.60.188.52'
+alias comp18='ssh root@10.60.188.53'
+alias comp19='ssh root@10.60.188.54'
+alias comp20='ssh root@10.60.188.55'
+alias comp21='ssh root@10.60.188.56'
+alias comp22='ssh root@10.60.188.57'
+alias comp23='ssh root@10.60.188.58'
+alias comp24='ssh root@10.60.188.59'
+alias comp25='ssh root@10.60.188.60'
+alias comp26='ssh root@10.60.188.61'
+alias comp27='ssh root@10.60.188.62'
+alias comp28='ssh root@10.60.188.63'
+alias comp29='ssh root@10.60.188.64'
+alias comp30='ssh root@10.60.188.65'
+alias comp31='ssh root@10.60.188.66'
+alias comp32='ssh root@10.60.188.67'
+scp /etc/yum.repos.d/local.repo root@10.60.188.9:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.10:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.36:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.37:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.38:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.39:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.40:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.41:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.42:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.43:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.44:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.45:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.46:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.47:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.48:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.49:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.50:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.51:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.52:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.53:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.54:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.55:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.56:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.57:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.58:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.59:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.60:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.61:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.62:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.63:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.64:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.65:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.66:/etc/yum.repos.d/
+scp /etc/yum.repos.d/local.repo root@10.60.188.67:/etc/yum.repos.d/
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "yum clean all" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "yum clean all"
+
+scp /etc/hosts root@10.60.188.9:/etc/hosts
+scp /etc/hosts root@10.60.188.10:/etc/hosts
+scp /etc/hosts root@10.60.188.36:/etc/hosts
+scp /etc/hosts root@10.60.188.37:/etc/hosts
+scp /etc/hosts root@10.60.188.38:/etc/hosts
+scp /etc/hosts root@10.60.188.39:/etc/hosts
+scp /etc/hosts root@10.60.188.40:/etc/hosts
+scp /etc/hosts root@10.60.188.41:/etc/hosts
+scp /etc/hosts root@10.60.188.42:/etc/hosts
+scp /etc/hosts root@10.60.188.43:/etc/hosts
+scp /etc/hosts root@10.60.188.44:/etc/hosts
+scp /etc/hosts root@10.60.188.45:/etc/hosts
+scp /etc/hosts root@10.60.188.46:/etc/hosts
+scp /etc/hosts root@10.60.188.47:/etc/hosts
+scp /etc/hosts root@10.60.188.48:/etc/hosts
+scp /etc/hosts root@10.60.188.49:/etc/hosts
+scp /etc/hosts root@10.60.188.50:/etc/hosts
+scp /etc/hosts root@10.60.188.51:/etc/hosts
+scp /etc/hosts root@10.60.188.52:/etc/hosts
+scp /etc/hosts root@10.60.188.53:/etc/hosts
+scp /etc/hosts root@10.60.188.54:/etc/hosts
+scp /etc/hosts root@10.60.188.55:/etc/hosts
+scp /etc/hosts root@10.60.188.56:/etc/hosts
+scp /etc/hosts root@10.60.188.57:/etc/hosts
+scp /etc/hosts root@10.60.188.58:/etc/hosts
+scp /etc/hosts root@10.60.188.59:/etc/hosts
+scp /etc/hosts root@10.60.188.60:/etc/hosts
+scp /etc/hosts root@10.60.188.61:/etc/hosts
+scp /etc/hosts root@10.60.188.62:/etc/hosts
+scp /etc/hosts root@10.60.188.63:/etc/hosts
+scp /etc/hosts root@10.60.188.64:/etc/hosts
+scp /etc/hosts root@10.60.188.65:/etc/hosts
+scp /etc/hosts root@10.60.188.66:/etc/hosts
+scp /etc/hosts root@10.60.188.67:/etc/hosts
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "mv /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo /etc/yum.repos.d/RHEL7.7-HTTP-CLient.repo.bk"
+
+
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.36:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.37:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.38:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.39:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.40:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.41:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.42:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.43:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.44:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.45:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.46:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.47:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.48:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.49:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.50:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.51:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.52:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.53:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.54:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.55:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.56:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.57:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.58:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.59:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.60:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.61:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.62:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.63:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.64:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.65:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.66:/u01  &&
+sshpass -p 123456a@ scp -o StrictHostKeyChecking=no -r /u01/ims-deploy  root@10.60.188.67:/u01
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "mkdir -p /u01/nova" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "mkdir -p /u01/nova"
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "groupadd -g 99 nobody; useradd -u 99 -g 99 nobody"
+
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "systemctl stop iptables" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "systemctl stop iptables"
+
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.36 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "yum -y install python-openstackclient virt-manager.noarch virt-manager-common.noarch"
+
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "sed -i 's|quiet|quiet default_hugepagesz=1G hugepagesz=1G hugepages=52 intel_iommu=on iommu=pt isolcpus=2-15,34-47,18-31,50-63|g' /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg"
+
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.37 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.38 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.39 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.40 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.41 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.42 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.43 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.44 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.45 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.46 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.47 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.48 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.49 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.50 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.51 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.52 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.53 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.54 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.55 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.56 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.57 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.58 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.59 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.60 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.61 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.62 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.63 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.64 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.65 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.66 "cat /boot/grub2/grub.cfg" &&
+sshpass -p 123456a@ ssh -o StrictHostKeyChecking=no  root@10.60.188.67 "cat /boot/grub2/grub.cfg"
+
+==============tao image to snaphot
+[root@controller01 images]# glance image-list
++--------------------------------------+-------------------+
+| ID                                   | Name              |
++--------------------------------------+-------------------+
+| 47788857-64ae-462a-8122-b806dff75c25 | centos            |
+| 803f87f9-ba44-4f4e-864a-7944b2a36c9d | ims_final         |
+| 913669b3-c7da-45a0-9f57-6c2bd961ec9e | ims_final_snaphot |
+| aadc0c50-2678-49a8-8c9c-c4953934295b | ims_image         |
+| 203c1f1f-769a-4ff4-9636-ac9052b3bed7 | ims_snaphost      |
+| 2fb9abe0-5ecf-4a68-b0fa-88fa1329e838 | redhat7           |
++--------------------------------------+-------------------+
+
+
+[root@controller01 setup]# glance image-download 1af30678-d6b1-4db1-bae2-c779b1f5cd0f --file ims.qcow2
+
+
+openstack image create "ims_ok" --file ims_ok.qcow2 --disk-format qcow2 --container-format bare --public 
+openstack image create "ims_test" --file ims_ok.qcow2 --disk-format qcow2 --container-format bare --public 
+openstack image create "redhat7" --file rhel-server-7.6-x86_64-kvm.qcow2 --disk-format qcow2 --container-format bare --public 
+openstack image create "cirros" --file cirros-0.4.0-x86_64-disk.img --disk-format qcow2 --container-format bare --public 
+openstack image create "redhat7.6" --file rhel7.6.raw --disk-format qcow2 --container-format bare --public 
+openstack image create "ims" --file ims.qcow2 --disk-format qcow2 --container-format bare --public 
+###### run vm fix ip
+
+openstack port create --network mpbn_net --description "Fixed IP for server sbc" --fixed-ip subnet=86.86.86.0/24,ip-address=86.86.86.109 --enable mpbn_sbc01
+openstack port create --network dcn_net --description "Fixed IP for server sbc" --fixed-ip subnet=10.55.39.64/26,ip-address=10.55.39.86 --enable dcn_sbc01
+
+
+
+
+
+
+
+openstack port create --network SBCSIPC01 description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.194 --enable SBCSIPC01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.194 --enable SBCSIPC01
+
+
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.195 --enable SBCSIPC02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.196 --enable SBCSIPC03
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.197 --enable SBCSIPC04
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.198 --enable SBCSIPC05
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.199 --enable SBCSIPC06
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.200 --enable SBCSIPC07
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.201 --enable SBCSIPC08
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.203 --enable SBCDIA01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.204 --enable SBCDIA02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.205 --enable IFSIP01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.206 --enable IFSIP02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.207 --enable IFSIP03
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.208 --enable IFSIP04
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.209 --enable IFSIP05
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.210 --enable IFSIP06
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.212 --enable SFSIP01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.213 --enable SFSIP02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.214 --enable SFSIP03
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.215 --enable SFSIP04
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.216 --enable SFSIP05
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.217 --enable SFSIP06
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.218 --enable SFSIP07
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.219 --enable SFSIP08
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.220 --enable SFSIP09
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.221 --enable SFSIP10
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.222 --enable SFSIP11
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.223 --enable SFSIP12
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.225 --enable CSDIA01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.226 --enable CSDIA02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.227 --enable MTELSIP01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.228 --enable MTELSIP02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.229 --enable MTELSIP03
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.230 --enable MTELSIP04
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.231 --enable MTELSIP05
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.232 --enable MTELSIP06
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.233 --enable MTELSIP07
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.234 --enable MTELSIP08
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.235 --enable MTELDIA01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.236 --enable MTELDIA02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.237 --enable SCCASIP01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.238 --enable SCCASIP02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.239 --enable SCCASIP03
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.240 --enable SCCASIP04
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.241 --enable SCCASIP05
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.242 --enable SCCASIP06
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.243 --enable SCCASIP07
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.244 --enable SCCASIP08
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.245 --enable SCCDIA01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.246 --enable SCCDIA02
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.247 --enable MRFSIP01
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.248 --enable MRFSIP02
+
+
+
+openstack port create --network sigtran1 --description "Fixed IP for sigtran1 network" --fixed-ip subnet=10.52.97.160/29,ip-address=10.52.97.162 --enable FEP01
+openstack port create --network sigtran1 --description "Fixed IP for sigtran1 network" --fixed-ip subnet=10.52.97.160/29,ip-address=10.52.97.163 --enable FEP02
+
+openstack port create --network sigtran2 --description "Fixed IP for sigtran2 network" --fixed-ip subnet=10.52.97.168/29,ip-address=10.52.97.170 --enable FEP01
+openstack port create --network sigtran2 --description "Fixed IP for sigtran2 network" --fixed-ip subnet=10.52.97.168/29,ip-address=10.52.97.171 --enable FEP02
+
+
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.18 --enable SBCSIPA01
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.19 --enable SBCSIPA02
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.20 --enable SBCSIPA03
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.21 --enable SBCSIPA04
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.22 --enable SBCSIPA05
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.23 --enable SBCSIPA06
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.24 --enable SBCSIPA07
+openstack port create --network ipbn --description "Fixed IP for ipbn network" --fixed-ip subnet=10.202.62.16/28,ip-address=10.202.62.25 --enable SBCSIPA08
+
+
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.2 --enable SBCSIPA01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.3 --enable SBCSIPA02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.4 --enable SBCSIPA03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.5 --enable SBCSIPA04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.6 --enable SBCSIPA05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.7 --enable SBCSIPA06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.8 --enable SBCSIPA07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.9 --enable SBCSIPA08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.10 --enable SBCSIPC01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.11 --enable SBCSIPC02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.12 --enable SBCSIPC03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.13 --enable SBCSIPC04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.14 --enable SBCSIPC05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.15 --enable SBCSIPC06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.16 --enable SBCSIPC07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.17 --enable SBCSIPC08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.18 --enable SBC01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.19 --enable SBC02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.20 --enable SBC03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.21 --enable SBC04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.22 --enable SBC05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.23 --enable SBC06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.24 --enable SBC07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.25 --enable SBC08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.26 --enable SBC09
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.27 --enable SBC10
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.28 --enable SBC11
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.29 --enable SBC12
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.30 --enable SBC13
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.31 --enable SBC14
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.32 --enable SBC15
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.33 --enable SBC16
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.34 --enable SBCDIA01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.35 --enable SBCDIA02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.36 --enable SBCDB01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.37 --enable SBCDB02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.38 --enable IFSIP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.39 --enable IFSIP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.40 --enable IFSIP03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.41 --enable IFSIP04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.42 --enable IFSIP05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.43 --enable IFSIP06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.44 --enable SFSIP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.45 --enable SFSIP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.46 --enable SFSIP03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.47 --enable SFSIP04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.48 --enable SFSIP05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.49 --enable SFSIP06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.50 --enable SFSIP07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.51 --enable SFSIP08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.52 --enable SFSIP09
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.53 --enable SFSIP10
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.54 --enable SFSIP11
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.55 --enable SFSIP12
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.56 --enable CSCF01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.57 --enable CSCF02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.58 --enable CSCF03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.59 --enable CSCF04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.60 --enable CSCF05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.61 --enable CSCF06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.62 --enable CSCF07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.63 --enable CSCF08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.64 --enable CSCF09
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.65 --enable CSCF10
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.66 --enable CSCF11
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.67 --enable CSCF12
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.68 --enable CSCF13
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.69 --enable CSCF14
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.70 --enable SBCHGW01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.71 --enable SBCHGW02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.72 --enable CSDIA01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.73 --enable CSDIA02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.74 --enable CSCFDB1
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.75 --enable CSCFDB2
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.76 --enable MTELSIP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.77 --enable MTELSIP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.78 --enable MTELSIP03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.79 --enable MTELSIP04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.80 --enable MTELSIP05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.81 --enable MTELSIP06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.82 --enable MTELSIP07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.83 --enable MTELSIP08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.84 --enable MMTEL01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.85 --enable MMTEL02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.86 --enable MMTEL03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.87 --enable MMTEL04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.88 --enable MMTEL05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.89 --enable MMTEL06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.90 --enable MMTEL07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.91 --enable MMTEL08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.92 --enable MMTEL09
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.93 --enable MMTEL10
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.94 --enable MMTEL11
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.95 --enable MMTEL12
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.96 --enable MTELDIA01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.97 --enable MTELDIA02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.98 --enable MTELDB01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.99 --enable MTELDB02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.100 --enable SCCASIP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.101 --enable SCCASIP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.102 --enable SCCASIP03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.103 --enable SCCASIP04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.104 --enable SCCASIP05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.105 --enable SCCASIP06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.106 --enable SCCASIP07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.107 --enable SCCASIP08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.108 --enable SCCAS01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.109 --enable SCCAS02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.110 --enable SCCAS03
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.111 --enable SCCAS04
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.112 --enable SCCAS05
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.113 --enable SCCAS06
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.114 --enable SCCAS07
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.115 --enable SCCAS08
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.116 --enable SCCDIA01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.117 --enable SCCDIA02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.118 --enable SCCDB01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.119 --enable SCCDB02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.120 --enable FEP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.121 --enable FEP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.122 --enable IMSSF01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.123 --enable IMSSF02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.124 --enable MRFHGW01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.125 --enable MRFHGW02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.126 --enable MRFSIP01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.127 --enable MRFSIP02
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.128 --enable MRFC01
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.129 --enable MRFC02
+
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.155 --enable TEMPLATE
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.156 --enable TEMPLATE1
+
+
+openstack port create --network mpbn1 --description "Fixed IP for mpbn network" --fixed-ip subnet=10.55.39.64/27,ip-address=10.55.39.73 --enable mpbn
+openstack port create --network mpbn1 --description "Fixed IP for sigtran network" --fixed-ip subnet=10.55.39.192/27,ip-address=10.55.39.203 --enable sigtran1
+
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.55.39.64/26,ip-address=10.55.39.72 --enable mpbn
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.55.39.64/26,ip-address=10.55.39.73 --enable mpbn1
+
+
+nova boot --flavor 4C8G12G --nic port-id=SBCSIPA01 --key-name cloud --image ims_ok --availability-zone nova test
+
+nova boot --flavor 4C8G12G --nic port-id=d2c2b96f-3599-4699-a0e7-0300e206b5e5 --nic net-id=adf16fda-c619-4fcf-a9d4-e08f846141cd --key-name cloud --image ims_ok --availability-zone nova test1
+
+nova boot --flavor 4C8G12G --nic port-id=20a3bec5-b41b-4d91-8926-ca17e6433e49 --nic net-id=adf16fda-c619-4fcf-a9d4-e08f846141cd --key-name cloud --image ims_ok --availability-zone nova test1
+
+nova boot --flavor 6C.12G.100 --nic port-id=a0f01ad4-d964-4216-ae1f-bbcb566eec94 --nic port-id=c0ac0bf2-ae09-4039-8a6d-e71915a90c84 --key-name centos --image ims_image --availability-zone nova --user-data install_vims_service.sh SBC01
+openstack server create --flavor 12CPU.12RAM.150DISK --image ims_ok --nic net-id=526dd0b2-cd2a-48b3-bc3d-091c48bb9538 --nic net-id=c3b66d7f-181a-4a34-94a4-f50141885b66 --nic net-id=eff52e25-6149-432d-b8c4-8f031213ee1c --key-name ims --availability-zone nova:imhl04comp01 --'gfds IMS
+openstack server create --flavor 6C.12G.100 --image ims_ok --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --user-data /root/install_vims_service_sbc.sh --wait SBC01
+openstack server create --flavor 6C.12G.100 --image ims_ok --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --user-data /root/install_vims_service_imscore.sh   --wait IMSCORE01
+openstack server create --flavor 6C.12G.100 --image ims_ok --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --user-data /root/install_vims_service_sip.sh --wait SIPGW01
+
+openstack server create --flavor 6C.12G.100 --image ims_ok --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --wait SBC02
+openstack server create --flavor 6C.12G.100 --image ims_ok --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --wait SBC02
+
+nova boot --flavor 6C.12G.100 --nic net-id=298fa76e-7cd2-49e1-bb0d-72fb2cdb4449 --nic net-id=99acf64a-c858-4378-8816-99b01c80aa84 --key-name centos --image ims_image --block-device source=blank,dest=volume,size=200,shutdown=preserve,bootindex=1  --block-device source=blank,dest=volume,size=200,shutdown=preserve,bootindex=2 --availability-zone nova --user-data install_vims_service.sh SBC01
+
+ openstack server create --flavor test --image ims_test --nic net-id=526dd0b2-cd2a-48b3-bc3d-091c48bb9538 --key-name ims --availability-zone nova:IMHL04COMP01 --wait IMS2
+
+ nova boot --flavor 12CPU.12RAM.150DISK --nic port-id=SBCSIPA01 --key-name ims --image ims_ok --availability-zone nova:IMHL04COMP01 nova test
+ 
+ 
+ [root@IMHL04CIC01 ~]# openstack network list
++--------------------------------------+----------+--------------------------------------+
+| ID                                   | Name     | Subnets                              |
++--------------------------------------+----------+--------------------------------------+
+| 028a8190-e0c5-4e3a-8300-4e2de007b1a9 | sigtran1 | 207cf49a-ead0-40a2-ab48-1418dbc8cc51 |
+| 46c7d0eb-5ee2-4c50-a22e-69043b432388 | internal | 56c002e1-f03b-4ef0-a1fc-32f1cd68e85d |
+| 8eb150e0-68b9-45f5-b297-bbecb5fa3f53 | mpbn     | a7e438fc-aac0-4360-9e45-60c582b27214 |
+| ccebd794-bca5-41e1-8f70-3c9ba34736d9 | ipbn     | 57e7531e-906b-45f0-ae31-bfc8275f84dd |
+| e4c488b9-c7c2-430c-afa9-43973b38bf4d | sigtran2 | f66ea353-21d5-44ba-9122-229df07fa2c0 |
++--------------------------------------+----------+--------------------------------------+
+
+openstack server create --flavor 12CPU.12RAM.150DISK --image ims_ok --nic net-id=028a8190-e0c5-4e3a-8300-4e2de007b1a9 --nic net-id=46c7d0eb-5ee2-4c50-a22e-69043b432388 --nic net-id=8eb150e0-68b9-45f5-b297-bbecb5fa3f53 --nic net-id=ccebd794-bca5-41e1-8f70-3c9ba34736d9 --nic net-id=e4c488b9-c7c2-430c-afa9-43973b38bf4d --key-name ims --availability-zone nova:IMHL04COMP07 --wait IMS2
+
+nova boot --flavor 12CPU.12RAM.150DISK --nic port-id=22b0b321-e0f4-4275-85f0-dda9e0561e00 --nic port-id=a27ca61a-b0fa-44e1-94ae-d81d6b458375 --nic port-id=6351fb46-75f1-40a6-9a6d-55bc4114cc05 --nic port-id=c0f91618-4538-4be4-a3dd-e2884ca51aec --nic port-id=266d3c79-1a9b-4ded-b96b-e8b2292e3504 --key-name ims --image ims_ok --availability-zone nova:IMHL04COMP01 test
+
+[root@IMHL04CIC01 ~]# openstack keypair list
++------+-------------------------------------------------+
+| Name | Fingerprint                                     |
++------+-------------------------------------------------+
+| ims  | 4d:35:0e:a5:98:5e:da:61:59:dd:93:01:3e:eb:f5:af |
++------+-------------------------------------------------+
+[root@IMHL04CIC01 ~]# openstack image list
++--------------------------------------+----------+--------+
+| ID                                   | Name     | Status |
++--------------------------------------+----------+--------+
+| 56be77fc-3eed-4655-acf4-31bec7ec5e9a | cirros   | active |
+| 77385709-a777-4675-ba42-c57991a9e44d | ims_ok   | active |
+| 6a62729a-3c51-480d-9390-58a76ef95acf | ims_test | active |
+| fb6e6ae7-bbcc-42c8-a737-c2286d673a10 | redhat7  | active |
++--------------------------------------+----------+--------+
+[root@IMHL04CIC01 ~]# openstack flavor list
++--------------------------------------+---------------------+-------+------+-----------+-------+-----------+
+| ID                                   | Name                |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++--------------------------------------+---------------------+-------+------+-----------+-------+-----------+
+| 9525b3ca-af0a-4dff-8d3e-dccf91f05a6a | 12CPU.12RAM.150DISK | 12288 |  150 |         0 |    12 | True      |
++--------------------------------------+---------------------+-------+------+-----------+-------+-----------+
+
+[root@IMHL04CIC01 ~]# openstack port list --network sigtran1
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+| ID                                   | Name  | MAC Address       | Fixed IP Addresses                                                          | Status |
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+| 6351fb46-75f1-40a6-9a6d-55bc4114cc05 | FEP02 | fa:16:3e:b7:a4:4d | ip_address='10.52.97.163', subnet_id='207cf49a-ead0-40a2-ab48-1418dbc8cc51' | DOWN   |
+| 7079d8df-71f3-4fe2-8e6e-3f56a72e364d |       | fa:16:3e:66:04:7b | ip_address='10.52.97.164', subnet_id='207cf49a-ead0-40a2-ab48-1418dbc8cc51' | ACTIVE |
+| a27ca61a-b0fa-44e1-94ae-d81d6b458375 | FEP01 | fa:16:3e:18:59:e7 | ip_address='10.52.97.162', subnet_id='207cf49a-ead0-40a2-ab48-1418dbc8cc51' | DOWN   |
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+[root@IMHL04CIC01 ~]# openstack port list --network sigtran2
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+| ID                                   | Name  | MAC Address       | Fixed IP Addresses                                                          | Status |
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+| 154913a3-da7e-4752-9888-db6387c840ae | FEP01 | fa:16:3e:f9:1a:08 | ip_address='10.52.97.170', subnet_id='f66ea353-21d5-44ba-9122-229df07fa2c0' | DOWN   |
+| e472b731-eed3-4d45-87bb-077ba24c4ea0 |       | fa:16:3e:91:d2:ef | ip_address='10.52.97.172', subnet_id='f66ea353-21d5-44ba-9122-229df07fa2c0' | ACTIVE |
+| eb7cef8d-d636-4fb7-a2a8-7b075675c0f3 | FEP02 | fa:16:3e:22:f6:fd | ip_address='10.52.97.171', subnet_id='f66ea353-21d5-44ba-9122-229df07fa2c0' | DOWN   |
++--------------------------------------+-------+-------------------+-----------------------------------------------------------------------------+--------+
+[root@IMHL04CIC01 ~]# openstack port list --network ipbn
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+| ID                                   | Name      | MAC Address       | Fixed IP Addresses                                                          | Status |
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+| 1336d3bd-0ca6-4c7c-8261-9aab0f122a4b | SBCSIPA03 | fa:16:3e:b4:5a:60 | ip_address='10.202.62.20', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| 266d3c79-1a9b-4ded-b96b-e8b2292e3504 | SBCSIPA01 | fa:16:3e:9f:77:38 | ip_address='10.202.62.18', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| 7558a17f-4a9d-419d-9641-6a963528ec80 | SBCSIPA02 | fa:16:3e:e7:e2:3e | ip_address='10.202.62.19', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| 9a1f4bca-337d-420e-b942-d1e7c6f4777f | SBCSIPA08 | fa:16:3e:8b:0c:05 | ip_address='10.202.62.25', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| 9d7d8f31-dab2-42d6-ae05-bd4867cbbd69 | SBCSIPA04 | fa:16:3e:a0:55:15 | ip_address='10.202.62.21', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| 9d81512f-2b3f-40c8-b1c9-c399395d27c9 |           | fa:16:3e:b8:20:53 | ip_address='10.202.62.26', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | ACTIVE |
+| ce1856fb-6ab4-45c7-ada1-903d3d19c38d | SBCSIPA05 | fa:16:3e:2b:64:02 | ip_address='10.202.62.22', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| cf4f1270-9023-4103-85fa-110c8eb3fc70 | SBCSIPA06 | fa:16:3e:b7:d4:6b | ip_address='10.202.62.23', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
+| ff767b06-de86-4c7c-aa85-5cc4b1d4e30b | SBCSIPA07 | fa:16:3e:fb:f8:fa | ip_address='10.202.62.24', subnet_id='57e7531e-906b-45f0-ae31-bfc8275f84dd' | DOWN   |
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+[root@IMHL04CIC01 ~]# openstack port list --network mpbn
+
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.202 --enable KEEPALIVE1
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.211 --enable KEEPALIVE2
+openstack port create --network mpbn --description "Fixed IP for mpbn network" --fixed-ip subnet=10.52.97.192/26,ip-address=10.52.97.224 --enable KEEPALIVE3
+
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+| ID                                   | Name      | MAC Address       | Fixed IP Addresses                                                          | Status |
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+| 034a53b7-f4e9-4baf-9a69-d42adc5deaec | SCCDIA02  | fa:16:3e:7d:a2:75 | ip_address='10.52.97.246', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 0634e634-daf7-4044-994d-0a55769513b6 | SCCASIP02 | fa:16:3e:4b:04:5d | ip_address='10.52.97.238', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 17f8ebc4-90da-40b0-bcdc-8476f7824287 | MTELDIA01 | fa:16:3e:25:2e:02 | ip_address='10.52.97.235', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 24c74a5a-c355-4df8-bd93-e2c06d4b9a43 | SCCASIP08 | fa:16:3e:45:c9:d9 | ip_address='10.52.97.244', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 26434602-12eb-48c2-bbeb-1222ef3122b1 | CSDIA02   | fa:16:3e:5f:a0:ec | ip_address='10.52.97.226', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 2700e175-7c96-43a1-863e-6f576c655338 | SBCSIPC03 | fa:16:3e:bc:75:6a | ip_address='10.52.97.196', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 2f866082-d425-4889-bffd-74d05302be28 | MTELSIP06 | fa:16:3e:0b:8c:33 | ip_address='10.52.97.232', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 34c9ce4f-9df3-4cb5-b0a6-a2dd2d4cdf2e | SCCASIP01 | fa:16:3e:93:66:45 | ip_address='10.52.97.237', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 38085488-0767-40a7-977c-946ccab26137 | IFSIP06   | fa:16:3e:0a:24:68 | ip_address='10.52.97.210', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3975537e-3994-4cea-b3bb-f1f304f18ba7 | MTELSIP03 | fa:16:3e:e5:85:a2 | ip_address='10.52.97.229', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3ac118c9-3ad7-46dd-9a42-89ddd90da169 | SBCSIPC02 | fa:16:3e:9a:55:a2 | ip_address='10.52.97.195', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3bdfd553-ca1a-4574-a031-a74940a549ce | IFSIP04   | fa:16:3e:72:bf:73 | ip_address='10.52.97.208', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3de6d1f1-0a94-4e32-85eb-c9db52aa326a | SFSIP07   | fa:16:3e:35:81:92 | ip_address='10.52.97.218', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3e68cd65-5757-47b0-a38e-7fae76dfab63 | SFSIP11   | fa:16:3e:4b:12:c0 | ip_address='10.52.97.222', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 3f595d8f-9837-488a-806c-c2cf92736b27 | SFSIP12   | fa:16:3e:0e:94:da | ip_address='10.52.97.223', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 417ae489-8fd7-46ed-b061-7d3f91580374 | SFSIP03   | fa:16:3e:67:a1:c6 | ip_address='10.52.97.214', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 4c3c276e-a33f-4b3c-92d7-41d7f376a68f | MRFSIP01  | fa:16:3e:b7:e8:1e | ip_address='10.52.97.247', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 57c81344-f979-4fa5-be4b-4f35b0455256 | SCCASIP07 | fa:16:3e:08:43:fb | ip_address='10.52.97.243', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 6a23d596-faa0-4a05-9040-f6e249d34533 | IFSIP05   | fa:16:3e:fe:d1:d0 | ip_address='10.52.97.209', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 6fbb0323-9140-4cbb-984a-ce0794a60849 | SBCDIA02  | fa:16:3e:5f:64:e0 | ip_address='10.52.97.204', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 70d2eecc-13d4-45dd-92bf-4691067089c6 | SFSIP09   | fa:16:3e:51:14:9d | ip_address='10.52.97.220', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 751b54fe-48ff-4f3e-ba4f-2eb3183c2d62 | MTELSIP07 | fa:16:3e:6e:05:55 | ip_address='10.52.97.233', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 75e91b3f-db95-4cdb-926a-b64fe7c9df3a | SBCSIPC07 | fa:16:3e:e6:df:39 | ip_address='10.52.97.200', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 7ac71d99-4e45-4fbd-ba75-b3497b20a45f | MTELSIP08 | fa:16:3e:01:f6:03 | ip_address='10.52.97.234', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 7fdb471a-44d5-4a0e-b285-f501cba3c085 | MTELSIP05 | fa:16:3e:f6:c1:b3 | ip_address='10.52.97.231', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 8298b52d-6829-48bf-97fd-742791f09029 | MTELDIA02 | fa:16:3e:18:d9:db | ip_address='10.52.97.236', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 8361ed1c-6741-48f9-afe3-f7b59ab07856 | SBCSIPC08 | fa:16:3e:e5:20:52 | ip_address='10.52.97.201', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 88ec1ebd-3034-40ea-91e1-725d811fb959 | SFSIP06   | fa:16:3e:49:25:fc | ip_address='10.52.97.217', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 8da1fbbf-4889-42e1-b147-c76a02218e12 | SBCDIA01  | fa:16:3e:82:52:fb | ip_address='10.52.97.203', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 90243652-30cf-4b94-8098-65802e6e10af | MRFSIP02  | fa:16:3e:70:a3:91 | ip_address='10.52.97.248', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 910ddb2d-8f3e-4d90-ae6c-2657e2065596 | CSDIA01   | fa:16:3e:8a:08:77 | ip_address='10.52.97.225', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| 959dec35-0d92-434e-9390-974d37d67a5c | MTELSIP02 | fa:16:3e:65:59:c8 | ip_address='10.52.97.228', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| aa1d9084-6481-4381-9e5e-0f7b3795a83c | SFSIP02   | fa:16:3e:0e:bf:7c | ip_address='10.52.97.213', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| ac265a4d-3af4-4988-80a7-e12cfb4ccdb6 | IFSIP03   | fa:16:3e:ea:30:d6 | ip_address='10.52.97.207', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| b3c4d755-7a79-47a5-90a4-d981d9af0983 | SFSIP01   | fa:16:3e:56:ce:d2 | ip_address='10.52.97.212', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| bb828d9d-fae6-4a51-93a4-e74ef4816fa9 | SFSIP05   | fa:16:3e:8c:ad:29 | ip_address='10.52.97.216', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| c0f91618-4538-4be4-a3dd-e2884ca51aec | SCCASIP06 | fa:16:3e:cf:fd:f3 | ip_address='10.52.97.242', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| c1b4738e-9cc2-4abc-b1da-e37480367a07 | SFSIP10   | fa:16:3e:b8:16:8f | ip_address='10.52.97.221', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| c9e370af-7b10-4792-b074-4976393bfa22 | SCCASIP05 | fa:16:3e:8b:62:72 | ip_address='10.52.97.241', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| d069fe6a-8e32-4052-8bf4-d8badd06b9c8 | SFSIP08   | fa:16:3e:e3:2f:ad | ip_address='10.52.97.219', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| d44762ac-6148-4451-939e-cbb3513120ea |           | fa:16:3e:f8:d5:aa | ip_address='10.52.97.202', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | ACTIVE |
+| d467fb27-3ed2-4fba-9b49-83e684561352 | IFSIP02   | fa:16:3e:51:23:23 | ip_address='10.52.97.206', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| d680e20e-c3fd-41d8-bc52-fc10491f1bcd | SCCASIP03 | fa:16:3e:97:ea:05 | ip_address='10.52.97.239', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| d77f0e53-d7e3-4461-8f42-787d2ab75767 | IFSIP01   | fa:16:3e:25:59:3f | ip_address='10.52.97.205', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| d92042e1-1710-4d79-87a5-d0e0d2771b0d | MTELSIP04 | fa:16:3e:47:7e:19 | ip_address='10.52.97.230', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| da45e2e1-8174-4125-a33b-ffa18e3bad5d | SBCSIPC01 | fa:16:3e:62:7b:30 | ip_address='10.52.97.194', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| da539b88-4cef-4ea3-a111-2f471144af44 | SBCSIPC06 | fa:16:3e:33:75:4c | ip_address='10.52.97.199', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| dbf1212c-f9ca-40f3-9d9c-108975793ba3 | SBCSIPC04 | fa:16:3e:b1:0d:53 | ip_address='10.52.97.197', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| ddc38b38-6197-443c-91c4-80eeccb7bfda | SCCDIA01  | fa:16:3e:90:ff:ae | ip_address='10.52.97.245', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| eaa34c96-3d45-4a75-a010-14bf404d26bf | SBCSIPC05 | fa:16:3e:8d:0a:1f | ip_address='10.52.97.198', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| f681669c-81d2-49db-b75d-a320776f9d20 | MTELSIP01 | fa:16:3e:0e:1b:e3 | ip_address='10.52.97.227', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| f9c3fc18-51d2-40a0-8664-35e09a86b9a4 | SCCASIP04 | fa:16:3e:0d:0b:73 | ip_address='10.52.97.240', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
+| ffcc42f7-8d5c-452f-9d8c-26fbc5b70124 | SFSIP04   | fa:16:3e:ba:5e:bf | ip_address='10.52.97.215', subnet_id='a7e438fc-aac0-4360-9e45-60c582b27214' | DOWN   |
++--------------------------------------+-----------+-------------------+-----------------------------------------------------------------------------+--------+
+[root@IMHL04CIC01 ~]# openstack port list --network internal
++--------------------------------------+-----------+-------------------+--------------------------------------------------------------------------+--------+
+| ID                                   | Name      | MAC Address       | Fixed IP Addresses                                                       | Status |
++--------------------------------------+-----------+-------------------+--------------------------------------------------------------------------+--------+
+| 00628879-c71e-4aca-9c47-78cabdc8285c | SBCSIPA04 | fa:16:3e:6d:dc:b1 | ip_address='1.1.5.5', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| 035b3483-2f78-4fb4-98f6-02ea4973a4ba | SBCSIPA06 | fa:16:3e:32:2d:38 | ip_address='1.1.5.7', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| 03c0b6ec-a0a5-4ed6-acf4-e3b9e17417b6 | MRFC02    | fa:16:3e:f1:cc:77 | ip_address='1.1.5.129', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 04cecf74-f7ce-4fd1-abed-eaaed0016895 | CSCF14    | fa:16:3e:6a:d6:8f | ip_address='1.1.5.69', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 051f6411-32fb-443c-a5d1-317e12253e0d | SBC08     | fa:16:3e:49:0a:61 | ip_address='1.1.5.25', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 054827a6-2295-484c-8dc2-26423cd137f8 | CSCF11    | fa:16:3e:92:01:90 | ip_address='1.1.5.66', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 09be6586-97ea-46de-a141-a1eb5aa7b8fe | SBCSIPC03 | fa:16:3e:3a:48:69 | ip_address='1.1.5.12', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 0c63dd33-4295-4086-b65d-df3935be9dcf | SCCAS01   | fa:16:3e:f0:30:78 | ip_address='1.1.5.108', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 0d6f997a-f378-4bbe-8ee7-292a6d95b9a7 | SBCSIPC06 | fa:16:3e:ef:db:f5 | ip_address='1.1.5.15', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 0e453a14-17f5-4113-b5f2-976e8ce4b7d7 | CSCF01    | fa:16:3e:7f:4f:11 | ip_address='1.1.5.56', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 12798a87-00b9-4d5b-9c8b-46417288451d | SCCAS05   | fa:16:3e:8f:02:ed | ip_address='1.1.5.112', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 132b23fa-31c5-4c76-b505-dacfc02dec7d | IFSIP06   | fa:16:3e:54:03:1e | ip_address='1.1.5.43', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 13c6d094-7b9e-4b3e-89ac-77315ccee097 | SCCAS07   | fa:16:3e:72:2b:a0 | ip_address='1.1.5.114', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 17b9a506-f333-4b9a-b9fb-039ffd88a5ec | IFSIP03   | fa:16:3e:fd:89:16 | ip_address='1.1.5.40', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 1a19fbf3-7db6-4773-81ff-3459d02e0a5d | MMTEL02   | fa:16:3e:dc:6c:3b | ip_address='1.1.5.85', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 1ec6dc70-9d80-4652-96ac-c5309c9078a1 | SBC05     | fa:16:3e:6c:18:06 | ip_address='1.1.5.22', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 21db47d9-20d3-4b88-8aef-387fd510312d | SCCAS08   | fa:16:3e:74:61:c5 | ip_address='1.1.5.115', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 22616a71-a1ff-4dd9-aa5a-5ea417649d03 | MTELSIP01 | fa:16:3e:d1:8e:39 | ip_address='1.1.5.76', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 22b0b321-e0f4-4275-85f0-dda9e0561e00 | SBCSIPA01 | fa:16:3e:ce:49:b2 | ip_address='1.1.5.2', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| 23831006-8d70-4db9-8d0f-b27e0052b743 | SBCHGW01  | fa:16:3e:43:b5:e3 | ip_address='1.1.5.70', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 24f5e190-b4d8-4c0c-a3f0-1a49d99536da | SCCDIA01  | fa:16:3e:fb:73:df | ip_address='1.1.5.116', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 25e50c57-d62d-4c8a-a588-1312cd7c573d |           | fa:16:3e:d1:01:04 | ip_address='1.1.5.130', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | ACTIVE |
+| 2ca02e4d-43ce-4a4e-8fbe-fa1d528e8215 | CSCF05    | fa:16:3e:b6:42:33 | ip_address='1.1.5.60', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 32fcb216-a18b-486a-959a-1ffadd2e8a9e | SFSIP07   | fa:16:3e:fb:26:59 | ip_address='1.1.5.50', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 36868e6a-7b1d-42a3-bd04-4b65da7791db | CSCFDB2   | fa:16:3e:ca:87:c1 | ip_address='1.1.5.75', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 3740d966-a25a-4957-bdaf-ec9c2b2059ee | SFSIP05   | fa:16:3e:de:b7:28 | ip_address='1.1.5.48', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 37c18b62-e92e-489c-b1e5-9633a234eddb | MMTEL04   | fa:16:3e:07:bb:bf | ip_address='1.1.5.87', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 397a4295-f471-48e5-8ad7-d7014763d9db | SBCDB02   | fa:16:3e:bc:14:99 | ip_address='1.1.5.37', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 3d140b5c-1db6-4276-b1e1-d9d893712257 | MRFC01    | fa:16:3e:5e:0e:f5 | ip_address='1.1.5.128', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 3d296f57-f2f2-46b2-a5e7-71f68c11600c | MTELSIP07 | fa:16:3e:6c:a9:20 | ip_address='1.1.5.82', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 3e89bcfd-6678-45e3-9d41-8e3769451416 | MTELDB01  | fa:16:3e:67:61:fe | ip_address='1.1.5.98', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 40efd4c3-de38-4b97-beae-48ae51050651 | SBC09     | fa:16:3e:6d:7f:d8 | ip_address='1.1.5.26', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 42d4ec35-daa4-4f9d-9a87-7043d5ab212c | SCCDIA02  | fa:16:3e:95:2f:84 | ip_address='1.1.5.117', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 440de3c3-5df8-4453-8d27-80e7b8a589f0 | MTELSIP03 | fa:16:3e:1d:c1:45 | ip_address='1.1.5.78', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 4a1ded5b-2c6a-4eeb-b876-996d347f2e77 | CSDIA01   | fa:16:3e:c0:16:20 | ip_address='1.1.5.72', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 4ab28019-777e-4c68-a8aa-b33963322b0e | MRFHGW01  | fa:16:3e:25:cc:8c | ip_address='1.1.5.124', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 4c20196a-0b3a-4848-b306-305daf930c12 | MMTEL07   | fa:16:3e:52:c5:3d | ip_address='1.1.5.90', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 4c53f7e1-b18c-415c-a357-5b77f262da34 | IFSIP01   | fa:16:3e:3e:e3:57 | ip_address='1.1.5.38', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 4e8eee14-5137-4924-873c-a2801db7b956 | SBC11     | fa:16:3e:e0:db:31 | ip_address='1.1.5.28', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 5b4d6dcc-1f3d-402a-8c54-24246ffe10ac | MTELSIP02 | fa:16:3e:49:fc:4b | ip_address='1.1.5.77', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 5d7c0d23-2db3-42b6-b6d7-aee527ee44f8 | CSCF10    | fa:16:3e:87:a5:4a | ip_address='1.1.5.65', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 5d8bfe03-b7ef-4b89-aead-6172573b6a82 | SBCSIPA07 | fa:16:3e:01:00:5f | ip_address='1.1.5.8', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| 688cb5d1-c6ab-4d6d-a620-9faf783656c3 | MMTEL03   | fa:16:3e:54:11:cd | ip_address='1.1.5.86', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 69bdcba1-5a07-46ea-ae0f-359c3cf326c6 | SFSIP01   | fa:16:3e:94:fd:af | ip_address='1.1.5.44', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 6ba10b79-7725-4189-b97b-1d41894d81c3 | SCCASIP07 | fa:16:3e:b6:7f:8e | ip_address='1.1.5.106', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 6e6abfc0-0fe0-486b-85a4-2ae2ba82fb89 | SBCSIPC08 | fa:16:3e:fd:e8:0a | ip_address='1.1.5.17', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 6f0e0a07-ff2c-45e0-be70-c1a72a42ec37 | SFSIP02   | fa:16:3e:90:a3:be | ip_address='1.1.5.45', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 7042545f-c015-4e16-a3a6-7a8a20ee173b | SFSIP06   | fa:16:3e:45:61:3d | ip_address='1.1.5.49', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 762231d4-7260-4327-bd34-fc0fb30a16ea | CSCF08    | fa:16:3e:b2:07:b9 | ip_address='1.1.5.63', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 766b20fe-f5c2-4822-b0eb-23172e7ffbd6 | CSCF02    | fa:16:3e:fa:cb:f3 | ip_address='1.1.5.57', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 79c6a4c6-92a0-4b64-9b4a-5c3e45730f8a | SBC16     | fa:16:3e:d7:84:5c | ip_address='1.1.5.33', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 7c22ff9f-ee42-4f7e-894e-9d336dca66b0 | MMTEL12   | fa:16:3e:63:fe:85 | ip_address='1.1.5.95', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 7cfb4da1-e164-4a2c-b3ed-0e20a13b5ffb | SCCASIP02 | fa:16:3e:9b:f1:ea | ip_address='1.1.5.101', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 7cfda9c0-d452-4040-b082-fb961a41eb28 | MTELDIA02 | fa:16:3e:5c:35:d3 | ip_address='1.1.5.97', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 7d24e95c-a9ab-4c09-a333-dde94c3cac39 | FEP02     | fa:16:3e:ad:c7:0c | ip_address='1.1.5.121', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 7d8a659d-e98f-4b46-9758-4478f42a833a | SBCSIPA03 | fa:16:3e:23:fc:cc | ip_address='1.1.5.4', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| 7e8bd411-bfcf-40a6-ad5b-5cd319e4b611 | CSCF07    | fa:16:3e:ac:bd:77 | ip_address='1.1.5.62', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 824e5841-f6da-40e1-bbae-127efd68acc9 | SBCDIA02  | fa:16:3e:d3:31:a5 | ip_address='1.1.5.35', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 82a9e774-fdfc-41fb-8504-1daad1230771 | MRFSIP02  | fa:16:3e:c5:29:a8 | ip_address='1.1.5.127', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 8376ce33-9f1b-4802-baab-c6a8b241fc2c | MMTEL11   | fa:16:3e:91:c3:b7 | ip_address='1.1.5.94', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 86397b90-4374-4735-bf2a-ff36c509cc46 | SBCDB01   | fa:16:3e:4f:14:e3 | ip_address='1.1.5.36', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 87b337d2-5437-427e-8514-2330aa9dec62 | MTELDIA01 | fa:16:3e:c2:73:3a | ip_address='1.1.5.96', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 8945f6ad-c2b8-4188-9eb0-86b78e783af0 | SCCASIP01 | fa:16:3e:ba:93:1f | ip_address='1.1.5.100', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 8ae21021-072d-46f4-8b5b-ac0d7c17fa9f | SBC07     | fa:16:3e:d3:8f:41 | ip_address='1.1.5.24', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 8d1dc677-b8f3-49a4-93de-3b21de4b83db | SCCASIP04 | fa:16:3e:ab:5a:42 | ip_address='1.1.5.103', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 8fedf6d3-81c6-44d1-a537-86f50741c3f0 | SFSIP03   | fa:16:3e:2b:e8:91 | ip_address='1.1.5.46', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 92e54b42-0420-4178-8c55-28972abb653c | MTELDB02  | fa:16:3e:af:80:91 | ip_address='1.1.5.99', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 9364f79c-ac9b-42ef-8996-b9a470453c5c | SBC13     | fa:16:3e:fe:f3:85 | ip_address='1.1.5.30', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 94051fc6-846c-4c68-9397-acc031e95099 | SBC06     | fa:16:3e:e8:3b:b7 | ip_address='1.1.5.23', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 97aa029d-1501-4e63-8022-6bf70c2d1554 | MTELSIP04 | fa:16:3e:7c:26:54 | ip_address='1.1.5.79', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 97b5371d-394c-4c7e-a931-318b884cab4b | MTELSIP06 | fa:16:3e:83:83:a0 | ip_address='1.1.5.81', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 98a1c718-f238-4041-821f-d784ecd2d687 | MRFHGW02  | fa:16:3e:41:69:81 | ip_address='1.1.5.125', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 9d02c53e-ec41-440a-abbf-7da2293488b5 | SCCDB01   | fa:16:3e:30:7e:aa | ip_address='1.1.5.118', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| 9e0088c4-5fe6-4c78-885a-111507e4fbe3 | SBC03     | fa:16:3e:1f:a4:ab | ip_address='1.1.5.20', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| 9f279d1d-684d-456b-9518-56e43db56f78 | MRFSIP01  | fa:16:3e:92:af:31 | ip_address='1.1.5.126', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| a434a01c-4e07-488f-84c3-e3bcb939e7fe | MTELSIP05 | fa:16:3e:75:80:0c | ip_address='1.1.5.80', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| a4c6bafe-2a56-4740-98f2-9ef98aa76ce3 | CSCF12    | fa:16:3e:67:37:a6 | ip_address='1.1.5.67', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| a9b12485-dc45-4f54-990c-1c8fa83b7cbf | SCCASIP05 | fa:16:3e:95:68:55 | ip_address='1.1.5.104', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| aa8187fd-1081-4fa3-8f5e-35d09dc4cbc5 | SCCAS06   | fa:16:3e:bd:3a:f5 | ip_address='1.1.5.113', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| af24b263-0601-4a48-b221-72163e68d3f3 | SCCASIP08 | fa:16:3e:21:51:00 | ip_address='1.1.5.107', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| afd5e824-6913-4525-89b3-034381437b5c | CSCF03    | fa:16:3e:d9:bb:0b | ip_address='1.1.5.58', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| b0a82887-71ad-4eb9-8c21-c978dc6fb1dd | SBC02     | fa:16:3e:01:7f:f4 | ip_address='1.1.5.19', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| b34ef47e-8008-49d0-9154-a26033f34c04 | SCCAS02   | fa:16:3e:1c:18:3d | ip_address='1.1.5.109', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| b4b71885-8b5c-42ae-891e-52422f524357 | SCCDB02   | fa:16:3e:aa:58:38 | ip_address='1.1.5.119', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| bd31d880-a62e-4faa-9429-0c4df207d5b7 | SBCSIPA05 | fa:16:3e:bf:5a:1f | ip_address='1.1.5.6', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| bfb2ff88-422d-4823-98d9-a48f0f9b2498 | CSDIA02   | fa:16:3e:1a:7e:18 | ip_address='1.1.5.73', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| c28b2ea0-c591-4c2f-9f1f-e0f671c9bdce | SBCDIA01  | fa:16:3e:68:d1:df | ip_address='1.1.5.34', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| c3090d70-6165-4196-a26b-c93f3e1073c4 | SCCAS03   | fa:16:3e:fa:37:65 | ip_address='1.1.5.110', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| c3658d20-8934-495d-a006-f171b305f29f | IFSIP04   | fa:16:3e:1c:c8:85 | ip_address='1.1.5.41', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| c48e8535-a782-457a-be68-e6669b8a70c7 | IFSIP02   | fa:16:3e:67:4d:5f | ip_address='1.1.5.39', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| c51c2b50-0047-4e72-91c2-f1a91581ca6d | SFSIP10   | fa:16:3e:be:63:93 | ip_address='1.1.5.53', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| c91d068d-5e20-4328-a5e8-c1d60185544b | SBCSIPA02 | fa:16:3e:d6:49:f5 | ip_address='1.1.5.3', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| c96ecbb2-575d-4918-b185-2b111e092057 | SCCAS04   | fa:16:3e:c9:73:f6 | ip_address='1.1.5.111', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| cb5353cf-dce5-45d9-88a9-2ab7499d6460 | SCCASIP03 | fa:16:3e:20:34:4b | ip_address='1.1.5.102', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| cc584712-4b99-489d-a421-13b7370d0f56 | SFSIP11   | fa:16:3e:16:1e:56 | ip_address='1.1.5.54', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| cde68a00-81c4-4735-80f6-264fb4db60b8 | SBC15     | fa:16:3e:c4:01:83 | ip_address='1.1.5.32', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| cf9d0a1c-2d9b-45c2-b5dd-2d0a2364c69f | MTELSIP08 | fa:16:3e:01:26:b9 | ip_address='1.1.5.83', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| d29e2e75-3621-4aaf-9ce5-04963e797a9e | SBCHGW02  | fa:16:3e:18:af:33 | ip_address='1.1.5.71', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| d44f99d7-3ffc-4361-b126-2ed8ecb28c65 | IMSSF02   | fa:16:3e:eb:86:6c | ip_address='1.1.5.123', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| d5404884-9613-4777-9639-a66b4ae6ca32 | SBC12     | fa:16:3e:f8:9a:01 | ip_address='1.1.5.29', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| d699aff0-9763-4708-8f90-bad319213415 | SBCSIPC05 | fa:16:3e:1a:ae:0d | ip_address='1.1.5.14', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| d7e4ec4e-b0a2-4e72-8b47-94170ae95977 | CSCF06    | fa:16:3e:01:19:53 | ip_address='1.1.5.61', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| dac9acfd-1fb9-453b-b03b-1efe28b56dab | CSCF04    | fa:16:3e:41:6d:98 | ip_address='1.1.5.59', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| dce2021f-e205-4790-8f7e-5dec427822b7 | CSCF09    | fa:16:3e:51:d6:a4 | ip_address='1.1.5.64', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| dd78a493-6dbf-4110-857a-9b9ccad038f6 | MMTEL01   | fa:16:3e:35:ba:26 | ip_address='1.1.5.84', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| de610ada-277b-43ea-ab71-9ad7dbbd3ebc | SFSIP12   | fa:16:3e:de:a1:6b | ip_address='1.1.5.55', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| dee41fee-b4cf-4681-ac32-d7da28adaf69 | MMTEL08   | fa:16:3e:15:cc:83 | ip_address='1.1.5.91', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| e08ee169-5e17-4ace-b8a5-7e3449616e95 | MMTEL10   | fa:16:3e:87:ae:be | ip_address='1.1.5.93', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| e0f45c34-d29b-42eb-9aee-0588e0907aad | IMSSF01   | fa:16:3e:ff:f4:51 | ip_address='1.1.5.122', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| e28547b3-e7c4-4ca1-80a5-0fb181378f3c |           | fa:16:3e:fd:28:5d | ip_address='1.1.5.131', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | ACTIVE |
+| e368ddf8-40f2-4840-a84f-ddd7e97a07a3 | SCCASIP06 | fa:16:3e:d5:d5:33 | ip_address='1.1.5.105', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| e47001e2-6103-4805-994e-6f5273899304 | SBC10     | fa:16:3e:6a:df:9e | ip_address='1.1.5.27', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| e615a408-612c-4ebb-bef7-1ef28dc0f14f | MMTEL05   | fa:16:3e:ce:b7:1c | ip_address='1.1.5.88', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| e6a70f0c-0662-406c-92bf-ee958f8d73c2 | SBCSIPC04 | fa:16:3e:05:4e:29 | ip_address='1.1.5.13', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| ed9bee0f-7dc8-4d46-bc60-c74db461abc5 | MMTEL06   | fa:16:3e:da:c8:67 | ip_address='1.1.5.89', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f0012e0e-2a17-4628-a67a-82a33c8b450d | MMTEL09   | fa:16:3e:3c:3d:a9 | ip_address='1.1.5.92', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f00c84bb-f1a6-4efc-b5a5-039e3715491e | SFSIP04   | fa:16:3e:5e:91:7f | ip_address='1.1.5.47', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f02a8d28-7706-43e4-bb16-be223179b83e | SBCSIPA08 | fa:16:3e:d0:85:e4 | ip_address='1.1.5.9', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'   | DOWN   |
+| f0d8d108-bae9-4c48-9260-98e75c96a295 | SFSIP08   | fa:16:3e:f5:2d:4e | ip_address='1.1.5.51', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f271db4b-8d79-4c5b-b7e0-d8cfd32f4211 | SBC14     | fa:16:3e:84:71:40 | ip_address='1.1.5.31', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f81dce17-689e-4059-8270-d20eddb97efb | SFSIP09   | fa:16:3e:6e:13:33 | ip_address='1.1.5.52', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f833c64c-740d-40f1-b8d4-91a585570cde | SBCSIPC02 | fa:16:3e:4f:52:62 | ip_address='1.1.5.11', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| f84d69db-8fb8-47ce-81fd-a69443937a63 | FEP01     | fa:16:3e:bf:2b:27 | ip_address='1.1.5.120', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d' | DOWN   |
+| f9a08322-b3d5-4c28-8f27-fe4e5a5a88d0 | SBC04     | fa:16:3e:33:f3:45 | ip_address='1.1.5.21', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| faef22a7-bb43-45d2-bba8-5c05a5a9832f | IFSIP05   | fa:16:3e:3f:ce:72 | ip_address='1.1.5.42', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| fca9cb75-b80e-46c3-b345-c8aa681ec17d | SBCSIPC07 | fa:16:3e:9f:bd:78 | ip_address='1.1.5.16', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| fcd2bf3f-12f3-4508-a4ad-2ce6f7a79b8e | SBC01     | fa:16:3e:d4:01:e2 | ip_address='1.1.5.18', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| fd09722a-4ea8-4f23-b826-ab0f9fd81f32 | CSCFDB1   | fa:16:3e:83:18:77 | ip_address='1.1.5.74', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| feffcbf4-dc34-4f03-bce0-49d2fada7298 | CSCF13    | fa:16:3e:08:49:64 | ip_address='1.1.5.68', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
+| ff062cbc-3dff-4510-969a-cb81f53ec669 | SBCSIPC01 | fa:16:3e:3b:02:03 | ip_address='1.1.5.10', subnet_id='56c002e1-f03b-4ef0-a1fc-32f1cd68e85d'  | DOWN   |
++--------------------------------------+-----------+-------------------+--------------------------------------------------------------------------+--------+
+
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.155 --enable TEMPLATE
+openstack port create --network internal --description "Fixed IP for internal network" --fixed-ip subnet=1.1.5.0/24,ip-address=1.1.5.156 --enable TEMPLATE1
+
+
+nova boot --flavor TEMPLATE  --nic port-id=0e71d975-4628-4255-8125-f30f7cc9ef24 --key-name ims --image  redhat7 --availability-zone nova:IMHL04COMP32 VMIMSSF02
+nova boot --flavor TEMPLATE  --nic port-id=e2179e08-5f94-4d5d-be5c-d38ae2415c8c --key-name ims --image  ims --availability-zone nova:IMHL04COMP32 VMIMSSF10
+
+openstack server delete VMSBC01
+openstack server delete VMSBC02
+openstack server delete VMSBC03
+openstack server delete VMSBC04
+openstack server delete VMSBC05
+openstack server delete VMSBC06
+openstack server delete VMSBC07
+openstack server delete VMSBC08
+openstack server delete VMSBC09
+openstack server delete VMSBC10
+openstack server delete VMSBC11
+openstack server delete VMSBC12
+openstack server delete VMSBC13
+openstack server delete VMSBC14
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=b0a82887-71ad-4eb9-8c21-c978dc6fb1dd --key-name ims --image ims --availability-zone nova:IMHL04COMP02 --user-data /u01/lamnt221/scripts/install_service_sbc_vm19.sh --wait VMSBC02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9e0088c4-5fe6-4c78-885a-111507e4fbe3 --key-name ims --image ims --availability-zone nova:IMHL04COMP03 --user-data /u01/lamnt221/scripts/install_service_sbc_vm20.sh --wait VMSBC03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f9a08322-b3d5-4c28-8f27-fe4e5a5a88d0 --key-name ims --image ims --availability-zone nova:IMHL04COMP04 --user-data /u01/lamnt221/scripts/install_service_sbc_vm21.sh --wait VMSBC04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=1ec6dc70-9d80-4652-96ac-c5309c9078a1 --key-name ims --image ims --availability-zone nova:IMHL04COMP05 --user-data /u01/lamnt221/scripts/install_service_sbc_vm22.sh --wait VMSBC05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=94051fc6-846c-4c68-9397-acc031e95099 --key-name ims --image ims --availability-zone nova:IMHL04COMP06 --user-data /u01/lamnt221/scripts/install_service_sbc_vm23.sh --wait VMSBC06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8ae21021-072d-46f4-8b5b-ac0d7c17fa9f --key-name ims --image ims --availability-zone nova:IMHL04COMP07 --user-data /u01/lamnt221/scripts/install_service_sbc_vm24.sh --wait VMSBC07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=051f6411-32fb-443c-a5d1-317e12253e0d --key-name ims --image ims --availability-zone nova:IMHL04COMP08 --user-data /u01/lamnt221/scripts/install_service_sbc_vm25.sh --wait VMSBC08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=40efd4c3-de38-4b97-beae-48ae51050651 --key-name ims --image ims --availability-zone nova:IMHL04COMP09 --user-data /u01/lamnt221/scripts/install_service_sbc_vm26.sh --wait VMSBC09
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=e47001e2-6103-4805-994e-6f5273899304 --key-name ims --image ims --availability-zone nova:IMHL04COMP10 --user-data /u01/lamnt221/scripts/install_service_sbc_vm27.sh --wait VMSBC10
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=4e8eee14-5137-4924-873c-a2801db7b956 --key-name ims --image ims --availability-zone nova:IMHL04COMP11 --user-data /u01/lamnt221/scripts/install_service_sbc_vm28.sh --wait VMSBC11
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d5404884-9613-4777-9639-a66b4ae6ca32 --key-name ims --image ims --availability-zone nova:IMHL04COMP12 --user-data /u01/lamnt221/scripts/install_service_sbc_vm29.sh --wait VMSBC12
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9364f79c-ac9b-42ef-8996-b9a470453c5c --key-name ims --image ims --availability-zone nova:IMHL04COMP13 --user-data /u01/lamnt221/scripts/install_service_sbc_vm30.sh --wait VMSBC13
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f271db4b-8d79-4c5b-b7e0-d8cfd32f4211 --key-name ims --image ims --availability-zone nova:IMHL04COMP14 --user-data /u01/lamnt221/scripts/install_service_sbc_vm31.sh --wait VMSBC14
+
+
+openstack server delete VMSBCHGW01 &&
+openstack server delete VMSBCHGW02 &&
+openstack server delete VMSBC15 &&
+openstack server delete VMSBC16 &&
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=23831006-8d70-4db9-8d0f-b27e0052b743 --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --user-data /u01/lamnt221/scripts/install_service_sbc_vm70.sh --wait VMSBCHGW01 &&
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d29e2e75-3621-4aaf-9ce5-04963e797a9e --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --user-data /u01/lamnt221/scripts/install_service_sbc_vm71.sh --wait VMSBCHGW02 &&
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=cde68a00-81c4-4735-80f6-264fb4db60b8 --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --user-data /u01/lamnt221/scripts/install_service_sbc_vm32.sh --wait VMSBC15 &&
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=79c6a4c6-92a0-4b64-9b4a-5c3e45730f8a --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --user-data /u01/lamnt221/scripts/install_service_sbc_vm33.sh --wait VMSBC16
+
+
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=266d3c79-1a9b-4ded-b96b-e8b2292e3504 --nic port-id=22b0b321-e0f4-4275-85f0-dda9e0561e00 --key-name ims --image ims --availability-zone nova:IMHL04COMP01 --wait VMSBCSIPA01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d77f0e53-d7e3-4461-8f42-787d2ab75767 --nic port-id=4c53f7e1-b18c-415c-a357-5b77f262da34 --key-name ims --image ims --availability-zone nova:IMHL04COMP01 --wait VMIFSIP01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=fcd2bf3f-12f3-4508-a4ad-2ce6f7a79b8e --key-name ims --image ims --availability-zone nova:IMHL04COMP01 --user-data /u01/lamnt221/scripts/install_service_sbc_vm18.sh --wait VMSBC01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=0e453a14-17f5-4113-b5f2-976e8ce4b7d7 --key-name ims --image ims --availability-zone nova:IMHL04COMP01 --wait VMCSCF01
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=7558a17f-4a9d-419d-9641-6a963528ec80 --nic port-id=c91d068d-5e20-4328-a5e8-c1d60185544b --key-name ims --image ims --availability-zone nova:IMHL04COMP02 --wait VMSBCSIPA02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=b0a82887-71ad-4eb9-8c21-c978dc6fb1dd --key-name ims --image ims --availability-zone nova:IMHL04COMP02 --user-data /u01/lamnt221/scripts/install_service_sbc_vm19.sh --wait VMSBC02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d467fb27-3ed2-4fba-9b49-83e684561352 --nic port-id=c48e8535-a782-457a-be68-e6669b8a70c7 --key-name ims --image ims --availability-zone nova:IMHL04COMP02 --wait VMIFSIP02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=766b20fe-f5c2-4822-b0eb-23172e7ffbd6 --key-name ims --image ims --availability-zone nova:IMHL04COMP02 --wait VMCSCF02
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=1336d3bd-0ca6-4c7c-8261-9aab0f122a4b --nic port-id=7d8a659d-e98f-4b46-9758-4478f42a833a --key-name ims --image ims --availability-zone nova:IMHL04COMP03 --wait VMSBCSIPA03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9e0088c4-5fe6-4c78-885a-111507e4fbe3 --key-name ims --image ims --availability-zone nova:IMHL04COMP03 --user-data /u01/lamnt221/scripts/install_service_sbc_vm20.sh --wait VMSBC03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ac265a4d-3af4-4988-80a7-e12cfb4ccdb6 --nic port-id=17b9a506-f333-4b9a-b9fb-039ffd88a5ec --key-name ims --image ims --availability-zone nova:IMHL04COMP03 --wait VMIFSIP03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=afd5e824-6913-4525-89b3-034381437b5c --key-name ims --image ims --availability-zone nova:IMHL04COMP03 --wait VMCSCF03
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9d7d8f31-dab2-42d6-ae05-bd4867cbbd69 --nic port-id=00628879-c71e-4aca-9c47-78cabdc8285c --key-name ims --image ims --availability-zone nova:IMHL04COMP04 --wait VMSBCSIPA04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f9a08322-b3d5-4c28-8f27-fe4e5a5a88d0 --key-name ims --image ims --availability-zone nova:IMHL04COMP04 --user-data /u01/lamnt221/scripts/install_service_sbc_vm21.sh --wait VMSBC04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3bdfd553-ca1a-4574-a031-a74940a549ce --nic port-id=c3658d20-8934-495d-a006-f171b305f29f --key-name ims --image ims --availability-zone nova:IMHL04COMP04 --wait VMIFSIP04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=dac9acfd-1fb9-453b-b03b-1efe28b56dab --key-name ims --image ims --availability-zone nova:IMHL04COMP04 --wait VMCSCF04
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ce1856fb-6ab4-45c7-ada1-903d3d19c38d --nic port-id=bd31d880-a62e-4faa-9429-0c4df207d5b7 --key-name ims --image ims --availability-zone nova:IMHL04COMP05 --wait VMSBCSIPA05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=1ec6dc70-9d80-4652-96ac-c5309c9078a1 --key-name ims --image ims --availability-zone nova:IMHL04COMP05 --user-data /u01/lamnt221/scripts/install_service_sbc_vm22.sh --wait VMSBC05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=6a23d596-faa0-4a05-9040-f6e249d34533 --nic port-id=faef22a7-bb43-45d2-bba8-5c05a5a9832f --key-name ims --image ims --availability-zone nova:IMHL04COMP05 --wait VMIFSIP05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=2ca02e4d-43ce-4a4e-8fbe-fa1d528e8215 --key-name ims --image ims --availability-zone nova:IMHL04COMP05 --wait VMCSCF05
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=cf4f1270-9023-4103-85fa-110c8eb3fc70 --nic port-id=035b3483-2f78-4fb4-98f6-02ea4973a4ba --key-name ims --image ims --availability-zone nova:IMHL04COMP06 --wait VMSBCSIPA06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=94051fc6-846c-4c68-9397-acc031e95099 --key-name ims --image ims --availability-zone nova:IMHL04COMP06 --user-data /u01/lamnt221/scripts/install_service_sbc_vm23.sh --wait VMSBC06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=38085488-0767-40a7-977c-946ccab26137 --nic port-id=132b23fa-31c5-4c76-b505-dacfc02dec7d --key-name ims --image ims --availability-zone nova:IMHL04COMP06 --wait VMIFSIP06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d7e4ec4e-b0a2-4e72-8b47-94170ae95977 --key-name ims --image ims --availability-zone nova:IMHL04COMP06 --wait VMCSCF06
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ff767b06-de86-4c7c-aa85-5cc4b1d4e30b --nic port-id=5d8bfe03-b7ef-4b89-aead-6172573b6a82 --key-name ims --image ims --availability-zone nova:IMHL04COMP07 --wait VMSBCSIPA07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8ae21021-072d-46f4-8b5b-ac0d7c17fa9f --key-name ims --image ims --availability-zone nova:IMHL04COMP07 --user-data /u01/lamnt221/scripts/install_service_sbc_vm24.sh --wait VMSBC07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=b3c4d755-7a79-47a5-90a4-d981d9af0983 --nic port-id=69bdcba1-5a07-46ea-ae0f-359c3cf326c6 --key-name ims --image ims --availability-zone nova:IMHL04COMP07 --wait VMSFSIP01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=7e8bd411-bfcf-40a6-ad5b-5cd319e4b611 --key-name ims --image ims --availability-zone nova:IMHL04COMP07 --wait VMCSCF07
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9a1f4bca-337d-420e-b942-d1e7c6f4777f --nic port-id=f02a8d28-7706-43e4-bb16-be223179b83e --key-name ims --image ims --availability-zone nova:IMHL04COMP08 --wait VMSBCSIPA08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=051f6411-32fb-443c-a5d1-317e12253e0d --key-name ims --image ims --availability-zone nova:IMHL04COMP08 --user-data /u01/lamnt221/scripts/install_service_sbc_vm25.sh --wait VMSBC08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=aa1d9084-6481-4381-9e5e-0f7b3795a83c --nic port-id=6f0e0a07-ff2c-45e0-be70-c1a72a42ec37 --key-name ims --image ims --availability-zone nova:IMHL04COMP08 --wait VMSFSIP02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=762231d4-7260-4327-bd34-fc0fb30a16ea --key-name ims --image ims --availability-zone nova:IMHL04COMP08 --wait VMCSCF08
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=da45e2e1-8174-4125-a33b-ffa18e3bad5d --nic port-id=ff062cbc-3dff-4510-969a-cb81f53ec669 --key-name ims --image ims --availability-zone nova:IMHL04COMP09 --wait VMSBCSIPC01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=40efd4c3-de38-4b97-beae-48ae51050651 --key-name ims --image ims --availability-zone nova:IMHL04COMP09 --user-data /u01/lamnt221/scripts/install_service_sbc_vm26.sh --wait VMSBC09
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=417ae489-8fd7-46ed-b061-7d3f91580374 --nic port-id=8fedf6d3-81c6-44d1-a537-86f50741c3f0 --key-name ims --image ims --availability-zone nova:IMHL04COMP09 --wait VMSFSIP03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=dce2021f-e205-4790-8f7e-5dec427822b7 --key-name ims --image ims --availability-zone nova:IMHL04COMP09 --wait VMCSCF09
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3ac118c9-3ad7-46dd-9a42-89ddd90da169 --nic port-id=f833c64c-740d-40f1-b8d4-91a585570cde --key-name ims --image ims --availability-zone nova:IMHL04COMP10 --wait VMSBCSIPC02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=e47001e2-6103-4805-994e-6f5273899304 --key-name ims --image ims --availability-zone nova:IMHL04COMP10 --user-data /u01/lamnt221/scripts/install_service_sbc_vm27.sh --wait VMSBC10
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ffcc42f7-8d5c-452f-9d8c-26fbc5b70124 --nic port-id=f00c84bb-f1a6-4efc-b5a5-039e3715491e --key-name ims --image ims --availability-zone nova:IMHL04COMP10 --wait VMSFSIP04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=5d7c0d23-2db3-42b6-b6d7-aee527ee44f8 --key-name ims --image ims --availability-zone nova:IMHL04COMP10 --wait VMCSCF10
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=2700e175-7c96-43a1-863e-6f576c655338 --nic port-id=09be6586-97ea-46de-a141-a1eb5aa7b8fe --key-name ims --image ims --availability-zone nova:IMHL04COMP11 --wait VMSBCSIPC03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=4e8eee14-5137-4924-873c-a2801db7b956 --key-name ims --image ims --availability-zone nova:IMHL04COMP11 --user-data /u01/lamnt221/scripts/install_service_sbc_vm28.sh --wait VMSBC11
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=bb828d9d-fae6-4a51-93a4-e74ef4816fa9 --nic port-id=3740d966-a25a-4957-bdaf-ec9c2b2059ee --key-name ims --image ims --availability-zone nova:IMHL04COMP11 --wait VMSFSIP05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=054827a6-2295-484c-8dc2-26423cd137f8 --key-name ims --image ims --availability-zone nova:IMHL04COMP11 --wait VMCSCF11
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=dbf1212c-f9ca-40f3-9d9c-108975793ba3 --nic port-id=e6a70f0c-0662-406c-92bf-ee958f8d73c2 --key-name ims --image ims --availability-zone nova:IMHL04COMP12 --wait VMSBCSIPC04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d5404884-9613-4777-9639-a66b4ae6ca32 --key-name ims --image ims --availability-zone nova:IMHL04COMP12 --user-data /u01/lamnt221/scripts/install_service_sbc_vm29.sh --wait VMSBC12
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=88ec1ebd-3034-40ea-91e1-725d811fb959 --nic port-id=7042545f-c015-4e16-a3a6-7a8a20ee173b --key-name ims --image ims --availability-zone nova:IMHL04COMP12 --wait VMSFSIP06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=a4c6bafe-2a56-4740-98f2-9ef98aa76ce3 --key-name ims --image ims --availability-zone nova:IMHL04COMP12 --wait VMCSCF12
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=eaa34c96-3d45-4a75-a010-14bf404d26bf --nic port-id=d699aff0-9763-4708-8f90-bad319213415 --key-name ims --image ims --availability-zone nova:IMHL04COMP13 --wait VMSBCSIPC05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9364f79c-ac9b-42ef-8996-b9a470453c5c --key-name ims --image ims --availability-zone nova:IMHL04COMP13 --user-data /u01/lamnt221/scripts/install_service_sbc_vm30.sh --wait VMSBC13
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3de6d1f1-0a94-4e32-85eb-c9db52aa326a --nic port-id=32fcb216-a18b-486a-959a-1ffadd2e8a9e --key-name ims --image ims --availability-zone nova:IMHL04COMP13 --wait VMSFSIP07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=feffcbf4-dc34-4f03-bce0-49d2fada7298 --key-name ims --image ims --availability-zone nova:IMHL04COMP13 --wait VMCSCF13
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=da539b88-4cef-4ea3-a111-2f471144af44 --nic port-id=0d6f997a-f378-4bbe-8ee7-292a6d95b9a7 --key-name ims --image ims --availability-zone nova:IMHL04COMP14 --wait VMSBCSIPC06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f271db4b-8d79-4c5b-b7e0-d8cfd32f4211 --key-name ims --image ims --availability-zone nova:IMHL04COMP14 --user-data /u01/lamnt221/scripts/install_service_sbc_vm31.sh --wait VMSBC14
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d069fe6a-8e32-4052-8bf4-d8badd06b9c8 --nic port-id=f0d8d108-bae9-4c48-9260-98e75c96a295 --key-name ims --image ims --availability-zone nova:IMHL04COMP14 --wait VMSFSIP08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=04cecf74-f7ce-4fd1-abed-eaaed0016895 --key-name ims --image ims --availability-zone nova:IMHL04COMP14 --wait VMCSCF14
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=75e91b3f-db95-4cdb-926a-b64fe7c9df3a --nic port-id=fca9cb75-b80e-46c3-b345-c8aa681ec17d --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --wait VMSBCSIPC07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=cde68a00-81c4-4735-80f6-264fb4db60b8 --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --user-data /u01/lamnt221/scripts/install_service_sbc_vm32.sh --wait VMSBC15
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=70d2eecc-13d4-45dd-92bf-4691067089c6 --nic port-id=f81dce17-689e-4059-8270-d20eddb97efb --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --wait VMSFSIP09
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=23831006-8d70-4db9-8d0f-b27e0052b743 --key-name ims --image ims --availability-zone nova:IMHL04COMP15 --user-data /u01/lamnt221/scripts/install_service_sbc_vm70.sh --wait VMSBCHGW01
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8361ed1c-6741-48f9-afe3-f7b59ab07856 --nic port-id=6e6abfc0-0fe0-486b-85a4-2ae2ba82fb89 --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --wait VMSBCSIPC08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=79c6a4c6-92a0-4b64-9b4a-5c3e45730f8a --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --user-data /u01/lamnt221/scripts/install_service_sbc_vm33.sh --wait VMSBC16
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=c1b4738e-9cc2-4abc-b1da-e37480367a07 --nic port-id=c51c2b50-0047-4e72-91c2-f1a91581ca6d --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --wait VMSFSIP10
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d29e2e75-3621-4aaf-9ce5-04963e797a9e --key-name ims --image ims --availability-zone nova:IMHL04COMP16 --user-data /u01/lamnt221/scripts/install_service_sbc_vm71.sh --wait VMSBCHGW02
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8da1fbbf-4889-42e1-b147-c76a02218e12 --nic port-id=c28b2ea0-c591-4c2f-9f1f-e0f671c9bdce --key-name ims --image ims --availability-zone nova:IMHL04COMP17 --user-data /u01/vuongnv61/deploy_backup/sbc_dia01/install_diagw.sh --wait VMSBCDIA01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3e68cd65-5757-47b0-a38e-7fae76dfab63 --nic port-id=cc584712-4b99-489d-a421-13b7370d0f56 --key-name ims --image ims --availability-zone nova:IMHL04COMP17 --wait VMSFSIP11
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f681669c-81d2-49db-b75d-a320776f9d20 --nic port-id=22616a71-a1ff-4dd9-aa5a-5ea417649d03 --key-name ims --image ims --availability-zone nova:IMHL04COMP17 --wait VMMTELSIP01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=dd78a493-6dbf-4110-857a-9b9ccad038f6 --key-name ims --image ims --availability-zone nova:IMHL04COMP17 --wait VMMMTEL01
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=6fbb0323-9140-4cbb-984a-ce0794a60849 --nic port-id=824e5841-f6da-40e1-bbae-127efd68acc9 --key-name ims --image ims --availability-zone nova:IMHL04COMP18 --user-data /u01/vuongnv61/deploy_backup/sbc_dia02/install_diagw.sh --wait VMSBCDIA02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3f595d8f-9837-488a-806c-c2cf92736b27 --nic port-id=de610ada-277b-43ea-ab71-9ad7dbbd3ebc --key-name ims --image ims --availability-zone nova:IMHL04COMP18 --wait VMSFSIP12
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=959dec35-0d92-434e-9390-974d37d67a5c --nic port-id=5b4d6dcc-1f3d-402a-8c54-24246ffe10ac --key-name ims --image ims --availability-zone nova:IMHL04COMP18 --wait VMMTELSIP02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=1a19fbf3-7db6-4773-81ff-3459d02e0a5d --key-name ims --image ims --availability-zone nova:IMHL04COMP18 --wait VMMMTEL02
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=910ddb2d-8f3e-4d90-ae6c-2657e2065596 --nic port-id=4a1ded5b-2c6a-4eeb-b876-996d347f2e77 --key-name ims --image ims --availability-zone nova:IMHL04COMP19 --user-data /u01/vuongnv61/deploy_backup/imscore_dia01/install_diagw.sh --wait VMCSDIA01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=4ab28019-777e-4c68-a8aa-b33963322b0e --key-name ims --image ims --availability-zone nova:IMHL04COMP19 --wait VMMRFHGW01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3975537e-3994-4cea-b3bb-f1f304f18ba7 --nic port-id=440de3c3-5df8-4453-8d27-80e7b8a589f0 --key-name ims --image ims --availability-zone nova:IMHL04COMP19 --wait VMMTELSIP03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=688cb5d1-c6ab-4d6d-a620-9faf783656c3 --key-name ims --image ims --availability-zone nova:IMHL04COMP19 --wait VMMMTEL03
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=26434602-12eb-48c2-bbeb-1222ef3122b1 --nic port-id=bfb2ff88-422d-4823-98d9-a48f0f9b2498 --key-name ims --image ims --availability-zone nova:IMHL04COMP20 --user-data /u01/vuongnv61/deploy_backup/imscore_dia02/install_diagw.sh --wait VMCSDIA02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=98a1c718-f238-4041-821f-d784ecd2d687 --key-name ims --image ims --availability-zone nova:IMHL04COMP20 --wait VMMRFHGW02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d92042e1-1710-4d79-87a5-d0e0d2771b0d --nic port-id=97aa029d-1501-4e63-8022-6bf70c2d1554 --key-name ims --image ims --availability-zone nova:IMHL04COMP20 --wait VMMTELSIP04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=37c18b62-e92e-489c-b1e5-9633a234eddb --key-name ims --image ims --availability-zone nova:IMHL04COMP20 --wait VMMMTEL04
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=17f8ebc4-90da-40b0-bcdc-8476f7824287 --nic port-id=87b337d2-5437-427e-8514-2330aa9dec62 --key-name ims --image ims --availability-zone nova:IMHL04COMP21 --user-data /u01/vuongnv61/deploy_backup/mmtel_dia01/install_diagw.sh --wait VMMTELDIA01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=4c3c276e-a33f-4b3c-92d7-41d7f376a68f --nic port-id=9f279d1d-684d-456b-9518-56e43db56f78 --key-name ims --image ims --availability-zone nova:IMHL04COMP21 --wait VMMRFSIP01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=7fdb471a-44d5-4a0e-b285-f501cba3c085 --nic port-id=a434a01c-4e07-488f-84c3-e3bcb939e7fe --key-name ims --image ims --availability-zone nova:IMHL04COMP21 --wait VMMTELSIP05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=e615a408-612c-4ebb-bef7-1ef28dc0f14f --key-name ims --image ims --availability-zone nova:IMHL04COMP21 --wait VMMMTEL05
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8298b52d-6829-48bf-97fd-742791f09029 --nic port-id=7cfda9c0-d452-4040-b082-fb961a41eb28 --key-name ims --image ims --availability-zone nova:IMHL04COMP22 --user-data /u01/vuongnv61/deploy_backup/mmtel_dia02/install_diagw.sh --wait VMMTELDIA02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=90243652-30cf-4b94-8098-65802e6e10af --nic port-id=82a9e774-fdfc-41fb-8504-1daad1230771 --key-name ims --image ims --availability-zone nova:IMHL04COMP22 --wait VMMRFSIP02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=2f866082-d425-4889-bffd-74d05302be28 --nic port-id=97b5371d-394c-4c7e-a931-318b884cab4b --key-name ims --image ims --availability-zone nova:IMHL04COMP22 --wait VMMTELSIP06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ed9bee0f-7dc8-4d46-bc60-c74db461abc5 --key-name ims --image ims --availability-zone nova:IMHL04COMP22 --wait VMMMTEL06
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=ddc38b38-6197-443c-91c4-80eeccb7bfda --nic port-id=24f5e190-b4d8-4c0c-a3f0-1a49d99536da --key-name ims --image ims --availability-zone nova:IMHL04COMP23 --user-data /u01/vuongnv61/deploy_backup/sccas_dia01/install_diagw.sh --wait VMSCCDIA01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3d140b5c-1db6-4276-b1e1-d9d893712257 --key-name ims --image ims --availability-zone nova:IMHL04COMP23 --wait VMMRFC01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=751b54fe-48ff-4f3e-ba4f-2eb3183c2d62 --nic port-id=3d296f57-f2f2-46b2-a5e7-71f68c11600c --key-name ims --image ims --availability-zone nova:IMHL04COMP23 --wait VMMTELSIP07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=4c20196a-0b3a-4848-b306-305daf930c12 --key-name ims --image ims --availability-zone nova:IMHL04COMP23 --wait VMMMTEL07
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=034a53b7-f4e9-4baf-9a69-d42adc5deaec --nic port-id=42d4ec35-daa4-4f9d-9a87-7043d5ab212c --key-name ims --image ims --availability-zone nova:IMHL04COMP24 --user-data /u01/vuongnv61/deploy_backup/sccas_dia02/install_diagw.sh --wait VMSCCDIA02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=03c0b6ec-a0a5-4ed6-acf4-e3b9e17417b6 --key-name ims --image ims --availability-zone nova:IMHL04COMP24 --wait VMMRFC02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=7ac71d99-4e45-4fbd-ba75-b3497b20a45f --nic port-id=cf9d0a1c-2d9b-45c2-b5dd-2d0a2364c69f --key-name ims --image ims --availability-zone nova:IMHL04COMP24 --wait VMMTELSIP08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=dee41fee-b4cf-4681-ac32-d7da28adaf69 --key-name ims --image ims --availability-zone nova:IMHL04COMP24 --wait VMMMTEL08
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=86397b90-4374-4735-bf2a-ff36c509cc46 --key-name ims --image ims --availability-zone nova:IMHL04COMP25 --user-data /u01/linhnd23/install_db_service.sh --wait VMSBCDB01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=0c63dd33-4295-4086-b65d-df3935be9dcf --key-name ims --image ims --availability-zone nova:IMHL04COMP25 --wait VMSCCAS01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=34c9ce4f-9df3-4cb5-b0a6-a2dd2d4cdf2e --nic port-id=8945f6ad-c2b8-4188-9eb0-86b78e783af0 --key-name ims --image ims --availability-zone nova:IMHL04COMP25 --wait VMSCCASIP01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f0012e0e-2a17-4628-a67a-82a33c8b450d --key-name ims --image ims --availability-zone nova:IMHL04COMP25 --wait VMMMTEL09
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=397a4295-f471-48e5-8ad7-d7014763d9db --key-name ims --image ims --availability-zone nova:IMHL04COMP26 --wait VMSBCDB02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=b34ef47e-8008-49d0-9154-a26033f34c04 --key-name ims --image ims --availability-zone nova:IMHL04COMP26 --wait VMSCCAS02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=0634e634-daf7-4044-994d-0a55769513b6 --nic port-id=7cfb4da1-e164-4a2c-b3ed-0e20a13b5ffb --key-name ims --image ims --availability-zone nova:IMHL04COMP26 --wait VMSCCASIP02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=e08ee169-5e17-4ace-b8a5-7e3449616e95 --key-name ims --image ims --availability-zone nova:IMHL04COMP26 --wait VMMMTEL10
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=fd09722a-4ea8-4f23-b826-ab0f9fd81f32 --key-name ims --image ims --availability-zone nova:IMHL04COMP27 --wait VMCSCFDB1
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=c3090d70-6165-4196-a26b-c93f3e1073c4 --key-name ims --image ims --availability-zone nova:IMHL04COMP27 --wait VMSCCAS03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d680e20e-c3fd-41d8-bc52-fc10491f1bcd --nic port-id=cb5353cf-dce5-45d9-88a9-2ab7499d6460 --key-name ims --image ims --availability-zone nova:IMHL04COMP27 --wait VMSCCASIP03
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=8376ce33-9f1b-4802-baab-c6a8b241fc2c --key-name ims --image ims --availability-zone nova:IMHL04COMP27 --wait VMMMTEL11
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=36868e6a-7b1d-42a3-bd04-4b65da7791db --key-name ims --image ims --availability-zone nova:IMHL04COMP28 --wait VMCSCFDB2
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=c96ecbb2-575d-4918-b185-2b111e092057 --key-name ims --image ims --availability-zone nova:IMHL04COMP28 --wait VMSCCAS04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=f9c3fc18-51d2-40a0-8664-35e09a86b9a4 --nic port-id=8d1dc677-b8f3-49a4-93de-3b21de4b83db --key-name ims --image ims --availability-zone nova:IMHL04COMP28 --wait VMSCCASIP04
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=7c22ff9f-ee42-4f7e-894e-9d336dca66b0 --key-name ims --image ims --availability-zone nova:IMHL04COMP28 --wait VMMMTEL12
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=3e89bcfd-6678-45e3-9d41-8e3769451416 --key-name ims --image ims --availability-zone nova:IMHL04COMP29 --wait VMMTELDB01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=12798a87-00b9-4d5b-9c8b-46417288451d --key-name ims --image ims --availability-zone nova:IMHL04COMP29 --wait VMSCCAS05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=c9e370af-7b10-4792-b074-4976393bfa22 --nic port-id=a9b12485-dc45-4f54-990c-1c8fa83b7cbf --key-name ims --image ims --availability-zone nova:IMHL04COMP29 --wait VMSCCASIP05
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=a27ca61a-b0fa-44e1-94ae-d81d6b458375 --nic port-id=154913a3-da7e-4752-9888-db6387c840ae --nic port-id=f84d69db-8fb8-47ce-81fd-a69443937a63 --key-name ims --image ims --availability-zone nova:IMHL04COMP29 --wait VMFEP01
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=92e54b42-0420-4178-8c55-28972abb653c --key-name ims --image ims --availability-zone nova:IMHL04COMP30 --wait VMMTELDB02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=aa8187fd-1081-4fa3-8f5e-35d09dc4cbc5 --key-name ims --image ims --availability-zone nova:IMHL04COMP30 --wait VMSCCAS06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=c0f91618-4538-4be4-a3dd-e2884ca51aec --nic port-id=e368ddf8-40f2-4840-a84f-ddd7e97a07a3 --key-name ims --image ims --availability-zone nova:IMHL04COMP30 --wait VMSCCASIP06
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=6351fb46-75f1-40a6-9a6d-55bc4114cc05 --nic port-id=eb7cef8d-d636-4fb7-a2a8-7b075675c0f3 --nic port-id=7d24e95c-a9ab-4c09-a333-dde94c3cac39 --key-name ims --image ims --availability-zone nova:IMHL04COMP30 --wait VMFEP02
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=9d02c53e-ec41-440a-abbf-7da2293488b5 --key-name ims --image ims --availability-zone nova:IMHL04COMP31 --wait VMSCCDB01
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=13c6d094-7b9e-4b3e-89ac-77315ccee097 --key-name ims --image ims --availability-zone nova:IMHL04COMP31 --wait VMSCCAS07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=57c81344-f979-4fa5-be4b-4f35b0455256 --nic port-id=6ba10b79-7725-4189-b97b-1d41894d81c3 --key-name ims --image ims --availability-zone nova:IMHL04COMP31 --wait VMSCCASIP07
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=e0f45c34-d29b-42eb-9aee-0588e0907aad --key-name ims --image ims --availability-zone nova:IMHL04COMP31 --wait VMIMSSF01
+
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=b4b71885-8b5c-42ae-891e-52422f524357 --key-name ims --image ims --availability-zone nova:IMHL04COMP32 --wait VMSCCDB02
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=21db47d9-20d3-4b88-8aef-387fd510312d --key-name ims --image ims --availability-zone nova:IMHL04COMP32 --wait VMSCCAS08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=24c74a5a-c355-4df8-bd93-e2c06d4b9a43 --nic port-id=af24b263-0601-4a48-b221-72163e68d3f3 --key-name ims --image ims --availability-zone nova:IMHL04COMP32 --wait VMSCCASIP08
+openstack server create --flavor 12CPU.12RAM.150DISK  --nic port-id=d44f99d7-3ffc-4361-b126-2ed8ecb28c65 --key-name ims --image ims --availability-zone nova:IMHL04COMP32 --wait VMIMSSF02
+
+openstack server create --flavor TEMPLATE  --nic port-id=c343063e-11b4-4088-919c-74b5f8fb104d  --key-name ims --image ims --availability-zone nova:IMHL04COMP32 --wait VMIMSSF02
+
+
+ Bridge br-int
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        fail_mode: secure
+        Port "tapa6ff2eec-46"
+            tag: 8
+            Interface "tapa6ff2eec-46"
+                type: internal
+        Port int-br-ipbn
+            Interface int-br-ipbn
+                type: patch
+                options: {peer=phy-br-ipbn}
+        Port "tapfed2221a-a3"
+            tag: 5
+            Interface "tapfed2221a-a3"
+                type: internal
+        Port "tap20450160-8e"
+            tag: 7
+            Interface "tap20450160-8e"
+                type: internal
+        Port "tapb4a9393e-07"
+            tag: 6
+            Interface "tapb4a9393e-07"
+                type: internal
+        Port int-br-mpbn
+            Interface int-br-mpbn
+                type: patch
+                options: {peer=phy-br-mpbn}
+        Port "int-br-sigtran1"
+            Interface "int-br-sigtran1"
+                type: patch
+                options: {peer="phy-br-sigtran1"}
+        Port "tapa8b45629-ec"
+            tag: 4095
+            Interface "tapa8b45629-ec"
+                type: internal
+        Port int-br-internal
+            Interface int-br-internal
+                type: patch
+                options: {peer=phy-br-internal}
+        Port "int-br-sigtran2"
+            Interface "int-br-sigtran2"
+                type: patch
+                options: {peer="phy-br-sigtran2"}
+        Port patch-tun
+            Interface patch-tun
+                type: patch
+                options: {peer=patch-int}
+        Port "tap11acd973-54"
+            tag: 9
+            Interface "tap11acd973-54"
+                type: internal
+        Port br-int
+            Interface br-int
+                type: internal
+        Port int-br-vlan
+            Interface int-br-vlan
+                type: patch
+                options: {peer=phy-br-vlan}
+
+
+openstack server create --flavor 12CPU.12RAM.150DISK --image ims_ok --nic net-id=8eb150e0-68b9-45f5-b297-bbecb5fa3f53 --nic net-id=ccebd794-bca5-41e1-8f70-3c9ba34736d9 --nic net-id=46c7d0eb-5ee2-4c50-a22e-69043b432388 --key-name ims --availability-zone nova:IMHL04COMP01 --wait IMS
+
+# Them tien --debug de chay debug
+# check service list
+openstack compute service list
+
+openstack image create "Rehat7.6" --file rhel7.6.raw --disk-format raw --container-format bare --public 
+
+openstack network create --project $projectID --share --provider-network-type flat --provider-physical-network flat_mgnt mgnt_test
+
+Tao DHCP truoc ->
+openstack subnet create subnet1 --network mgnt_test --project $projectID --subnet-range 10.55.39.71/26 --allocation-pool start=10.55.39.100,end=10.55.39.200 --gateway 10.55.39.66 --dns-nameserver 8.8.8.8
+
+netID=$(openstack network list | grep XXX | awk '{ print $2 }')
+openstack server create --flavor 6C.12G.100 --image ims_image --nic net-id=04e168c6-ab40-4883-b934-ce8e085773ad --nic net-id=94cef3e4-71a4-4ef8-ae69-487d0ba9fcdb --key-name centos --user-data install_vims_service.sh SBC01
+
+
+Tao ssh_key
+
+ssh-keygen -q -N ""
+
+PasswordAuthentication yes ==> de ssh dk cac server
+
+
+openstack keypair create --public-key ~/.ssh/id_rsa.pub centos
+
+
+
+# ERROR umount =======
+cat /proc/mounts
+umount -l /var/lib/docker/volumes/f1a56d47b1f1206a8824f9c03ea6555e71b1c8e0491607767886151476c99b48/_data/netns
+systemctl stop openvswitch
+umount /run/openvswitch
+umount /usr/local/var/run/openvswitch
+umount /run/netns
+cat /proc/mounts
+systemctl start openvswitch
+  
+  
+  openstack image create "redhat_edit" --file rhel-server-7.6-x86_64-kvm.qcow2  --disk-format qcow2 --container-format bare --public
+
+  
+  	docker restart nova-api
+	docker restart nova-scheduler
+	docker restart nova-conductor
+	docker restart nova-novncproxy
+	docker restart nova-placement-api
+	
+	http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img
+	
+ERROR
+1.	umount -l /var/lib/docker/volumes/098cb64f20605aa0e010625218953a56b4bae8c45b88902d05486656ec142b77/_data/netns
+ libvirtError: internal error: qemu unexpectedly closed the monitor: Could not access KVM kernel module: Permission denied
+==> fix
+$ cat /sys/module/kvm_intel/parameters/nested
+N
+$ sudo rmmod kvm_intel
+$ sudo echo 'options kvm_intel nested=1' >> /etc/modprobe.d/kvm.conf"
+$ sudo modprobe kvm_intel
+$ cat /sys/module/kvm_intel/parameters/nested
+Y
+
+2. 
+2019-04-10 11:31:20.136 18 ERROR cinder.scheduler.flows.create_volume [req-8b7ad958-8334-480d-a7ce-47350c76b8ff cce3ee615cf84cea8104eaf53a0f7bb6 a86fe5a7c54744a4a2afc44d4dc4aa1e - default default] Failed to run task cinder.scheduler.flows.create_volume.ScheduleCreateVolumeTask;volume:create: No valid backend was found. No weighed backends available: NoValidBackend: No valid backend was found. No weighed backends available
+==> fix
+check dong bo thoi gian giua cac server
+ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+date --set="Tue Sep 24 14:07:51 +07 2019"
+date --set="Wed Oct 16 09:12:43 +07 2019"
+
+3. K chay dpdk cho ovs => ton time vai ca dai
+[  130.681406] cloud-init[3185]: 2019-04-09 04:09:03,950 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [50/120s]: request error [HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: /2009-04-04/meta-data/instance-id (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x7fc5534d3b50>, 'Connection to 169.254.169.254 timed out. (connect timeout=50.0)'))]
+==> fix
+https://www.yet.org/2014/09/openvswitch-troubleshooting/
+
+ovs-vsctrl show
+
+tcpdump -i tap... -vv
+
+tcpdump -i enp131s0f0 -vv
+
+tcpdump -i qvo... -vv
+
+[root@compute01 ~]# cat /usr/libexec/qemu-kvm
+#!/bin/bash -
+VIRTIO_OPTIONS="csum=off,gso=off,guest_tso4=off,guest_tso6=off,guest_ecn=off"
+VHOST_FORCE="vhostforce"
+SHARE="share=on"
+add_mem=False
+i=0
+while [ $# -gt 0 ]; do
+    case "$1" in
+    -device)
+        args[i]="$1"
+        (( i++ ))
+        shift
+        if [[ "$1" =~ "vhost-user" ]]; then
+                args[i]=${1},${VHOST_FORCE}
+                (( i++))
+                shift
+
+        fi
+        if [[ $1 == virtio-net-pci* ]]; then
+                args[i]=${1},${VIRTIO_OPTIONS}
+                (( i++))
+                shift
+
+        fi
+        ;;
+    -object)
+        args[i]="$1"
+        (( i++ ))
+        shift
+        if [[ "$1" =~ "memory-backend-file" ]]; then
+                args[i]=${1},${SHARE}
+                (( i++))
+                shift
+        fi
+        ;;
+    -netdev)
+        args[i]="$1"
+        (( i++ ))
+        shift
+        if [[ "$1" =~ "vhost-user" ]]; then
+                args[i]=${1},${VHOST_FORCE}
+                (( i++))
+                shift
+        fi
+        ;;
+    *)
+         args[i]="$1"
+         (( i++ ))
+         shift ;;
+    esac
+done
+
+if [ -e /usr/libexec/qemu-kvm.orig ]; then
+    exec /usr/libexec/qemu-kvm.orig  "${args[@]}"
+elif [ -e /usr/bin/qemu-system-x86_64 ]; then
+    exec /usr/bin/qemu-system-x86_64  "${args[@]}"
+fi
+[root@compute01 ~]#
+
+
+/usr/libexec/qemu-kvm.orig -name guest=instance-00000079,debug-threads=on -S -object secret,id=masterKey0,format=raw,file=/var/lib/libvirt/qemu/domain-13-instance-00000079/master-key.aes -machine pc-i440fx-rhel7.6.0,accel=kvm,usb=off,dump-guest-core=off -cpu Skylake-Server-IBRS,ss=on,hypervisor=on,tsc_adjust=on,clflushopt=on,pku=on,stibp=on,ssbd=on -m 8191 -realtime mlock=off -smp 4,sockets=4,cores=1,threads=1 -uuid 02fe1f3c-f242-4112-8977-7546be65f37e -smbios type=1,manufacturer=RDO,product=OpenStack Compute,version=17.0.7-1.el7,serial=b566fc40-a314-4977-926a-a0cfe0b9274e,uuid=02fe1f3c-f242-4112-8977-7546be65f37e,family=Virtual Machine -no-user-config -nodefaults -chardev socket,id=charmonitor,fd=27,server,nowait -mon chardev=charmonitor,id=monitor,mode=control -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=delay -no-hpet -no-shutdown -boot strict=on -device piix3-usb-uhci,id=usb,bus=pci.0,addr=0x1.0x2 -drive file=/u01/nova/instances/02fe1f3c-f242-4112-8977-7546be65f37e/disk,format=qcow2,if=none,id=drive-virtio-disk0,cache=none -device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1,write-cache=on -chardev socket,id=charnet0,path=/run/openvswitch/vhuc9f2a5fa-f0,server -netdev vhost-user,chardev=charnet0,id=hostnet0,vhostforce -device virtio-net-pci,netdev=hostnet0,id=net0,mac=fa:16:3e:41:65:02,bus=pci.0,addr=0x3,csum=off,gso=off,guest_tso4=off,guest_tso6=off,guest_ecn=off -chardev socket,id=charnet1,path=/run/openvswitch/vhu61a9b3e8-4b,server -netdev vhost-user,chardev=charnet1,id=hostnet1,vhostforce -device virtio-net-pci,netdev=hostnet1,id=net1,mac=fa:16:3e:44:58:3b,bus=pci.0,addr=0x4,csum=off,gso=off,guest_tso4=off,guest_tso6=off,guest_ecn=off -add-fd set=1,fd=30 -chardev pty,id=charserial0,logfile=/dev/fdset/1,logappend=on -device isa-serial,chardev=charserial0,id=serial0 -device usb-tablet,id=input0,bus=usb.0,port=1 -vnc 10.60.188.36:1 -k en-us -device cirrus-vga,id=video0,bus=pci.0,addr=0x2 -device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6 -sandbox on,obsolete=deny,elevateprivileges=deny,spawn=deny,resourcecontrol=deny -msg timestamp=on
+
+/usr/libexec/qemu-kvm.orig -name guest=instance-00000082,debug-threads=on -S -object secret,id=masterKey0,format=raw,file=/var/lib/libvirt/qemu/domain-1-instance-00000082/master-key.aes -machine pc-i440fx-rhel7.6.0,accel=kvm,usb=off,dump-guest-core=off -cpu Skylake-Server-IBRS,ss=on,hypervisor=on,tsc_adjust=on,clflushopt=on,pku=on,stibp=on,ssbd=on -m 12288 -realtime mlock=off -smp 12,sockets=6,cores=1,threads=2 -object memory-backend-file,id=ram-node0,prealloc=yes,mem-path=/dev/hugepages/libvirt/qemu/1-instance-00000082,share=yes,size=12884901888,host-nodes=0,policy=bind,share=on -numa node,nodeid=0,cpus=0-11,memdev=ram-node0 -uuid 3b46b0d4-6f7b-4ba0-8153-56e5f607cf22 -smbios type=1,manufacturer=RDO,product=OpenStack Compute,version=17.0.7-1.el7,serial=b566fc40-a314-4977-926a-a0cfe0b9274e,uuid=3b46b0d4-6f7b-4ba0-8153-56e5f607cf22,family=Virtual Machine -no-user-config -nodefaults -chardev socket,id=charmonitor,fd=26,server,nowait -mon chardev=charmonitor,id=monitor,mode=control -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=delay -no-hpet -no-shutdown -boot strict=on -device piix3-usb-uhci,id=usb,bus=pci.0,addr=0x1.0x2 -drive file=/u01/nova/instances/3b46b0d4-6f7b-4ba0-8153-56e5f607cf22/disk,format=qcow2,if=none,id=drive-virtio-disk0,cache=none -device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1,write-cache=on -chardev socket,id=charnet0,path=/run/openvswitch/vhu8919c00b-59,server -netdev vhost-user,chardev=charnet0,queues=8,id=hostnet0,vhostforce -device virtio-net-pci,mq=on,vectors=18,netdev=hostnet0,id=net0,mac=fa:16:3e:8f:8c:7a,bus=pci.0,addr=0x3,csum=off,gso=off,guest_tso4=off,guest_tso6=off,guest_ecn=off -chardev socket,id=charnet1,path=/run/openvswitch/vhufb8aafff-51,server -netdev vhost-user,chardev=charnet1,queues=8,id=hostnet1,vhostforce -device virtio-net-pci,mq=on,vectors=18,netdev=hostnet1,id=net1,mac=fa:16:3e:b7:e8:27,bus=pci.0,addr=0x4,csum=off,gso=off,guest_tso4=off,guest_tso6=off,guest_ecn=off -add-fd set=1,fd=29 -chardev pty,id=charserial0,logfile=/dev/fdset/1,logappend=on -device isa-serial,chardev=charserial0,id=serial0 -device usb-tablet,id=input0,bus=usb.0,port=1 -vnc 10.60.188.36:0 -k en-us -device cirrus-vga,id=video0,bus=pci.0,addr=0x2 -device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6 -sandbox on,obsolete=deny,elevateprivileges=deny,spawn=deny,resourcecontrol=deny -msg timestamp=on
+
+
+4. login user root
+
+virt-edit ims_redhat7.6.raw /etc/cloud/cloud.cfg
+
+set ==> disable_root: false
+
+https://medium.com/@hobbestigrou/permit-root-login-into-openstack-instance-from-centos-official-image-eff265cd814b
+
++ xoa chuoi sau trong file .ssh/authorized_keys cua user root:  no-port-forwarding,no-agent-forwarding,no-X11-forwarding,command=”echo ‘Please login as the user \”centos\” rather than the user \”root\”.’;echo;sleep 10" 
++ edit /etc/ssh/ssh_config ==> PermitRootLogin yes
++ edit sed -i 's|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
++ sed -i -e 's|^PasswordAuthentication no|PasswordAuthentication yes|g' -e 's|UsePAM yes|UsePAM no|g' -e 's|\#UseDNS yes|UseDNS no|g' -e 's|\#AddressFamily any|AddressFamily inet|g' /etc/ssh/sshd_config;echo "Protocol 2" >> /etc/ssh/sshd_config
+
+***************************************************
+delete FROM nova_api.allocations where consumer_id not in (select uuid from nova.instances where vm_state = 'active' );
+**************************************************
+
+
+delete FROM nova_api.allocations where resource_provider_id = 80 and consumer_id='e202bcc8-61b3-4c7e-aab3-64c909c741e9';
+
+commit;
+SELECT * FROM nova_api.allocations where resource_provider_id = 80 order by consumer_id;
+
+=================Bug============================
+s-cbc
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: curve25519-sha256 need=64 dh_need=64
+debug1: kex: curve25519-sha256 need=64 dh_need=64
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+
+Fix:
+ ovs-vsctl set int enp220s0f3 mtu_request=1518
+ ovs-vsctl set int enp98s0f3 mtu_request=1518
+ ovs-vsctl set int enp220s0f5 mtu_request=1518
+ ovs-vsctl set int enp98s0f5 mtu_request=1518
+ ovs-vsctl set int enp98s0f6 mtu_request=1518
+ ovs-vsctl set int enp220s0f6 mtu_request=1518
+ ovs-vsctl set int enp220s0f7 mtu_request=1518
+ ovs-vsctl set int enp98s0f7 mtu_request=1518
+ ovs-vsctl set int enp99s0f1 mtu_request=1518
+ ovs-vsctl set int enp221s0f1 mtu_request=1518
+ or
+ 
+ 
+ovs-dpdk mat vlan-id
+
+docker cp   usr/lib/ ovs-agent:/usr/
+ 
+ 
+ 
+ 
+
+yum -y groupinstall "Base"
+yum -y groupinstall "Compatibility libraries"
+yum -y groupinstall "Console Internet tools"
+yum -y groupinstall "Debugging Tools"
+yum -y groupinstall "Java Platform"
+yum -y groupinstall "Legacy UNIX compatibility"
+yum -y groupinstall "Networking Tools"
+yum -y groupinstall "Performance Tools"
+yum -y groupinstall "Network Infrastructure Server"
+yum -y groupinstall "System administration tools"
+yum -y groupinstall "SNMP Support"
+yum -y groupinstall "System Management"
+yum -y groupinstall "Desktop"
+yum -y groupinstall "General Purpose Desktop"
+yum -y groupinstall "Graphical Administration Tools"
+yum -y groupinstall "Legacy X Window System compatibility"
+yum -y groupinstall "X Window System"
+yum -y groupinstall "Internet Browser"
+yum -y groupinstall "Additional Development"
+yum -y groupinstall "Desktop Platform Development"
+yum -y groupinstall "Development Tools"
+yum -y install nmap
+yum -y install wireshark
+yum -y install wireshark-gnome
+yum -y install telnet
+yum -y install bash-completion.noarch
+yum -y install lwireshark wireshark-gnome
+yum -y install apr apr-devel apr-util apr-util-devel curl curl-devel cmake
+yum -y install iptables-services
+yum -y install xauth
+yum -y install gcc gcc-c++
+yum -y install ncurses-devel
+yum -y install openssl-devel
+yum -y install unixODBC unixODBC-devel
+yum -y install mesa-libGLU-devel mesa-libGL-devel
+yum -y install gtk2-devel
+yum -y install SDL-devel
+yum -y install GConf2.x86_64 GConf2-devel.x86_64
+yum -y install gstreamer.x86_64 gstreamer-devel.x86_64
+yum -y install gstreamer-plugins-base.x86_64 gstreamer-plugins-base-devel.x86_64
+yum -y install net-snmp
+yum -y install net-snmp-devel
+yum -y install net-snmp-utils
+yum -y install libnl3-devel
+yum -y install ftp
+
+
+[root@vmimssf02 ~]# yum -y groupinstall "SNMP Support"
+Loaded plugins: langpacks, search-disabled-repos
+Warning: group SNMP Support does not exist.
+Maybe run: yum groups mark install (see man yum)
+Error: No packages in any requested group available to install or update
+[root@vmimssf02 ~]# yum -y groupinstall "System Management"
+Loaded plugins: langpacks, search-disabled-repos
+Warning: Group system-management does not have any packages to install.
+Maybe run: yum groups mark install (see man yum)
+No packages in any requested group available to install or update
+[root@vmimssf02 ~]# yum -y groupinstall "Desktop"
+Loaded plugins: langpacks, search-disabled-repos
+Warning: group Desktop does not exist.
+Maybe run: yum groups mark install (see man yum)
+Error: No packages in any requested group available to install or update
+[root@vmimssf02 ~]# yum -y groupinstall "General Purpose Desktop"
+Loaded plugins: langpacks, search-disabled-repos
+Warning: group General Purpose Desktop does not exist.
+Maybe run: yum groups mark install (see man yum)
+Error: No packages in any requested group available to install or update
+[root@vmimssf02 ~]# yum -y groupinstall "Graphical Administration Tools"
+Loaded plugins: langpacks, search-disabled-repos
+Warning: Group graphical-admin-tools does not have any packages to install.
+Group graphical-admin-tools does have 1 conditional packages, which may get installed.
+Maybe run: yum groups mark install (see man yum)
+No packages in any requested group available to install or update
+[root@vmimssf02 ~]# yum -y groupinstall "Legacy X Window System compatibility"
+Loaded plugins: langpacks, search-disabled-repos
+
+
+sshpass -p vIMS@2019 ssh -o StrictHostKeyChecking=no  root@1.1.5.2   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.38  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.18  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.56  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.3   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.19  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.39  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.57  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.4   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.20  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.40  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.58  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.5   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.21  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.41  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.59  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.6   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.22  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.42  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.60  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.7   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.23  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.43  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.61  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.8   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.24  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.44  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.62  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.9   "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.25  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.45  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.63  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.10  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.26  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.46  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.64  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.11  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.27  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.47  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.65  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.12  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.28  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.48  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.66  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.13  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.29  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.49  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.67  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.14  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.30  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.50  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.68  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.15  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.31  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.51  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.69  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.16  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.32  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.52  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.70  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.17  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.33  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.53  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.71  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.34  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.54  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.76  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.84  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.35  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.55  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.77  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.85  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.72  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.124 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.78  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.86  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.73  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.125 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.79  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.87  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.96  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.126 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.80  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.88  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.97  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.127 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.81  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.89  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.116 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.128 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.82  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.90  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.117 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.129 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.83  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.91  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.36  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.108 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.100 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.92  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.37  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.109 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.101 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.93  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.74  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.110 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.102 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.94  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.75  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.111 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.103 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.95  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.98  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.112 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.104 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.120 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.99  "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.113 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.105 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.121 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.118 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.114 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.106 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.122 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.119 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.115 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.107 "echo ========; hostname;echo ========;setenforce 0" &&
+sshpass -p 1 ssh -o StrictHostKeyChecking=no  root@1.1.5.123 "echo ========; hostname;echo ========;setenforce 0"
+

@@ -1,0 +1,9 @@
+OVS_HUGEPAGE_MOUNT_PAGESIZE: '2048kB'
+OVS_NUM_HUGEPAGES: 80000
+
+OVS_BRIDGE_MAPPINGS: 'mgnt:br-mgnt,provider:br-provider'
+OVS_DPDK_PORT_MAPPINGS: 'p1p2:br-provider'
+
+# lspci | egrep -i --color 'network|ethernet'
+OVS_PCI_MAPPINGS: '82:00.1#p1p2,01:00.0#em1'
+OVS_DPDK_BIND_PORT: True

@@ -1,0 +1,20 @@
+{"error":{"root_cause":[{"type":"circuit_breaking_exception","reason":"[parent] Data too large, data for [<http_request>] would be [3978481792/3.7gb], which is larger than the limit of [3944244838/3.6gb], real usage: [3978481792/3.7gb], new bytes reserved: [0/0b]","bytes_wanted":3978481792,"bytes_limit":3944244838,"durability":"PERMANENT"}],"type":"circuit_breaking_exception","reason":"[parent] Data too large, data for [<http_request>] would be [3978481792/3.7gb], which is larger than the limit of [3944244838/3.6gb], real usage: [3978481792/3.7gb], new bytes reserved: [0/0b]","bytes_wanted":3978481792,"bytes_limit":3944244838,"durability":"PERMANENT"},"status":429}
+
+
+curl -X PUT "localhost:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'
+{
+    "persistent" : {
+        "indices.recovery.max_bytes_per_sec" : "50mb"
+    }
+}
+'
+curl -X PUT "10.255.26.163:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'
+{
+     "persistent" : {
+         "indices.breaker.request.limit" : "81%"
+  }
+}
+'
+
+
+==> fix /usr/share/elasticsearch/jdk/bin/java -Xms12g -Xmx12g -XX:+Us

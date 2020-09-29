@@ -1,0 +1,9 @@
+---
+- name: mkdir /u01/docker/ansible_log
+  file:
+    path: '/u01/docker/ansible_log'
+    state: directory
+    owner: root    
+    group: root
+    mode: 0775
+    recurse: yes

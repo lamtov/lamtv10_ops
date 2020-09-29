@@ -1,0 +1,7 @@
+ansible_runner==1.3.0
+cryptography
+PyYAML
+pyOpenSSL
+flask
+flask-restful
+flake8

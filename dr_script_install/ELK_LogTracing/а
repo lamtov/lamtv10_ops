@@ -1,0 +1,8 @@
+Bước 1: Tạo projects, roles và users
+Bước 2: Tạo images
+Bước 3: Tạo flavors
+Bước 4: Tạo networks 
+Bước 5: Tạo security groups
+Bước 6: Tạo keypairs
+Bước 7: Tạo instances	
+Bước 8: Attach ports vào instance (Cấp IP tĩnh cho instance) – Bước tùy chọn, có thể thực hiện hay không là tùy theo nhu cầu

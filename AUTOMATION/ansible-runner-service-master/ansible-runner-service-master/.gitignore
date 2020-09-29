@@ -1,0 +1,19 @@
+*.pyc
+*.pyo
+samples/artifacts/*
+samples/roles/*
+OLD_STUFF/*
+__pycache__
+dist
+build
+*.egg-info
+.idea
+venv
+.tox
+# Virtual env folders
+bin
+include
+lib*
+pip-self*
+.py[cod]
+__pycache__

@@ -1,0 +1,5 @@
+[centos76]
+name=centos76
+baseurl=http://172.16.30.89/centos
+enabled=1
+gpgcheck=0

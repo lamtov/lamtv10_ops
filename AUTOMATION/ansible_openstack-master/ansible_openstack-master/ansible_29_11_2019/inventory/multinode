@@ -1,0 +1,33 @@
+[controller]
+controller01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+controller02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+controller03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[compute_type_1]
+compute01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+compute02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+compute03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[compute_type_2]
+
+
+[compute:children]
+compute_type_1 
+compute_type_2 
+
+[ops_node:children]
+controller 
+compute
+
+[os-controller]
+controller01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[bk-controller]
+controller02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+controller03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[storage]
+ceph1
+
+
+

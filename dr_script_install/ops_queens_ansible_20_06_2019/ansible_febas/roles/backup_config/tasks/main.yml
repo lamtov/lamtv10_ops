@@ -1,0 +1,80 @@
+---
+
+- name: fetch /controller.cfg
+  fetch:
+    src: "{{ item }}"
+    dest: /etc/ansible/fetch_file/{{ ansible_date_time.date }}
+    mode: 0744
+
+  with_items:
+    - '/etc/filebeat/filebeat.yml'
+    - '/etc/haproxy/haproxy.cfg'
+    - '/etc/keepalived/keepalived.conf'
+    - '/etc/rabbitmq/rabbitmq.config'
+    - '/etc/percona-xtradb-cluster.conf.d/wsrep.cnf'
+    - '/etc/sysconfig/memcached'
+    - '/etc/docker/daemon.json'
+    - '/usr/share/docker/keystone/keystone/keystone.conf'
+    - '/usr/share/docker/glance/glance/glance-api.conf'
+    - '/usr/share/docker/glance/glance/glance-registry.conf'
+    - '/usr/share/docker/cinder/cinder/cinder.conf'
+    - '/usr/share/docker/nova/nova/nova.conf'
+    - '/usr/share/docker/swift/swift/swift.conf'
+    - '/usr/share/docker/ops_exporter/ops_exporter_env'
+    - '/usr/share/docker/horizon/horizon/settings/settings.py'
+    - '/etc/ceph/ceph.client.images.keyring'
+    - '/etc/ceph/ceph.client.volumes.keyring'
+    - '/etc/ceph/ceph.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/glance_api.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/nova_api.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/nova_metadata.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/nova_placement_api.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/nova_vnc.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/neutron.conf'
+    - '/opt/rh/httpd24/root/etc/httpd/conf.d/swift_proxy.conf'
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "controller" )
+
+
+- name: fetch /compute.cfg
+  fetch:
+    src: "{{ item }}"
+    dest: /etc/ansible/fetch_file/{{ ansible_date_time.date }}
+    mode: 0744
+
+  with_items:
+    - '/etc/filebeat/filebeat.yml'
+    - '/etc/nova/nova.conf'
+    - '/usr/share/docker/neutron/neutron/neutron.conf'
+    - '/usr/share/docker/neutron/neutron/neutron/neutron/plugins/ml2/ml2_conf.ini'
+    - '/usr/share/docker/neutron/neutron/neutron/neutron/plugins/ml2/openvswitch_agent.ini'
+    - '/usr/share/docker/neutron/neutron/dhcp_agent.ini'
+    - '/usr/share/docker/neutron/neutron/metadata_agent.ini'
+    - '/etc/default/ovs-dpdk'
+    - '/etc/init.d/ovs-dpdk'
+    - '/etc/ceph/ceph.client.admin.keyring'
+    - '/etc/ceph/ceph.client.volumes.keyring'
+    - '/etc/ceph/ceph.conf'
+    - '/etc/ceph/slave.client.admin.keyring'
+    - '/etc/ceph/slave.client.volumes.keyring'
+    - '/etc/ceph/slave.conf'
+    - '/etc/libvirt/libvirtd.conf'
+
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "compute" )
+
+
+- name: fetch /ceph.cfg
+  fetch:
+    src: "{{ item }}"
+    dest: /etc/ansible/fetch_file/{{ ansible_date_time.date }}
+    mode: 0744
+
+  with_items:
+    - '/etc/filebeat/filebeat.yml'
+    - '/etc/ceph/ceph.client.images.keyring'
+    - '/etc/ceph/ceph.client.volumes.keyring'
+    - '/etc/ceph/ceph.conf'
+    - '/etc/ceph/ceph.client.admin.keyring'
+    - '/etc/ceph/slave.client.admin.keyring'
+    - '/etc/ceph/master.client.admin.keyring'
+    - '/etc/ceph/slave.conf'
+  when: ( "{{ hostvars[inventory_hostname].group_names[0] }}" == "ceph" )

@@ -1,0 +1,47 @@
+---
+- name: yum install -y memcached python-memcached
+  yum:
+    name:
+      - redhat-lsb-core
+      - redhat-lsb
+   
+      - kernel-devel
+      - numactl-devel
+    state: latest
+
+- name: copy openvswitch_2.9.0.tar.gz
+  copy:
+    src: '/etc/ansible/roles/openvswitch_dpdk/files/openvswitch_2.9.0.tar.gz'
+    dest: '/usr/src/openvswitch_2.9.0.tar.gz'
+    mode: 400
+
+- name: unzip openvswitch_dpdk 
+  shell: '{{ item }}'
+  with_items:
+    - cd /usr/src/ && tar -xvzf openvswitch_2.9.0.tar.gz 
+ #   - mv -r /usr/src/openvswitch_2.9.0/* /usr/src/
+
+- name: cp settings 
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'settings.j2', dest: '/usr/src/ovs-dpdk/settings' }
+    - { src: 'default_grub.j2', dest: '/etc/default/grub' }
+
+
+- name: Create Openvswitch 
+  shell: '{{ item }}'
+  with_items:
+    - cd /usr/src/ovs-dpdk && bash setup.sh setup pre-install
+    - cd /usr/src/ovs-dpdk && bash setup.sh setup install 
+
+- name: Add Bridge 
+  shell: '{{ item }}'
+  with_items:
+    - ovs-vsctl add-br br-flat
+    - ovs-vsctl add-br br-vlan

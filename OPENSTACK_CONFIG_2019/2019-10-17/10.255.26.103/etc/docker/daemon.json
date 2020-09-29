@@ -1,0 +1,7 @@
+{
+        "insecure-registries" : ["docker-registry:4000"],
+        "graph":"/u01/docker/docker_graph",
+	"live-restore": true,
+        "bridge": "none"
+}
+

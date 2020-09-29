@@ -1,0 +1,43 @@
+# name: cp nova /etc/nova.conf
+#  template:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest #}}"
+#    owner: root
+#    group: root
+#    mode: '0644'
+#    backup: yes
+#  with_items:
+#    - { src: 'daemon.json.j2', dest: '/etc/docker/daemon.json' }
+#    - { src: 'neutron.conf.j2', dest: '/usr/share/docker/neutron/neutron/neutron.conf' }
+
+
+
+#- name: restart openstack-nova-compute
+#  shell: systemctl restart openstack-nova-compute.service
+
+#- name: restart ovs-agent
+#  shell: docker restart ovs-agent
+
+
+#- name: restart dhcp-agent
+# shell: docker restart dhcp-agent
+
+#- name: restart metadata-agent
+# shell: docker restart metadata-agent
+
+
+# name: restart docker
+# shell: systemctl restart docker
+
+- name: restart container
+  shell: docker start $(docker ps -a -q)
+
+- name: autorestart metadata
+  shell: docker update --restart=unless-stopped  metadata-agent
+- name: autorestart dhcp
+  shell: docker update --restart=unless-stopped  dhcp-agent
+- name: autorestart ovs
+  shell: docker update --restart=unless-stopped  ovs-agent
+
+ 
+

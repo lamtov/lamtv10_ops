@@ -1,0 +1,5 @@
+Defaults:swift !requiretty
+
+
+swift ALL=(root) NOPASSWD:SETENV: /usr/local/bin/copy_file.sh
+swift ALL = (root) NOPASSWD: /usr/bin/swift-rootwrap /etc/swift/rootwrap.conf *

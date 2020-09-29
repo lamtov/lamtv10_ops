@@ -1,0 +1,4 @@
+Defaults:cinder !requiretty
+
+cinder ALL=(root) NOPASSWD:SETENV: /usr/local/bin/copy_file.sh
+cinder ALL = (root) NOPASSWD: /usr/bin/cinder-rootwrap /etc/cinder/rootwrap.conf *

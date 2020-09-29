@@ -1,0 +1,26 @@
+---
+- name: yum install -y openvswitch
+  yum:
+    name:
+      - openvswitch
+    state: latest
+
+- name: systemctl enable openvswitch 
+  systemd:
+    name: openvswitch
+    enabled: yes
+    masked: no
+
+- name: restart openvswitch 
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: openvswitch
+
+- name: create br-vlan, create br-mgnt, create br-flat
+  shell: '{{ item }}' 
+  with_items:
+    - ovs-vsctl add-br br-vlan
+    - ovs-vsctl add-br br-mgnt
+    - ovs-vsctl add-br br-flat
+

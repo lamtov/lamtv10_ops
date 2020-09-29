@@ -1,0 +1,9 @@
+---
+- name: test
+  hosts: compute
+  remote_user: vt_admin 
+  become: yes
+  become_method: su
+  become_user: root
+  roles: 
+    - {role : test}

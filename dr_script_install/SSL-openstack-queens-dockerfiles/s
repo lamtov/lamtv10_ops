@@ -1,0 +1,21 @@
+
+   <proxy>
+      <id>optional1</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <!--username>proxyuser</username>
+      <password>proxypass</password-->
+      <host>10.61.57.22</host>
+      <port>3128</port>
+      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+   </proxy>
+   <proxy>
+      <id>optional2</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <!--username>proxyuser</username>
+      <password>proxypass</password-->
+      <host>10.61.57.22</host>
+      <port>3128</port>
+      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+    </proxy>

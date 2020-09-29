@@ -1,0 +1,31 @@
+---
+- name: Create network interfaces file
+  hosts: 'all'
+  remote_user: root
+
+  tasks:
+  - name: Apply template to /etc/network/interfaces
+    template:
+      src: templates/interfaces_dell.cfg.j2
+      dest: /etc/network/interfaces
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Apply template to /etc/network/interfaces.d/openstack.cfg
+    template:
+      src: templates/os-refimpl-devices.cfg.j2
+      dest: /etc/network/interfaces.d/openstack.cfg
+      owner: root
+      group: root
+      mode: 0644
+      
+  - name: Add address to bond0
+    command: ip addr add {{ ansible_ssh_host }}/22 dev bond0
+    ignore_errors: yes
+  
+  - name: Add nameserver to resolv.conf
+    command: sed -i '1s/^/nameserver 8.8.8.8 /' /etc/resolv.conf
+
+  - name: Reboot node
+    command: reboot

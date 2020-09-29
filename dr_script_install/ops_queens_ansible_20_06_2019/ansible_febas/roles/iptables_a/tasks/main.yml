@@ -1,0 +1,41 @@
+---
+
+#- name: cp 
+#  template:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: root
+#    group: root
+#    mode: '0644'
+#    backup: yes
+#  with_items:
+#    - { src: 'iptables.j2', dest: '/etc/sysconfig/iptables' }
+
+#- name: systemctl stop iptables 
+#  systemd:
+#    name: iptables
+#    state: stopped
+
+- name: start iptables
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: iptables
+#- name: daemon-reload
+#  shell: systemctl daemon-reload
+
+#- name: systemctl enable  filebeat.service
+#  systemd:
+#    name:  filebeat
+#    enabled: yes
+#    masked: no
+
+#- name: start filebeat.service
+#  systemd:
+#    state: started
+#    daemon_reload: yes
+#    name: filebeat
+
+#- name: daemon-reload2
+#  shell: systemctl restart filebeat.service
+  

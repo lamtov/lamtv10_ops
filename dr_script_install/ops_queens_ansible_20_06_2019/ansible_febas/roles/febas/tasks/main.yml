@@ -1,0 +1,83 @@
+---
+#- name: mkdir /u01/docker/ansible_log
+#  file:
+#    path: '/u01/docker/ansible_log'
+#    state: directory
+#    owner: root    
+#    group: root
+#    mode: 0775
+#    recurse: yes
+
+#- name: mkdir /u01/docker/ansible_file
+#  file:
+#    path: '/u01/docker/ansible_file'
+#    state: directory
+#    owner: root    
+#    group: root
+#    mode: 0775
+#    recurse: yes
+
+
+
+#- name: rpm -e filebeat
+#  shell: rpm -e filebeat
+
+#- name: copy filebeat-7.2.0-x86_64.rpm
+#  copy:
+#    src: '/etc/ansible/roles/febas/files/filebeat-7.2.0-x86_64.rpm'
+#    dest: '/u01/docker/ansible_file/filebeat-7.2.0-x86_64.rpm'
+#    mode: 400
+
+#- name: rpm -i filebeat-7.2.0-x86_64.rpm
+#  shell: rpm -i /u01/docker/ansible_file/filebeat-7.2.0-x86_64.rpm
+
+- name: cp filebeat /etc/filebeat/filebeat.yml
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'filebeat.yml.j2', dest: '/etc/filebeat/filebeat.yml' }
+#    - { src: 'iptables.j2', dest: '/etc/sysconfig/iptables' }
+
+#- name: systemctl stop iptables 
+#  systemd:
+#    name: iptables
+#    state: stopped
+
+#- name: start iptables
+#  systemd:
+#    state: started
+#    daemon_reload: yes
+#    name: iptables
+  
+#- name: daemon-reload
+#  shell: systemctl daemon-reload
+
+#- name: systemctl enable  filebeat.service
+#  systemd:
+#    name:  filebeat
+#    enabled: yes
+#    masked: no
+
+- name: start filebeat.service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: filebeat
+
+- name: daemon-reload2
+  shell: systemctl restart filebeat.service
+ 
+
+#- name: systemctl stop filebeat
+#  systemd:
+#    name: filebeat
+#    state: stopped
+
+
+
+ 

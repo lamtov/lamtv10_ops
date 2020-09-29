@@ -1,0 +1,107 @@
+---
+
+- name:  pull docker-registry:4000/glance:q
+  command: docker pull docker-registry:4000/glance:q
+  
+- name: mkdir '{{ usr_share_docker }}/glance'
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+    recurse: yes
+  with_items: 
+    - '{{ usr_share_docker }}/glance/glance'
+    - '{{ usr_share_docker }}/glance/backup'
+    - '{{ usr_share_docker }}/glance/ceph'
+
+- name: cp glance.sql 
+  template:
+    src: glance.sql.j2 
+    dest: '{{ usr_share_docker }}/glance/glance/glance.sql'
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: Create Glance Database
+  command: mysql < '{{ usr_share_docker }}/glance/glance/glance.sql' 
+  args:
+    excutable: /bin/bash
+  when: ( "{{ host_name }}"" == "{{ first_controller }}" )
+
+- name: Create Glance user 
+  command: '{{ item }}'
+  args:
+    excutable: /bin/bash
+  with_items:
+    - source ~/open.rc
+    - openstack user create --domain default --password {{ OPS_GLANCE_PASS }} {{ ops_user_glance }}
+    - openstack role add --project service --user {{ ops_user_glance }} admin
+  when: ( "{{ host_name }}"" == "{{ first_controller }}" )
+
+- name: Create Glance service 
+  command: '{{ item }}'
+  args:
+    excutable: /bin/bash
+  with_items:
+    - source ~/open.rc
+    - openstack service create --name {{ ops_user_glance }}  --description "OpenStack Image" image
+    - openstack endpoint create --region {{ REGION_NAME }}  image public http://{{ CONTROLLER_HOST }}:{{ services_port.glance-api }}
+    - openstack endpoint create --region {{ REGION_NAME }}  image admin  http://{{ CONTROLLER_HOST }}:{{ services_port.glance-api }}
+    - openstack endpoint create --region {{ REGION_NAME }}  image internal  http://{{ CONTROLLER_HOST }}:{{ services_port.glance-api }}
+  when: ( "{{ host_name }}"" == "{{ first_controller }}" )
+
+- name: cp /usr/share/docker/glance/glance/ 
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'glance-api.conf.j2', dest: '{{ usr_share_docker }}/glance/glance/glance-api.conf' }
+    - { src: 'glance-registry.conf.j2', dest: '{{ usr_share_docker }}/glance/glance/glance-registry.conf' }
+
+- name: cp /usr/share/docker/glance/ceph/ 
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  with_items:
+    - { src: 'ceph.conf.j2', dest: '{{ usr_share_docker }}/glance/ceph/ceph.conf' }
+    - { src: 'ceph.client.images.keyring.j2', dest: '{{ usr_share_docker }}/glance/ceph/ceph.client.images.keyring' }
+
+- name: remove glance-container
+  command: '{{ item }}'
+  args:
+    excutable: /bin/bash
+  with_items:
+    - docker stop glance-api
+    - docker stop glance-registry
+    - docker rm glance-api
+    - docker rm glance-registry
+
+- name: Glance BOOTSTRAP
+  command: docker run   --network=host -v {{ VAR_LOG_DIR }}/glance:/var/log/glance -v /var/lib/glance:/var/lib/glance -v {{ usr_share_docker }}:/usr/share/docker/ -v /etc/localtime:/etc/localtime -u glance -e GLANCE_START='BOOTSTRAP' docker-registry:4000/glance:q
+  args:
+    excutable: /bin/bash
+  when: ( "{{ host_name }}"" == "{{ first_controller }}" )
+
+- name: START Glance API 
+  command: docker run -d --name glance-api --network=host --restart unless-stopped -v {{ VAR_LOG_DIR }}:/var/log/glance -v /var/lib/glance:/var/lib/glance -v {{ usr_share_docker }}:/usr/share/docker/ -v /etc/localtime:/etc/localtime -u glance -e GLANCE_START='START_GLANCE_API' docker-registry:4000/glance:q
+  args:
+    excutable: /bin/bash
+
+- name: START GLANCE REGISTRY 
+ command: docker run -d --name glance-registry --network=host --restart unless-stopped -v {{ VAR_LOG_DIR }}:/var/log/glance -v /var/lib/glance:/var/lib/glance -v {{ usr_share_docker }}:/usr/share/docker/ -v /etc/localtime:/etc/localtime -u glance -e GLANCE_START='START_GLANCE_REGISTRY' docker-registry:4000/glance:q
+  args:
+    excutable: /bin/bash
+
+
+  

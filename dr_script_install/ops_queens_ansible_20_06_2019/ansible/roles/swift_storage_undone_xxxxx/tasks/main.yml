@@ -1,0 +1,24 @@
+---
+
+- name: restart openstack-swift 
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: '{{item}}'
+  with_items: 
+    - 'openstack-swift-account-auditor.service'
+    - 'openstack-swift-account-reaper.service'
+    - 'openstack-swift-account-replicator.service '
+    - 'openstack-swift-account.service   '
+    - 'openstack-swift-container-auditor.service '
+    - 'openstack-swift-container-reconciler.service '
+    - 'openstack-swift-container-replicator.service '
+    - 'openstack-swift-container.service  '
+    - 'openstack-swift-container-sync.service  '
+    - 'openstack-swift-container-updater.service '
+    - 'openstack-swift-object-auditor.service '
+    - 'openstack-swift-object-reconstructor.service '
+    - 'openstack-swift-object-replicator.service '
+    - 'openstack-swift-object.service '
+    - 'openstack-swift-object-updater.service '
+

@@ -1,0 +1,656 @@
+{
+  "info": {
+    "started": 0,
+    "last_trace_started": 9111,
+    "finished": 9120,
+    "name": "total"
+  },
+  "stats": {
+    "wsgi": {
+      "count": 8,
+      "duration": 6417
+    },
+    "db": {
+      "count": 6,
+      "duration": 44
+    }
+  },
+  "children": [
+    {
+      "info": {
+        "exception": "None",
+        "name": "wsgi",
+        "service": "public",
+        "started": 0,
+        "meta.raw_payload.wsgi-stop": {
+          "info": {
+            "host": "controller02"
+          },
+          "name": "wsgi-stop",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:40.972212",
+          "trace_id": "c1d33947-d896-43df-b2e1-18a66d7580b1",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        },
+        "finished": 2,
+        "project": "keystone",
+        "host": "controller02",
+        "meta.raw_payload.wsgi-start": {
+          "info": {
+            "host": "controller02",
+            "request": {
+              "path": "/v3",
+              "scheme": "http",
+              "method": "GET",
+              "query": ""
+            }
+          },
+          "name": "wsgi-start",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:40.969354",
+          "trace_id": "c1d33947-d896-43df-b2e1-18a66d7580b1",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        }
+      },
+      "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+      "trace_id": "c1d33947-d896-43df-b2e1-18a66d7580b1",
+      "children": []
+    },
+    {
+      "info": {
+        "exception": "None",
+        "name": "wsgi",
+        "service": "public",
+        "started": 1989,
+        "meta.raw_payload.wsgi-stop": {
+          "info": {
+            "host": "controller02"
+          },
+          "name": "wsgi-stop",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:43.702852",
+          "trace_id": "7405f8b9-6c5b-4b2e-a934-776cca068a3c",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        },
+        "finished": 2733,
+        "project": "keystone",
+        "host": "controller02",
+        "meta.raw_payload.wsgi-start": {
+          "info": {
+            "host": "controller02",
+            "request": {
+              "path": "/v3/auth/tokens",
+              "scheme": "http",
+              "method": "POST",
+              "query": ""
+            }
+          },
+          "name": "wsgi-start",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:42.959032",
+          "trace_id": "7405f8b9-6c5b-4b2e-a934-776cca068a3c",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        }
+      },
+      "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+      "trace_id": "7405f8b9-6c5b-4b2e-a934-776cca068a3c",
+      "children": []
+    },
+    {
+      "info": {
+        "exception": "None",
+        "name": "wsgi",
+        "service": "public",
+        "started": 4750,
+        "meta.raw_payload.wsgi-stop": {
+          "info": {
+            "host": "controller02"
+          },
+          "name": "wsgi-stop",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:46.443333",
+          "trace_id": "07f8ffc0-ab2d-4077-aaa7-24882fb96181",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        },
+        "finished": 5473,
+        "project": "keystone",
+        "host": "controller02",
+        "meta.raw_payload.wsgi-start": {
+          "info": {
+            "host": "controller02",
+            "request": {
+              "path": "/v3/auth/tokens",
+              "scheme": "http",
+              "method": "POST",
+              "query": ""
+            }
+          },
+          "name": "wsgi-start",
+          "service": "public",
+          "timestamp": "2019-11-04T02:50:45.719765",
+          "trace_id": "07f8ffc0-ab2d-4077-aaa7-24882fb96181",
+          "project": "keystone",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        }
+      },
+      "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+      "trace_id": "07f8ffc0-ab2d-4077-aaa7-24882fb96181",
+      "children": []
+    },
+    {
+      "info": {
+        "exception": "None",
+        "name": "wsgi",
+        "service": "api",
+        "started": 5483,
+        "meta.raw_payload.wsgi-stop": {
+          "info": {
+            "host": "controller02"
+          },
+          "name": "wsgi-stop",
+          "service": "api",
+          "timestamp": "2019-11-04T02:50:50.048483",
+          "trace_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "project": "glance",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        },
+        "finished": 9079,
+        "project": "glance",
+        "host": "controller02",
+        "meta.raw_payload.wsgi-start": {
+          "info": {
+            "host": "controller02",
+            "request": {
+              "path": "/v2/images",
+              "scheme": "http",
+              "method": "GET",
+              "query": ""
+            }
+          },
+          "name": "wsgi-start",
+          "service": "api",
+          "timestamp": "2019-11-04T02:50:46.452929",
+          "trace_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "project": "glance",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        }
+      },
+      "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+      "trace_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+      "children": [
+        {
+          "info": {
+            "exception": "None",
+            "name": "wsgi",
+            "service": "public",
+            "started": 5492,
+            "meta.raw_payload.wsgi-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "wsgi-stop",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:46.464009",
+              "trace_id": "305e7ce7-0e60-4f01-b94c-17d9aa1b1845",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "finished": 5494,
+            "project": "keystone",
+            "host": "controller02",
+            "meta.raw_payload.wsgi-start": {
+              "info": {
+                "host": "controller02",
+                "request": {
+                  "path": "/",
+                  "scheme": "http",
+                  "method": "GET",
+                  "query": ""
+                }
+              },
+              "name": "wsgi-start",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:46.461564",
+              "trace_id": "305e7ce7-0e60-4f01-b94c-17d9aa1b1845",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "trace_id": "305e7ce7-0e60-4f01-b94c-17d9aa1b1845",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "wsgi",
+            "service": "public",
+            "started": 7507,
+            "meta.raw_payload.wsgi-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "wsgi-stop",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:49.183088",
+              "trace_id": "883f1a31-f19e-44e3-9efa-a14dde9d7345",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "finished": 8213,
+            "project": "keystone",
+            "host": "controller02",
+            "meta.raw_payload.wsgi-start": {
+              "info": {
+                "host": "controller02",
+                "request": {
+                  "path": "/v3/auth/tokens",
+                  "scheme": "http",
+                  "method": "POST",
+                  "query": ""
+                }
+              },
+              "name": "wsgi-start",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:48.477015",
+              "trace_id": "883f1a31-f19e-44e3-9efa-a14dde9d7345",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "trace_id": "883f1a31-f19e-44e3-9efa-a14dde9d7345",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "wsgi",
+            "service": "public",
+            "started": 8222,
+            "meta.raw_payload.wsgi-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "wsgi-stop",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:49.798812",
+              "trace_id": "74d054f7-e674-48b1-9cb1-b1c44fd4331d",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "finished": 8829,
+            "project": "keystone",
+            "host": "controller02",
+            "meta.raw_payload.wsgi-start": {
+              "info": {
+                "host": "controller02",
+                "request": {
+                  "path": "/v3/auth/tokens",
+                  "scheme": "http",
+                  "method": "GET",
+                  "query": ""
+                }
+              },
+              "name": "wsgi-start",
+              "service": "public",
+              "timestamp": "2019-11-04T02:50:49.192211",
+              "trace_id": "74d054f7-e674-48b1-9cb1-b1c44fd4331d",
+              "project": "keystone",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "trace_id": "74d054f7-e674-48b1-9cb1-b1c44fd4331d",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "db",
+            "service": "api",
+            "started": 9033,
+            "finished": 9034,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.003742",
+              "trace_id": "96d5e9d5-9347-4299-a2b1-baf46d511004",
+              "project": "glance",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {},
+                  "statement": "SELECT 1"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.002829",
+              "trace_id": "96d5e9d5-9347-4299-a2b1-baf46d511004",
+              "project": "glance",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "trace_id": "96d5e9d5-9347-4299-a2b1-baf46d511004",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "db",
+            "service": "api",
+            "started": 9040,
+            "finished": 9072,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.042279",
+              "trace_id": "551872f0-05fd-412d-81da-13cc1726edd1",
+              "project": "glance",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {
+                    "visibility_1": "community",
+                    "param_1": 25,
+                    "owner_1": "81b702ffac0241aa8e49ce59ac16ebfd",
+                    "status_8": "uploading",
+                    "status_7": "importing",
+                    "status_6": "deactivated",
+                    "status_5": "deleted",
+                    "status_4": "pending_delete",
+                    "status_3": "queued",
+                    "status_2": "saving",
+                    "status_1": "active"
+                  },
+                  "statement": "SELECT anon_1.images_created_at AS anon_1_images_created_at, anon_1.images_updated_at AS anon_1_images_updated_at, anon_1.images_deleted_at AS anon_1_images_deleted_at, anon_1.images_deleted AS anon_1_images_deleted, anon_1.images_id AS anon_1_images_id, anon_1.images_name AS anon_1_images_name, anon_1.images_disk_format AS anon_1_images_disk_format, anon_1.images_container_format AS anon_1_images_container_format, anon_1.images_size AS anon_1_images_size, anon_1.images_virtual_size AS anon_1_images_virtual_size, anon_1.images_status AS anon_1_images_status, anon_1.images_visibility AS anon_1_images_visibility, anon_1.images_checksum AS anon_1_images_checksum, anon_1.images_os_hash_algo AS anon_1_images_os_hash_algo, anon_1.images_os_hash_value AS anon_1_images_os_hash_value, anon_1.images_min_disk AS anon_1_images_min_disk, anon_1.images_min_ram AS anon_1_images_min_ram, anon_1.images_owner AS anon_1_images_owner, anon_1.images_protected AS anon_1_images_protected, anon_1.images_os_hidden AS anon_1_images_os_hidden, image_locations_1.created_at AS image_locations_1_created_at, image_locations_1.updated_at AS image_locations_1_updated_at, image_locations_1.deleted_at AS image_locations_1_deleted_at, image_locations_1.deleted AS image_locations_1_deleted, image_locations_1.id AS image_locations_1_id, image_locations_1.image_id AS image_locations_1_image_id, image_locations_1.value AS image_locations_1_value, image_locations_1.meta_data AS image_locations_1_meta_data, image_locations_1.status AS image_locations_1_status, image_tags_1.created_at AS image_tags_1_created_at, image_tags_1.updated_at AS image_tags_1_updated_at, image_tags_1.deleted_at AS image_tags_1_deleted_at, image_tags_1.deleted AS image_tags_1_deleted, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.value AS image_tags_1_value, image_properties_1.created_at AS image_properties_1_created_at, image_properties_1.updated_at AS image_properties_1_updated_at, image_properties_1.deleted_at AS image_properties_1_deleted_at, image_properties_1.deleted AS image_properties_1_deleted, image_properties_1.id AS image_properties_1_id, image_properties_1.image_id AS image_properties_1_image_id, image_properties_1.name AS image_properties_1_name, image_properties_1.value AS image_properties_1_value \nFROM (SELECT images.created_at AS images_created_at, images.updated_at AS images_updated_at, images.deleted_at AS images_deleted_at, images.deleted AS images_deleted, images.id AS images_id, images.name AS images_name, images.disk_format AS images_disk_format, images.container_format AS images_container_format, images.size AS images_size, images.virtual_size AS images_virtual_size, images.status AS images_status, images.visibility AS images_visibility, images.checksum AS images_checksum, images.os_hash_algo AS images_os_hash_algo, images.os_hash_value AS images_os_hash_value, images.min_disk AS images_min_disk, images.min_ram AS images_min_ram, images.owner AS images_owner, images.protected AS images_protected, images.os_hidden AS images_os_hidden \nFROM images \nWHERE images.os_hidden = false AND images.deleted = false AND images.status IN (%(status_1)s, %(status_2)s, %(status_3)s, %(status_4)s, %(status_5)s, %(status_6)s, %(status_7)s, %(status_8)s) AND (images.owner = %(owner_1)s OR images.visibility != %(visibility_1)s) ORDER BY images.created_at DESC, images.id DESC \n LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN image_locations AS image_locations_1 ON anon_1.images_id = image_locations_1.image_id LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id LEFT OUTER JOIN image_properties AS image_properties_1 ON anon_1.images_id = image_properties_1.image_id ORDER BY anon_1.images_created_at DESC, anon_1.images_id DESC"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.009693",
+              "trace_id": "551872f0-05fd-412d-81da-13cc1726edd1",
+              "project": "glance",
+              "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "608ad557-f3ce-4005-9e99-9d413b064559",
+          "trace_id": "551872f0-05fd-412d-81da-13cc1726edd1",
+          "children": []
+        }
+      ]
+    },
+    {
+      "info": {
+        "exception": "None",
+        "name": "wsgi",
+        "service": "api",
+        "started": 9083,
+        "meta.raw_payload.wsgi-stop": {
+          "info": {
+            "host": "controller02"
+          },
+          "name": "wsgi-stop",
+          "service": "api",
+          "timestamp": "2019-11-04T02:50:50.090204",
+          "trace_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "project": "glance",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        },
+        "finished": 9120,
+        "project": "glance",
+        "host": "controller02",
+        "meta.raw_payload.wsgi-start": {
+          "info": {
+            "host": "controller02",
+            "request": {
+              "path": "/v2/images",
+              "scheme": "http",
+              "method": "GET",
+              "query": "marker=18c25cae-c488-42f1-ab63-6d9833a37c76"
+            }
+          },
+          "name": "wsgi-start",
+          "service": "api",
+          "timestamp": "2019-11-04T02:50:50.053015",
+          "trace_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "project": "glance",
+          "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+          "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+        }
+      },
+      "parent_id": "35b4baee-e3e9-40ac-9945-727183782ed5",
+      "trace_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+      "children": [
+        {
+          "info": {
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {},
+                  "statement": "SELECT 1"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.059863",
+              "trace_id": "9e76e883-1142-47ff-b28a-248332ed76e6",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "name": "db",
+            "service": "api",
+            "started": 9090,
+            "finished": 9091,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.060767",
+              "trace_id": "9e76e883-1142-47ff-b28a-248332ed76e6",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "exception": "None"
+          },
+          "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "trace_id": "9e76e883-1142-47ff-b28a-248332ed76e6",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "db",
+            "service": "api",
+            "started": 9093,
+            "finished": 9096,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.065898",
+              "trace_id": "cd822386-8299-487f-851e-879dd147d3f3",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {
+                    "id_1": "18c25cae-c488-42f1-ab63-6d9833a37c76"
+                  },
+                  "statement": "SELECT images.created_at AS images_created_at, images.updated_at AS images_updated_at, images.deleted_at AS images_deleted_at, images.deleted AS images_deleted, images.id AS images_id, images.name AS images_name, images.disk_format AS images_disk_format, images.container_format AS images_container_format, images.size AS images_size, images.virtual_size AS images_virtual_size, images.status AS images_status, images.visibility AS images_visibility, images.checksum AS images_checksum, images.os_hash_algo AS images_os_hash_algo, images.os_hash_value AS images_os_hash_value, images.min_disk AS images_min_disk, images.min_ram AS images_min_ram, images.owner AS images_owner, images.protected AS images_protected, images.os_hidden AS images_os_hidden, image_locations_1.created_at AS image_locations_1_created_at, image_locations_1.updated_at AS image_locations_1_updated_at, image_locations_1.deleted_at AS image_locations_1_deleted_at, image_locations_1.deleted AS image_locations_1_deleted, image_locations_1.id AS image_locations_1_id, image_locations_1.image_id AS image_locations_1_image_id, image_locations_1.value AS image_locations_1_value, image_locations_1.meta_data AS image_locations_1_meta_data, image_locations_1.status AS image_locations_1_status, image_properties_1.created_at AS image_properties_1_created_at, image_properties_1.updated_at AS image_properties_1_updated_at, image_properties_1.deleted_at AS image_properties_1_deleted_at, image_properties_1.deleted AS image_properties_1_deleted, image_properties_1.id AS image_properties_1_id, image_properties_1.image_id AS image_properties_1_image_id, image_properties_1.name AS image_properties_1_name, image_properties_1.value AS image_properties_1_value \nFROM images LEFT OUTER JOIN image_locations AS image_locations_1 ON images.id = image_locations_1.image_id LEFT OUTER JOIN image_properties AS image_properties_1 ON images.id = image_properties_1.image_id \nWHERE images.id = %(id_1)s"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.063163",
+              "trace_id": "cd822386-8299-487f-851e-879dd147d3f3",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "trace_id": "cd822386-8299-487f-851e-879dd147d3f3",
+          "children": []
+        },
+        {
+          "info": {
+            "exception": "None",
+            "name": "db",
+            "service": "api",
+            "started": 9104,
+            "finished": 9105,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.074388",
+              "trace_id": "3c6353cb-41f6-4fac-af31-b82313444916",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {},
+                  "statement": "SELECT 1"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.073758",
+              "trace_id": "3c6353cb-41f6-4fac-af31-b82313444916",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            }
+          },
+          "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "trace_id": "3c6353cb-41f6-4fac-af31-b82313444916",
+          "children": []
+        },
+        {
+          "info": {
+            "meta.raw_payload.db-start": {
+              "info": {
+                "host": "controller02",
+                "db": {
+                  "params": {
+                    "visibility_1": "community",
+                    "param_5": 25,
+                    "param_4": "18c25cae-c488-42f1-ab63-6d9833a37c76",
+                    "param_1": "2019-10-30T09:17:50.000000",
+                    "param_3": "",
+                    "param_2": "2019-10-30T09:17:50.000000",
+                    "owner_1": "81b702ffac0241aa8e49ce59ac16ebfd",
+                    "status_8": "uploading",
+                    "status_7": "importing",
+                    "status_6": "deactivated",
+                    "status_5": "deleted",
+                    "status_4": "pending_delete",
+                    "status_3": "queued",
+                    "status_2": "saving",
+                    "status_1": "active"
+                  },
+                  "statement": "SELECT anon_1.images_created_at AS anon_1_images_created_at, anon_1.images_updated_at AS anon_1_images_updated_at, anon_1.images_deleted_at AS anon_1_images_deleted_at, anon_1.images_deleted AS anon_1_images_deleted, anon_1.images_id AS anon_1_images_id, anon_1.images_name AS anon_1_images_name, anon_1.images_disk_format AS anon_1_images_disk_format, anon_1.images_container_format AS anon_1_images_container_format, anon_1.images_size AS anon_1_images_size, anon_1.images_virtual_size AS anon_1_images_virtual_size, anon_1.images_status AS anon_1_images_status, anon_1.images_visibility AS anon_1_images_visibility, anon_1.images_checksum AS anon_1_images_checksum, anon_1.images_os_hash_algo AS anon_1_images_os_hash_algo, anon_1.images_os_hash_value AS anon_1_images_os_hash_value, anon_1.images_min_disk AS anon_1_images_min_disk, anon_1.images_min_ram AS anon_1_images_min_ram, anon_1.images_owner AS anon_1_images_owner, anon_1.images_protected AS anon_1_images_protected, anon_1.images_os_hidden AS anon_1_images_os_hidden, image_locations_1.created_at AS image_locations_1_created_at, image_locations_1.updated_at AS image_locations_1_updated_at, image_locations_1.deleted_at AS image_locations_1_deleted_at, image_locations_1.deleted AS image_locations_1_deleted, image_locations_1.id AS image_locations_1_id, image_locations_1.image_id AS image_locations_1_image_id, image_locations_1.value AS image_locations_1_value, image_locations_1.meta_data AS image_locations_1_meta_data, image_locations_1.status AS image_locations_1_status, image_tags_1.created_at AS image_tags_1_created_at, image_tags_1.updated_at AS image_tags_1_updated_at, image_tags_1.deleted_at AS image_tags_1_deleted_at, image_tags_1.deleted AS image_tags_1_deleted, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.value AS image_tags_1_value, image_properties_1.created_at AS image_properties_1_created_at, image_properties_1.updated_at AS image_properties_1_updated_at, image_properties_1.deleted_at AS image_properties_1_deleted_at, image_properties_1.deleted AS image_properties_1_deleted, image_properties_1.id AS image_properties_1_id, image_properties_1.image_id AS image_properties_1_image_id, image_properties_1.name AS image_properties_1_name, image_properties_1.value AS image_properties_1_value \nFROM (SELECT images.created_at AS images_created_at, images.updated_at AS images_updated_at, images.deleted_at AS images_deleted_at, images.deleted AS images_deleted, images.id AS images_id, images.name AS images_name, images.disk_format AS images_disk_format, images.container_format AS images_container_format, images.size AS images_size, images.virtual_size AS images_virtual_size, images.status AS images_status, images.visibility AS images_visibility, images.checksum AS images_checksum, images.os_hash_algo AS images_os_hash_algo, images.os_hash_value AS images_os_hash_value, images.min_disk AS images_min_disk, images.min_ram AS images_min_ram, images.owner AS images_owner, images.protected AS images_protected, images.os_hidden AS images_os_hidden \nFROM images \nWHERE images.os_hidden = false AND images.deleted = false AND images.status IN (%(status_1)s, %(status_2)s, %(status_3)s, %(status_4)s, %(status_5)s, %(status_6)s, %(status_7)s, %(status_8)s) AND (images.owner = %(owner_1)s OR images.visibility != %(visibility_1)s) AND (CASE WHEN (images.created_at IS NOT NULL) THEN images.created_at END < %(param_1)s OR CASE WHEN (images.created_at IS NOT NULL) THEN images.created_at END = %(param_2)s AND CASE WHEN (images.id IS NOT NULL) THEN images.id ELSE %(param_3)s END < %(param_4)s) ORDER BY images.created_at DESC, images.id DESC \n LIMIT %(param_5)s) AS anon_1 LEFT OUTER JOIN image_locations AS image_locations_1 ON anon_1.images_id = image_locations_1.image_id LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id LEFT OUTER JOIN image_properties AS image_properties_1 ON anon_1.images_id = image_properties_1.image_id ORDER BY anon_1.images_created_at DESC, anon_1.images_id DESC"
+                }
+              },
+              "name": "db-start",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.080818",
+              "trace_id": "372e72aa-eef7-4e8c-a643-054a73c387ca",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "name": "db",
+            "service": "api",
+            "started": 9111,
+            "finished": 9117,
+            "project": "glance",
+            "meta.raw_payload.db-stop": {
+              "info": {
+                "host": "controller02"
+              },
+              "name": "db-stop",
+              "service": "api",
+              "timestamp": "2019-11-04T02:50:50.086856",
+              "trace_id": "372e72aa-eef7-4e8c-a643-054a73c387ca",
+              "project": "glance",
+              "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+              "base_id": "35b4baee-e3e9-40ac-9945-727183782ed5"
+            },
+            "host": "controller02",
+            "exception": "None"
+          },
+          "parent_id": "ee5418b1-a75e-47bc-9f48-4d481a6449c4",
+          "trace_id": "372e72aa-eef7-4e8c-a643-054a73c387ca",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

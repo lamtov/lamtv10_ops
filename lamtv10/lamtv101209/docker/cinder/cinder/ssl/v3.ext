@@ -1,0 +1,14 @@
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = controller
+DNS.2 = o1.controller
+DNS.3 = o2.controller
+DNS.4 = o3.controller
+DNS.5 = o4.controller
+DNS.6 = os.controller
+
+

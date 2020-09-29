@@ -1,0 +1,34 @@
+vrrp_script check_haproxy {
+   script "pkill -0 haproxy"
+   interval 2
+   weight 2
+}
+
+vrrp_sync_group VG_1 {
+   group {
+      PRIVATE_V1
+   }
+}
+
+vrrp_instance PRIVATE_V1 {
+   state BACKUP
+   priority KEEPALIVED_PRIOR
+   advert_int 1
+   interface VIP_PRIVATE_INF
+   virtual_router_id 151
+   virtual_ipaddress {
+       VIP_PRIVATE
+   }
+   track_script {
+       check_haproxy
+   }
+}
+
+# ifdown eth1 van khong chuyen ip vi nguyen nhan cua failover la vrrp (ifdown ko anh huong den vrrp do vitual ip van con)
+# ip link set down eth1 chuyen ip
+# shutdown ok
+# ping = killall 0 haproxy : track_script
+# http://www.keepalived.org/manpage.html
+# https://media.readthedocs.org/pdf/keepalived/stable/keepalived.pdf
+# https://keepalived.readthedocs.io/en/latest/case_study_healthcheck.html
+# https://tools.ietf.org/pdf/rfc3768.pdf
