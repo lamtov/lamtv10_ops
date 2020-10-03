@@ -1,0 +1,38 @@
+NAME
+       httpd24  -  manual page for httpd24 Software Collection
+
+SYNOPSIS
+       systemctl start httpd24-httpd
+
+DESCRIPTION
+       Package httpd24 provides Apache httpd web server as a Software Collection.
+       For  more  information  about  Software Collections, see the scl(1) man
+       page. By installing the httpd24 collection, you will get the minimum
+       working set of packages to have a working Apache httpd web server.
+
+       Software	 Collections  allows use of applications which are not located
+       in the filesystem root hierarchy but  are  present  in  an  alternative
+       location, which is /opt/rh/httpd24/root in case of the httpd24 collection.
+
+       When  you  want to  work  with the httpd24 collection, use the scl
+       utility (see the scl(1) man page for usage) to enable the scl  environ‐
+       ment.
+
+EXAMPLES
+       scl enable httpd24 'command --arg'
+
+	      Run  a  specific command  with  the argument  --arg within the
+	      httpd24 software collections environment.
+
+       scl enable httpd24 bash
+
+	      Run  an  interactive shell with the httpd24 software collec‐
+	      tion enabled.
+
+       scl enable httpd24 'man httpd'
+
+	      Show man pages for the httpd command, which is  a part  of  the
+	      httpd24 software collection.
+
+REPORTING BUGS
+       Report bugs to <http://bugzilla.redhat.com>.

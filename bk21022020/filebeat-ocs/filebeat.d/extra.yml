@@ -1,0 +1,9 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - C:\salt\var\log\salton
+        #- C:\ProgramData\VMware\vCenterServer\logs\vmware-vpx\vpxd-*.log
+
+      input_type: log
+

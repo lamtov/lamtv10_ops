@@ -1,0 +1,14 @@
+filebeat.prospectors:
+- close_timeout: 4h
+  document_type: apache_access
+  ignore_older: 24h
+  input_type: log
+  paths:
+  - /u01/apache2/log/httpd/nova/nova_metadata_%Y-%m-%d.log
+  - /u01/apache2/log/httpd/glance/glance_%Y-%m-%d.log
+  - /u01/apache2/log/httpd/neutron/neutron_%Y-%m-%d.log
+  - /u01/apache2/log/httpd/nova/nova_api_%Y-%m-%d.log
+  - /u01/apache2/log/httpd/swift/swift_proxy_%Y-%m-%d.log
+  - /opt/rh/httpd24/root/etc/httpd/logs/access_log
+  - /u01/apache2/log/httpd/nova/nova_vnc_%Y-%m-%d.log
+  - /u01/apache2/log/httpd/nova/nova_placement_api_%Y-%m-%d.log

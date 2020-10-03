@@ -1,0 +1,38 @@
+[2020-04-28 08:58:44.360] [ INFO    ] [_internal:_log:122] 57371  * Running on http://0.0.0.0:4321/ (Press CTRL+C to quit)
+[2020-04-28 08:58:44.360] [ INFO    ] [_internal:_log:122] 57371  * Restarting with stat
+[2020-04-28 08:58:45.642] [ WARNING ] [_internal:_log:122] 57401  * Debugger is active!
+[2020-04-28 08:58:45.643] [ INFO    ] [_internal:_log:122] 57401  * Debugger PIN: 507-280-042
+[2020-04-28 08:58:54.751] [ INFO    ] [_internal:_log:122] 57401 127.0.0.1 - - [28/Apr/2020 08:58:54] "POST /message HTTP/1.1" 405 -
+[2020-04-28 09:00:27.172] [ INFO    ] [_internal:_log:122] 57401  * Detected change in '/home/vttek/lamtv10/Project23022020/controllers/management_file_config/routes.py', reloading
+[2020-04-28 09:00:27.295] [ INFO    ] [_internal:_log:122] 57371  * Restarting with stat
+[2020-04-28 09:00:28.997] [ WARNING ] [_internal:_log:122] 59546  * Debugger is active!
+[2020-04-28 09:00:28.998] [ INFO    ] [_internal:_log:122] 59546  * Debugger PIN: 507-280-042
+[2020-04-28 09:01:18.288] [ INFO    ] [_internal:_log:122] 59546  * Detected change in '/home/vttek/lamtv10/Project23022020/controllers/management_file_config/routes.py', reloading
+[2020-04-28 09:01:18.415] [ INFO    ] [_internal:_log:122] 57371  * Restarting with stat
+[2020-04-28 09:01:19.623] [ WARNING ] [_internal:_log:122] 60586  * Debugger is active!
+[2020-04-28 09:01:19.624] [ INFO    ] [_internal:_log:122] 60586  * Debugger PIN: 507-280-042
+[2020-04-28 09:01:21.666] [ INFO    ] [_internal:_log:122] 60586  * Detected change in '/home/vttek/lamtv10/Project23022020/controllers/management_file_config/routes.py', reloading
+[2020-04-28 09:01:21.820] [ INFO    ] [_internal:_log:122] 57371  * Restarting with stat
+[2020-04-28 09:01:23.479] [ WARNING ] [_internal:_log:122] 60675  * Debugger is active!
+[2020-04-28 09:01:23.479] [ INFO    ] [_internal:_log:122] 60675  * Debugger PIN: 507-280-042
+[2020-04-28 09:05:21.910] [ INFO    ] [_internal:_log:122] 60675 127.0.0.1 - - [28/Apr/2020 09:05:21] "POST /message HTTP/1.1" 405 -
+[2020-04-28 09:05:41.054] [ INFO    ] [_internal:_log:122] 60675 127.0.0.1 - - [28/Apr/2020 09:05:41] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 09:05:53.279] [ INFO    ] [_internal:_log:122] 60675  * Detected change in '/home/vttek/lamtv10/Project23022020/controllers/management_file_config/routes.py', reloading
+[2020-04-28 09:05:53.408] [ INFO    ] [_internal:_log:122] 57371  * Restarting with stat
+[2020-04-28 09:05:55.557] [ WARNING ] [_internal:_log:122] 66262  * Debugger is active!
+[2020-04-28 09:05:55.558] [ INFO    ] [_internal:_log:122] 66262  * Debugger PIN: 507-280-042
+[2020-04-28 09:06:01.343] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:06:01] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 09:32:26.861] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:32:26] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 09:32:28.010] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:32:28] "POST /message HTTP/1.1" 405 -
+[2020-04-28 09:32:55.098] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:32:55] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 09:32:56.101] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:32:56] "POST /test/test5 HTTP/1.1" 404 -
+[2020-04-28 09:33:18.385] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:33:18] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 09:33:19.528] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 09:33:19] "POST /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 10:15:42.331] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 10:15:42] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 10:15:43.511] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 10:15:43] "POST /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 15:35:55.537] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 15:35:55] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 15:35:56.371] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 15:35:56] "POST /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 15:45:59.949] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 15:45:59] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 15:46:00.671] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 15:46:00] "POST /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 16:06:49.378] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 16:06:49] "GET /tests/test5 HTTP/1.1" 200 -
+[2020-04-28 16:06:50.297] [ INFO    ] [_internal:_log:122] 66262 127.0.0.1 - - [28/Apr/2020 16:06:50] "POST /tests/test5 HTTP/1.1" 200 -

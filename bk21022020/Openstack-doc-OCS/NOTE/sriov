@@ -1,0 +1,268 @@
+1. Edit /etc/sysctl.conf file and specify the number of hugepages in the nr_hugepages parameter. The entry makes the parameter persist across reboots but does not come into effect until you run the ‘sysctl -p’ command described in the next step.
+
+# vi /etc/sysctl.conf
+vm.nr_hugepages = 10
+2. Execute ‘sysctl -p’ command to enable the hugepages parameter.
+
+# sysctl -p
+...
+vm.nr_hugepages = 10
+
+
+
+
+ip link set <pf> vf <vf_index> state auto|enable|disable.
+
+
+ovs-ofctl add-flow br-provider in_port=p1p1,action=pop_vlan,NORMAL
+
+
+source ~/open.rc && openstack server create --image rhel76_ems --nic net-id=sriov --flavor 4C8G12G1H --availability-zone nova:computebeta --wait beta_84_dpdk
+
+
+iperf3 -s
+iperf3 -c 172.16.32.30 -u -b 0
+
++--------------------------------------+-----------------------------------------------------+---------+--------------------+---------------+-----------+
+| ID                                   | Name                                                | Status  | Networks           | Image         | Flavor    |
++--------------------------------------+-----------------------------------------------------+---------+--------------------+---------------+-----------+
+
+| 911f292f-6305-485a-9315-37771e25d120 | alpha_84_dpdk                                       | ACTIVE  | sriov=172.16.32.3  | rhel76_ems    | 4C8G12G1H |
+| 8fb94f19-6353-462f-a92d-7c59e62aa36a | beta_84_dpdk                                        | ACTIVE  | sriov=172.16.32.18 | rhel76_ems    | 4C8G12G1H |
+
+| 4638f079-f681-4258-9939-0c9960c89a0b | beta_82_dpdk                                        | ACTIVE  | sriov=172.16.32.10 | rhel76_ems    | 4C8G12G1H |
+| 5ea794eb-4459-4ddb-a159-7602b6e2292a | alpha_82_dpdk                                       | ACTIVE  | sriov=172.16.32.30 | rhel76_ems    | 4C8G12G1H |
+
+| 2ac0e5e1-1e6e-4fe6-8fad-b5959649b0a0 | alpha_sriov                                         | ACTIVE  | sriov=172.16.32.17 | rhel76_ems    | 4C8G12G   |
+| b75594a7-48b8-48dd-9903-9b9d8679a871 | beta_sriov                                          | ACTIVE  | sriov=172.16.32.22 | rhel76_ems    | 4C8G12G   
+
+| d672d503-cba8-4b57-94d1-7c46fcf0e5b8 | alpha_sriov_huge_page                               | ACTIVE  | sriov=172.16.32.8  | rhel76_ems    | 4C8G12G1H |
+| e4add224-ea0f-485b-885a-7ce12e87736e | beta_sriov_huge_page                                | ACTIVE  | sriov=172.16.32.39 | rhel76_ems    | 4C8G12G1H |
+
+
+
+
+5.48
+
+
+
+ping -c 10000 -i 0 172.16.32.84 | tail -3
+
+
+gmhp
+0.024/0.026/0.139/0.006 ms, ipg/ewma 0.044/0.026 ms
+
+rtt min/avg/max/mdev = 0.012/0.014/0.097/0.001 ms, ipg/ewma 0.028/0.015 ms
+
+
+
+0.017/0.024/0.224/0.004 ms, ipg/ewma 0.038/0.024 ms
+
+1111
+rtt min/avg/max/mdev = 0.021/0.022/0.146/0.005 ms, ipg/ewma 0.037/0.023 ms
+rtt min/avg/max/mdev = 0.022/0.024/0.081/0.005 ms, ipg/ewma 0.039/0.027 ms
+
+
+
+
+dpdk 18---> dpdk 10 rtt min/avg/max/mdev = 0.021/0.023/0.122/0.003 ms, ipg/ewma 0.038/0.024 ms
+
+dpdk 18---> cp 83 rtt min/avg/max/mdev = 0.023/0.024/0.127/0.007 ms, ipg/ewma 0.039/0.024 ms
+
+dpdk 18---> sriov 8 rtt min/avg/max/mdev = 0.023/0.
+
+
+/0.462/0.005 ms, ipg/ewma 0.039/0.025 ms
+
+
+sriov 8 --> dpdk 10 rtt min/avg/max/mdev = 0.017/0.024/0.344/0.003 ms, ipg/ewma 0.038/0.024 ms
+sriov 8 --> cp 83 rtt min/avg/max/mdev = 0.017/0.023/0.175/0.006 ms, ipg/ewma 0.038/0.024 ms
+sriov 8 --> sriov 39: rtt min/avg/max/mdev = 0.017/0.024/0.193/0.005 ms, ipg/ewma 0.040/0.025 ms
+
+
+ ping -c 1000000 -l 1024  -i 0 172.16.32.84 | tail -3
+
+
+
+
+sriov->sriov
+[root@sriov-84-huge-page-2 ~]#  ping -c 10000  -i 0 172.16.32.106 | tail -3
+--- 172.16.32.8 ping statistics ---
+1000000 packets transmitted, 1000000 received, 0% packet loss, time 9080ms
+rtt min/avg/max/mdev = 0.011/0.051/0.222/0.023 ms, pipe 116, ipg/ewma 0.009/0.060 ms
+
+
+
+
+[root@sriov-84-huge-page-2 ~]#  ping -c 1000000 -l 512  -i 0 172.16.32.115 | tail -3
+--- 172.16.32.8 ping statistics ---
+1000000 packets transmitted, 1000000 received, 0% packet loss, time 9184ms
+rtt min/avg/max/mdev = 0.011/0.051/0.239/0.024 ms, pipe 130, ipg/ewma 0.009/0.055 ms
+
+
+
+[root@sriov-84-huge-page-2 ~]#  ping -c 1000000 -l 256  -i 0 172.16.32.8 | tail -3
+--- 172.16.32.8 ping statistics ---
+1000000 packets transmitted, 997840 received, 0% packet loss, time 9130ms
+rtt min/avg/max/mdev = 0.011/0.051/0.603/0.024 ms, pipe 128, ipg/ewma 0.009/0.071 ms
+
+[root@sriov-84-huge-page-2 ~]# ping -c 1000000 -l 64  -i 0 172.16.32.8 | tail -3
+--- 172.16.32.8 ping statistics ---
+1000000 packets transmitted, 996404 received, 0% packet loss, time 9161ms
+rtt min/avg/max/mdev = 0.011/0.051/0.205/0.023 ms, pipe 64, ipg/ewma 0.009/0.066 ms
+
+
+[root@sriov-84-huge-page-2 ~]# ping -c 100000 -i 0 172.16.32.8 | tail -3
+--- 172.16.32.8 ping statistics ---
+100000 packets transmitted, 100000 received, 0% packet loss, time 4181ms
+rtt min/avg/max/mdev = 0.025/0.027/0.178/0.002 ms, ipg/ewma 0.041/0.027 ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ java --version
+ 2194  update-alternatives --config java
+ 2195  update-alternatives --install /usr/bin/java java /u01/setup/jdk1.8.0_171/bin/java 3
+ 2196  update-alternatives --config java
+
+
+update-alternatives --install /usr/bin/java java /root/lamtv10/jdk-12.0.2/bin/java 3
+
+/root/lamtv10/jdk-12.0.2/bin
+
+
+server.sh
+#taskset -cp 22
+ taskset -c 24,25,26,27 java -cp target/eventstore-1.0.jar:target/lib/* -DnumberMsgStatistic=5000000 com.viettel.cba.eventstore.run.EventStoreMain
+
+
+
+
+client.sh
+ taskset -c  java -cp target/eventstore-1.0.jar:target/lib/* -Dhost=172.16.32.19 -Dsize=2048 -DmaxTps=2000000 -Dtotal=10000000000 -DnumberMsgStatistic=5000000 com.viettel.cba.eventstore.client.EventClient
+
+
+ .MetricsBenchmark [INFO] [main] Metrics : Obj Sender All| t 96148484 |avgTps 582,601.565 |minT 0 |maxT 3 |avgT 0.002 current|3006029 |curTps 601,085.583 |min 490,176.365 |max 607,174.765 |minT 0.0 |maxT 1.0 |avgT 0.002 | Threshold  |0-2=96148479 |2-10=5
+
+2048
+2019-07-11 23:04:31.795 c.v.c.e.l.MetricsBenchmark [INFO] [main] Metrics : Obj Sender All| t 12801451 |avgTps 365,682.606 |minT 0 |maxT 5 |avgT 0.003 current|1844446 |curTps 368,815.437 |min 347,597.281 |max 371,205.159 |minT 0.0 |maxT 1.0 |avgT 0.003 | Threshold  |0-2=12801447 |2-10=4
+
+
+
+
+2048
+
+2019-07-12 03:02:12.735 c.v.c.e.c.EventClient [INFO] [EventClient.reader=0,host=172.16.32.115,port=8888] throughput 744 MB/s tps 377358 lastSeq 47999999 total 48000000 max 21069849 curMaxT 13073280 avgT 1330987 curAvgT 1819466 min 148817
+2019-07-12 03:02:14.081 c.v.c.e.c.EventClient [INFO] [EventClient.reader=0,host=172.16.32.115,port=8888] throughput 732 MB/s tps 371471 lastSeq 48499999 total 48500000 max 21069849 curMaxT 2249749 avgT 1320970 curAvgT 359293 min 148817
+2019-07-12 03:02:15.757 c.v.c.e.c.EventClient [INFO] [EventClient.reader=0,host=172.16.32.115,port=8888] throughput 588 MB/s tps 298329 lastSeq 48999999 total 49000000 max 21069849 curMaxT 1908098 avgT 1311279 curAvgT 371270 min 148817
+2019-07-12 03:02:17.086 c.v.c.e.c.EventClient [INFO] [EventClient.reader=0,host=172.16.32.115,port=8888] throughput 741 MB/s tps 376222 lastSeq 49499999 total 49500000 max 21069849 curMaxT 7375854 avgT 1309685 curAvgT 1153520 min 148817
+2019-07-12 03:02:17.685 c.v.c.e.l.MetricsBenchmark [INFO] [main] Metrics : Obj Sender All| t 49726272 |avgTps 368,269.102 |minT 0 |maxT 5 |avgT 0.003 current|1745099 |curTps 348,950.010 |min 328,265.547 |max 381,017.197 |minT 0.0 |maxT 1.0 |avgT 0.003 | Threshold  |0-2=49726269 |2-10=3
+
+
+1536
+
+
+
+source ~/open.rc && openstack server create --image rhel76_ems --nic net-id=sriov --nic net-id=mgnt  --flavor 4C8G12G1H  --availability-zone nova:compute02 --wait alpha_dpdk
+
+
+GRUB
+ 984  vim /etc/default/grub 
+  985  vim /etc/grub2.cfg 
+  986  vim /boot/grub2/grub.cfg 
+
+grub2-mkconfig -o /boot/grub2/grub.cfg 
+  988  vim /boot/grub2/grub.cfg 
+  989  reboot 
+
+
+
+  source ~/open.rc && openstack server create --image rhel76_ems --nic net-id=sriov --flavor 4C8G12G1H  --availability-zone nova:compute02 --wait alpha_dpdk
+
+
+modprobe igb 
+ 1002  lspci | grep 82599
+ 1003  echo '8' > /sys/class/net/p1p1/device/sriov_numvfs
+ 1004  lspci | grep 82599
+ 1005  chronyc tracking
+ 1006  systemctl status chronyd
+ 1007  systemctl start chronyd
+ 1008  chronyc tracking
+ 1009  vim /etc/nova/nova.conf
+ 1010  systemctl restart openstack-nova-compute
+ 1011  tail -f /var/log/nova/nova-compute.log
+ 1012  systemctl restart libvirtd openstack-nova-compute
+ 1013  systemctl status neutron-sriov-nic-agent.service 
+ 1014  systemctl start neutron-sriov-nic-agent.service 
+
+ ====> Set lai hugepagevim 
+# vi /etc/sysctl.conf
+vm.nr_hugepages = 10
+2. Execute ‘sysctl -p’ command to enable the hugepages parameter.
+
+# sysctl -p
+...
+vm.nr_hugepages = 10
+
+
+qos
+
+
+openstack network qos policy create --default bw-limiter
+openstack network qos policy set --no-default bw-limiter
+openstack network qos rule create --type bandwidth-limit --max-kbps 3000  --egress bw-limiter fc9fcc56-3070-41a0-92c3-9017a37cfd50
+
+
+openstack network qos policy create bandwidth-control
+openstack network qos rule create --type minimum-bandwidth --min-kbps 1000 --egress bandwidth-control
+
+
+
+
+openstack port list | grep 172.16.30.13
+openstack port remove --qos-policy bw-limiter d1bf1755-a345-4c19-89c5-127dea2371f2
+
+
+
+
+neutron qos-policy-create qos-policy2
+neutron qos-bandwidth-limit-rule-create qos-policy2 --max-kbps 8192
+openstack server list -c Name -c Networks
+openstack port list -c ID -c "Fixed IP Addresses" | grep 192.168.1.N
+neutron port-update  b45eae24-0abf-46f0-8a95-0278f6791678 --qos-policy bandwidth-control
+
+--no-qos-policy
+
+
+
+ neutron port-update  88da148d-935b-4f56-8083-6af5136181b3   --qos-policy  qos-policy2 
+
+dd if=/dev/zero of=1G.dat bs=1M count=1000
+rsync --progress root@172.16.32.20:1G.dat ./
+
+
+ openstack network qos policy create bandwidth-control
+openstack network qos rule create  --type minimum-bandwidth --min-kbps 1000 --egress bandwidth-control
+
+ip link set <pf> vf <vf_index> state auto|enable|disable.
+
+
+
+Enable the spookchk control for SR-IOV ports by removing the option to disable the MAC spoofing option:
+
+
+
+# neutron port-update 4c7f58f0-0ab8-43d0-b84f-3825bb0a3dfe --no-qos-policy  
+# neutron port-update --no-security-groups  4c7f58f0-0ab8-43d0-b84f-3825bb0a3dfe
+# neutron port-update 4c7f58f0-0ab8-43d0-b84f-3825bb0a3dfe  --port-security-enabled=False
+# neutron port-update 4c7f58f0-0ab8-43d0-b84f-3825bb0a3dfe   --qos-policy  qos-policy3 

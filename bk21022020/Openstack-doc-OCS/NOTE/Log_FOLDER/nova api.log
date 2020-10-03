@@ -1,0 +1,29 @@
+nova api.log
+2019-02-27 09:39:14.411 30 DEBUG nova.osapi_compute.wsgi.server [req-3462f6a1-2020-4fde-a3a8-c4caa7611d2b 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] (30) accepted ('172.16.30.85', 33858) server /usr/li
+b/python2.7/dist-packages/eventlet/wsgi.py:867
+
+
+
+
+
+
+Action: 'create', calling method: <bound method ServersCont
+roller.create of <nova.api.openstack.compute.servers.ServersController object at 0x7f934e317250>>, body: {"server": {"name": "sl", "imageRef": "706e0be0-af71-4f72-99da-7aa37833ae03", "availability_zone": "nova", "key_name": "lamtv", "flavorRef
+": "fc8a2312-0682-42d6-8df6-4bb52f00af62", "OS-DCF:diskConfig": "AUTO", "max_count": 1, "min_count": 1, "networks": [{"uuid": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8"}], "security_groups": [{"name": "03f47bc6-713f-42fa-9246-b68c0ff36342"}]}} _pr
+ocess_stack /usr/lib/python2.7/dist-packages/nova/api/openstack/wsgi.py:609
+
+
+2019-02-27 09:39:15.790 30 DEBUG nova.quota [req-79b1cc48-1c3f-4bf8-9f9c-a9e0f1ba49d1 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Getting quotas for project 5fcdf48d7c864782883ea13f18201a81. Resources: set(['instances', 'ram', 'cores']) _get_quotas /usr/lib/python2.7/dist-packages/nova/quota.py:442
+2019-02-27 09:39:15.793 30 DEBUG nova.quota [req-79b1cc48-1c3f-4bf8-9f9c-a9e0f1ba49d1 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Getting quotas for user 9ae198e0a5834bc1be482b1f201e5dba and project 5fcdf48d7c864782883ea13f18201a81. Resources: set(['instances', 'ram', 'cores']) _get_quotas /usr/lib/python2.7/dist-packages/nova/quota.py:434
+2019-02-27 09:39:15.802 30 DEBUG nova.compute.api [req-79b1cc48-1c3f-4bf8-9f9c-a9e0f1ba49d1 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Going to run 1 instances... _provision_instances /usr/lib/python2.7/dist-packages/nova/compute/api.py:891
+2019-02-27 09:39:15.873 30 DEBUG nova.compute.api [req-79b1cc48-1c3f-4bf8-9f9c-a9e0f1ba49d1 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 31ead432-ece6-453c-987a-72bcf5e2c724] block_device_mapping [BlockDeviceMapping(attachment_id=<?>,boot_index=0,connection_info=None,created_at=<?>,delete_on_termination=True,deleted=<?>,deleted_at=<?>,destination_type='local',device_name=None,device_type='disk',disk_bus=None,guest_format=None,id=<?>,image_id='706e0be0-af71-4f72-99da-7aa37833ae03',instance=<?>,instance_uuid=<?>,no_device=False,snapshot_id=None,source_type='image',tag=None,updated_at=<?>,volume_id=None,volume_size=None)] _bdm_validate_set_size_and_instance /usr/lib/python2.7/dist-packages/nova/compute/api.py:1268
+
+2019-02-27 09:39:16.209 30 INFO nova.osapi_compute.wsgi.server [req-79b1cc48-1c3f-4bf8-9f9c-a9e0f1ba49d1 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] 172.16.30.85,172.16.30.85 "POST /v2.1/servers HTTP/1.1" status: 202 len: 873 time: 1.7956069
+2019-02-27 09:39:16.262 30 DEBUG nova.api.openstack.wsgi [req-eb23100d-7a7d-455e-aac5-65108e9206a5 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Calling method '<bound method ServersController.show of <nova.api.openstack.compute.servers.ServersController object at 0x7f934e1c9050>>' _process_stack /usr/lib/python2.7/dist-packages/nova/api/openstack/wsgi.py:612
+2019-02-27 09:39:16.265 30 DEBUG nova.compute.api [req-eb23100d-7a7d-455e-aac5-65108e9206a5 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 31ead432-ece6-453c-987a-72bcf5e2c724] Fetching instance by UUID get /usr/lib/python2.7/dist-packages/nova/compute/api.py:2324
+2019-02-27 09:39:16.300 30 DEBUG nova.policy [req-eb23100d-7a7d-455e-aac5-65108e9206a5 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Policy check for os_compute_api:os-hide-server-addresses failed with credentials {'service_roles': [], 'user_id': u'9ae198e0a5834bc1be482b1f201e5dba', 'roles': [u'admin'], 'user_domain_id': u'default', 'service_project_id': None, 'service_user_id': None, 'service_user_domain_id': None, 'service_project_domain_id': None, 'is_admin_project': True, 'is_admin': True, 'project_id': u'5fcdf48d7c864782883ea13f18201a81', 'project_domain_id': u'default'} authorize /usr/lib/python2.7/dist-packages/nova/policy.py:168
+
+
+2019-02-27 09:39:16.484 30 INFO nova.osapi_compute.wsgi.server [req-eb23100d-7a7d-455e-aac5-65108e9206a5 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] 172.16.30.85,172.16.30.85 "GET /v2.1/servers/31ead432-ece6-453c-987a-72bcf5e2c724 HTTP/1.1" status: 200 len: 1725 time: 0.2707050
+2019-02-27 09:39:16.640 30 DEBUG nova.api.openstack.wsgi [req-23a48ded-2cc0-46e8-a109-3393aa182a74 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Calling method '<bound method FlavorsController.detail of <nova.api.openstack.compute.flavors.FlavorsController object at 0x7f934e666d50>>' _process_stack /usr/lib/python2.7/dist-packages/nova/api/openstack/wsgi.py:612
+2019-02-27 09:39:16.688 30 INFO nova.osapi_compute.wsgi.server [req-23a48ded-2cc0-46e8-a109-3393aa182a74 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] 172.16.30.85,172.16.30.85 "GET /v2.1/flavors/detail HTTP/1.1" status: 200 len: 11484 time: 0.0890360

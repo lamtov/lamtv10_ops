@@ -1,0 +1,15 @@
+FROM conda_centos_ansible_flask
+
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH /opt/conda/bin:$PATH
+
+RUN yum install -y  iputils
+RUN yum install -y  net-tools
+RUN yum -y install openssh-server openssh-clients
+RUN yum -y install telnet
+
+#ADD software_deployment /root/app
+
+#CMD  cd /root/app && python app.py 
+
+CMD ["/bin/bash"]

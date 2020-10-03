@@ -1,0 +1,25 @@
+variables:
+  GIT_STRATEGY: clone
+before_script:
+  - docker info
+stages:
+  - build
+  - test
+build_image_stage:
+  stage: build
+  tags:
+    - docker_dev
+  script:
+    - docker login -u lamtv10 -p S4YugcbJfZetD551pwJa registry.ocs.com
+    - docker build  -t dev_image_lamtv10:$CI_COMMIT_SHA .
+    - docker tag dev_image_lamtv10:$CI_COMMIT_SHA registry.ocs.com/lamtv10/software_deployment/dev_image_lamtv10:$CI_COMMIT_SHA
+    - docker push registry.ocs.com/lamtv10/software_deployment/dev_image_lamtv10:$CI_COMMIT_SHA
+
+run_image_stage:
+  stage: test
+  tags:
+    - docker_dev
+  script:
+    - docker ps -a -q --filter "name=lamtv10_software" | grep -q . && docker stop lamtv10_software && docker rm -fv lamtv10_software
+    - docker pull registry.ocs.com/lamtv10/software_deployment/dev_image_lamtv10:$CI_COMMIT_SHA
+    - docker run -d --network=host --name lamtv10_software -v /home/lamtv10/software_deployment/data/playbooks:/root/app/static/ansible/playbooks -v /home/lamtv10/software_deployment/data/inventory:/root/app/static/ansible/inventory  -v /home/lamtv10/software_deployment/data/group_vars_template:/root/app/static/ansible/group_vars_template registry.ocs.com/lamtv10/software_deployment/dev_image_lamtv10:$CI_COMMIT_SHA

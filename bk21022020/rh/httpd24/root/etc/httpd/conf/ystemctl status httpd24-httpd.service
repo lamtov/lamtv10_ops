@@ -1,0 +1,1037 @@
+-- Logs begin at Thu 2019-08-22 16:16:01 +07, end at Wed 2019-08-28 18:31:18 +07. --
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <156 connection closed.
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <156 new auto-negotiating client connection
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: 156: Client using the ascii protocol
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <156 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >156 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >156 END
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <180 new auto-negotiating client connection
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: 180: Client using the ascii protocol
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <180 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >180 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >180 END
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <126 connection closed.
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <126 new auto-negotiating client connection
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: 126: Client using the ascii protocol
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: <126 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >126 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:30:04 SPGM01DRCTRL03 memcached[18550]: >126 END
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <49 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <115 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <180 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <72 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <81 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 memcached[18550]: <163 connection closed.
+Aug 28 18:30:05 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=292910 from=::ffff:127.0.0.1
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: <159 connection closed.
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: LRU crawler found an expired item (flags: 11, slab: 147): tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: <87 connection closed.
+Aug 28 18:30:06 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=292910 duration=1(sec)
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: <143 connection closed.
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: <108 connection closed.
+Aug 28 18:30:06 SPGM01DRCTRL03 memcached[18550]: <30 connection closed.
+Aug 28 18:30:07 SPGM01DRCTRL03 memcached[18550]: <30 new auto-negotiating client connection
+Aug 28 18:30:07 SPGM01DRCTRL03 memcached[18550]: 30: Client using the ascii protocol
+Aug 28 18:30:07 SPGM01DRCTRL03 memcached[18550]: <30 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:07 SPGM01DRCTRL03 memcached[18550]: >30 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <30 set tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e 0 300 5478
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >30 STORED
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <49 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 49: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <49 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >49 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >49 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <72 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 72: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <72 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >72 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >72 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <167 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <81 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 81: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <81 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >81 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >81 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <148 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <87 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 87: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <87 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >87 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >87 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <38 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <110 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <38 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 38: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <38 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >38 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >38 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <76 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <76 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 76: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <76 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >76 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >76 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <108 new auto-negotiating client connection
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: 108: Client using the ascii protocol
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <108 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >108 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: >108 END
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <92 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <158 connection closed.
+Aug 28 18:30:08 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=292932 from=::ffff:127.0.0.1
+Aug 28 18:30:08 SPGM01DRCTRL03 memcached[18550]: <64 connection closed.
+Aug 28 18:30:09 SPGM01DRCTRL03 memcached[18550]: <72 connection closed.
+Aug 28 18:30:09 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=292932 duration=1(sec)
+Aug 28 18:30:10 SPGM01DRCTRL03 memcached[18550]: <133 connection closed.
+Aug 28 18:30:10 SPGM01DRCTRL03 memcached[18550]: <172 connection closed.
+Aug 28 18:30:11 SPGM01DRCTRL03 memcached[18550]: <164 connection closed.
+Aug 28 18:30:11 SPGM01DRCTRL03 memcached[18550]: <86 connection closed.
+Aug 28 18:30:11 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=292960 from=::ffff:127.0.0.1
+Aug 28 18:30:12 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=292960 duration=1(sec)
+Aug 28 18:30:12 SPGM01DRCTRL03 crond[18737]: postdrop: warning: unable to look up public/pickup: No such file or directory
+Aug 28 18:30:12 SPGM01DRCTRL03 postfix/postdrop[292968]: [1;39mwarning: unable to look up public/pickup: No such file or directory[0m
+Aug 28 18:30:12 SPGM01DRCTRL03 systemd[1]: Removed slice User Slice of root.
+-- Subject: Unit user-0.slice has finished shutting down
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit user-0.slice has finished shutting down.
+Aug 28 18:30:12 SPGM01DRCTRL03 sshd[292971]: Did not receive identification string from 10.255.26.130 port 37126
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <31 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >31 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >31 END
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <67 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >67 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >67 END
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <64 new auto-negotiating client connection
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: 64: Client using the ascii protocol
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <64 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >64 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >64 END
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: LRU crawler found an expired item (flags: 11, slab: 147): tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <72 new auto-negotiating client connection
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: 72: Client using the ascii protocol
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: <72 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >72 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:12 SPGM01DRCTRL03 memcached[18550]: >72 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <86 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 86: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <86 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >86 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >86 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <92 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 92: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <92 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >92 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >92 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <72 connection closed.
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <72 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 72: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <72 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >72 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >72 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <86 connection closed.
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <86 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 86: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <86 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >86 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >86 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <110 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 110: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <110 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >110 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >110 END
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <48 connection closed.
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <48 new auto-negotiating client connection
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: 48: Client using the ascii protocol
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: <48 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >48 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:30:13 SPGM01DRCTRL03 memcached[18550]: >48 END
+Aug 28 18:30:14 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=293214 from=::ffff:127.0.0.1
+Aug 28 18:30:15 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=293214 duration=1(sec)
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <115 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 115: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <115 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >115 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >115 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <133 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 133: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <133 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >133 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >133 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <143 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 143: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <143 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >143 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >143 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <148 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 148: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <148 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >148 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >148 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <158 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 158: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <158 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >158 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >158 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <159 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 159: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <159 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >159 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >159 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <86 connection closed.
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <86 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 86: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <86 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >86 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >86 END
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <163 new auto-negotiating client connection
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: 163: Client using the ascii protocol
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: <163 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >163 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:30:17 SPGM01DRCTRL03 memcached[18550]: >163 END
+Aug 28 18:30:17 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=293604 from=::ffff:127.0.0.1
+Aug 28 18:30:18 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=293604 duration=1(sec)
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: <31 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >31 END
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: <31 set tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72 0 300 5480
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >31 STORED
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: <67 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >67 sending key tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: >67 END
+Aug 28 18:30:18 SPGM01DRCTRL03 memcached[18550]: <108 connection closed.
+Aug 28 18:30:19 SPGM01DRCTRL03 memcached[18550]: <62 connection closed.
+Aug 28 18:30:19 SPGM01DRCTRL03 memcached[18550]: <128 connection closed.
+Aug 28 18:30:20 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=293633 from=::ffff:127.0.0.1
+Aug 28 18:30:21 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=293633 duration=1(sec)
+Aug 28 18:30:23 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=293662 from=::ffff:127.0.0.1
+Aug 28 18:30:24 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=293662 duration=1(sec)
+Aug 28 18:30:24 SPGM01DRCTRL03 sudo[293669]: [1;39m     oam : TTY=unknown ; PWD=/u01/oam/oam-agent/bin ; USER=root ; COMMAND=/u01/oam/oam-agent/etc/server-info.sh[0m
+Aug 28 18:30:24 SPGM01DRCTRL03 sudo[293669]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293672]: [1;39m(to cinder) root on none[0m
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293672]: pam_unix(su-l:session): session opened for user cinder by (uid=0)
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293672]: pam_unix(su-l:session): session closed for user cinder
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293696]: [1;39m(to cinder) root on none[0m
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293696]: pam_unix(su-l:session): session opened for user cinder by (uid=0)
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293696]: pam_unix(su-l:session): session closed for user cinder
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293823]: [1;39m(to docker) root on none[0m
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293823]: pam_unix(su-l:session): session opened for user docker by (uid=0)
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293823]: pam_unix(su-l:session): session closed for user docker
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293864]: [1;39m(to docker) root on none[0m
+Aug 28 18:30:24 SPGM01DRCTRL03 su[293864]: pam_unix(su-l:session): session opened for user docker by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 su[293864]: pam_unix(su-l:session): session closed for user docker
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294007]: [1;39m(to glance) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294007]: pam_unix(su-l:session): session opened for user glance by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294007]: pam_unix(su-l:session): session closed for user glance
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294052]: [1;39m(to glance) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294052]: pam_unix(su-l:session): session opened for user glance by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294052]: pam_unix(su-l:session): session closed for user glance
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294209]: [1;39m(to mysql) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294209]: pam_unix(su-l:session): session opened for user mysql by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294209]: pam_unix(su-l:session): session closed for user mysql
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294251]: [1;39m(to mysql) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294251]: pam_unix(su-l:session): session opened for user mysql by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <79 connection closed.
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <62 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 62: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <62 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >62 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >62 END
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294251]: pam_unix(su-l:session): session closed for user mysql
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <79 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 79: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <79 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >79 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >79 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <108 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 108: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <108 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >108 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >108 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <62 connection closed.
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <62 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 62: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <62 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >62 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >62 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <128 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 128: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <128 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >128 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >128 END
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294389]: [1;39m(to neutron) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294389]: pam_unix(su-l:session): session opened for user neutron by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <164 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 164: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <164 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >164 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >164 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <167 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 167: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <167 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >167 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >167 END
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294389]: pam_unix(su-l:session): session closed for user neutron
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294438]: [1;39m(to neutron) root on none[0m
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294438]: pam_unix(su-l:session): session opened for user neutron by (uid=0)
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <137 connection closed.
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <137 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 137: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <137 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >137 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >137 END
+Aug 28 18:30:25 SPGM01DRCTRL03 su[294438]: pam_unix(su-l:session): session closed for user neutron
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <148 connection closed.
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <148 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 148: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <148 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >148 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >148 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <167 connection closed.
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <167 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 167: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <167 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >167 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >167 END
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <172 new auto-negotiating client connection
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: 172: Client using the ascii protocol
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: <172 get tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >172 sending key tokens/f130f3aa709ba28a12cfb1ce50edc4bfb86605950d380bf118b3ebc86bf91064
+Aug 28 18:30:25 SPGM01DRCTRL03 memcached[18550]: >172 END
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294552]: [1;39m(to nova) root on none[0m
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294552]: pam_unix(su-l:session): session opened for user nova by (uid=0)
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294552]: pam_unix(su-l:session): session closed for user nova
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294598]: [1;39m(to nova) root on none[0m
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294598]: pam_unix(su-l:session): session opened for user nova by (uid=0)
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294598]: pam_unix(su-l:session): session closed for user nova
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294835]: [1;39m(to oam) root on none[0m
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294835]: pam_unix(su-l:session): session opened for user oam by (uid=0)
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294835]: pam_unix(su-l:session): session closed for user oam
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294877]: [1;39m(to oam) root on none[0m
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294877]: pam_unix(su-l:session): session opened for user oam by (uid=0)
+Aug 28 18:30:26 SPGM01DRCTRL03 su[294877]: pam_unix(su-l:session): session closed for user oam
+Aug 28 18:30:26 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=294984 from=::ffff:127.0.0.1
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295023]: [1;39m(to root) root on none[0m
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295023]: pam_unix(su-l:session): session opened for user root by (uid=0)
+Aug 28 18:30:27 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=294984 duration=1(sec)
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295023]: pam_unix(su-l:session): session closed for user root
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295080]: [1;39m(to root) root on none[0m
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295080]: pam_unix(su-l:session): session opened for user root by (uid=0)
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295080]: pam_unix(su-l:session): session closed for user root
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295237]: [1;39m(to vt_admin) root on none[0m
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295237]: pam_unix(su-l:session): session opened for user vt_admin by (uid=0)
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295237]: pam_unix(su-l:session): session closed for user vt_admin
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295280]: [1;39m(to vt_admin) root on none[0m
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295280]: pam_unix(su-l:session): session opened for user vt_admin by (uid=0)
+Aug 28 18:30:27 SPGM01DRCTRL03 su[295280]: pam_unix(su-l:session): session closed for user vt_admin
+Aug 28 18:30:27 SPGM01DRCTRL03 sudo[293669]: pam_unix(sudo:session): session closed for user root
+Aug 28 18:30:29 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296110 from=::ffff:127.0.0.1
+Aug 28 18:30:30 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296110 duration=1(sec)
+Aug 28 18:30:32 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296133 from=::ffff:127.0.0.1
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <117 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296133 duration=1(sec)
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <64 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <110 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <152 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <158 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <115 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <92 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <127 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <70 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <64 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 64: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <64 get tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >64 sending key tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >64 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <140 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <64 get tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >64 sending key tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >64 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <164 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <70 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 70: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <70 get tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >70 sending key tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >70 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <92 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 92: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <92 get tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >92 sending key tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >92 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <153 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <110 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 110: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <110 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >110 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >110 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <52 connection closed.
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <52 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 52: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <52 get tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >52 sending key tokens/89ac2518705e36815dfe03300642ff11dcb7596273f3d866c5ea49d587bd5774
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >52 END
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <115 new auto-negotiating client connection
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: 115: Client using the ascii protocol
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: <115 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >115 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:33 SPGM01DRCTRL03 memcached[18550]: >115 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <30 connection closed.
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <30 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 30: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <30 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >30 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >30 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <148 connection closed.
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <117 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 117: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <117 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >117 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >117 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <177 connection closed.
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <127 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 127: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <127 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >127 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >127 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <140 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 140: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <140 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >140 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >140 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <148 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 148: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <148 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >148 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >148 END
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <152 new auto-negotiating client connection
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: 152: Client using the ascii protocol
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: <152 get tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >152 sending key tokens/eb5a72f130109c92464fe02d1b8d3f79c0547c21f8563e843eb73f9fe01b5a96
+Aug 28 18:30:34 SPGM01DRCTRL03 memcached[18550]: >152 END
+Aug 28 18:30:35 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296164 from=::ffff:127.0.0.1
+Aug 28 18:30:36 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296164 duration=1(sec)
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <120 get tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >120 sending key tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >120 END
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <44 get tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >44 sending key tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >44 END
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/f8065ae482df431267f827bf9e471983ce1fdff69a36629856ebadbf03565a34
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <64 connection closed.
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <114 connection closed.
+Aug 28 18:30:37 SPGM01DRCTRL03 memcached[18550]: <167 connection closed.
+Aug 28 18:30:38 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296185 from=::ffff:127.0.0.1
+Aug 28 18:30:39 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296185 duration=1(sec)
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <163 connection closed.
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <159 connection closed.
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <47 get tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >47 sending key tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >47 END
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <120 get tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >120 sending key tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >120 END
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <46 get tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >46 sending key tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >46 END
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:40 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:30:41 SPGM01DRCTRL03 memcached[18550]: <53 get tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:41 SPGM01DRCTRL03 memcached[18550]: >53 sending key tokens/8244d85ec268d56255d1bdf6abb0f3064d04ac45d970958b1b51eb555412435b
+Aug 28 18:30:41 SPGM01DRCTRL03 memcached[18550]: >53 END
+Aug 28 18:30:42 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296336 from=::ffff:127.0.0.1
+Aug 28 18:30:42 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296336 duration=1(sec)
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: <44 get tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >44 sending key tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >44 END
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: <166 get tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >166 sending key tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >166 END
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: <34 get tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >34 sending key tokens/1d22918144379fc1aa2d43f78b89fff714edffae364d9b5b9c66845e8ab7ba13
+Aug 28 18:30:43 SPGM01DRCTRL03 memcached[18550]: >34 END
+Aug 28 18:30:44 SPGM01DRCTRL03 memcached[18550]: <152 connection closed.
+Aug 28 18:30:45 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296563 from=::ffff:127.0.0.1
+Aug 28 18:30:45 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296563 duration=1(sec)
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <103 connection closed.
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <64 new auto-negotiating client connection
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: 64: Client using the ascii protocol
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <64 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >64 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >64 END
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <103 new auto-negotiating client connection
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: 103: Client using the ascii protocol
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <103 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >103 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >103 END
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <114 new auto-negotiating client connection
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: 114: Client using the ascii protocol
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <114 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >114 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >114 END
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <152 new auto-negotiating client connection
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: 152: Client using the ascii protocol
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <152 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >152 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >152 END
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <153 new auto-negotiating client connection
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: 153: Client using the ascii protocol
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: <153 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >153 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:47 SPGM01DRCTRL03 memcached[18550]: >153 END
+Aug 28 18:30:48 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296636 from=::ffff:127.0.0.1
+Aug 28 18:30:48 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296636 duration=0(sec)
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <75 connection closed.
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <75 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 75: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <75 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >75 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >75 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <158 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 158: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <158 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >158 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >158 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <159 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 159: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <159 get tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >159 sending key tokens/c10b374290f0fe872f27a924d334f922dc9726001ef67fdb45869d043dbc63f3
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >159 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <163 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 163: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <163 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >163 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >163 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <65 connection closed.
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <65 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 65: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <65 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >65 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >65 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <164 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 164: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <164 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >164 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >164 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <167 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 167: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <167 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >167 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >167 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <177 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 177: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <177 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >177 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >177 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <180 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 180: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <180 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >180 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >180 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <181 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 181: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <181 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >181 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >181 END
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <182 new auto-negotiating client connection
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: 182: Client using the ascii protocol
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: <182 get tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >182 sending key tokens/fb82ef41a19334eed762e0d1eecd1157932325279652e61f22961f4dc19dc433
+Aug 28 18:30:48 SPGM01DRCTRL03 memcached[18550]: >182 END
+Aug 28 18:30:49 SPGM01DRCTRL03 memcached[18550]: <167 connection closed.
+Aug 28 18:30:49 SPGM01DRCTRL03 memcached[18550]: <121 connection closed.
+Aug 28 18:30:49 SPGM01DRCTRL03 memcached[18550]: <92 connection closed.
+Aug 28 18:30:50 SPGM01DRCTRL03 memcached[18550]: <152 connection closed.
+Aug 28 18:30:50 SPGM01DRCTRL03 memcached[18550]: <135 connection closed.
+Aug 28 18:30:51 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296682 from=::ffff:127.0.0.1
+Aug 28 18:30:51 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296682 duration=0(sec)
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <92 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 92: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <92 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >92 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >92 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <121 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 121: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <121 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >121 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >121 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <112 connection closed.
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <112 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 112: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <112 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >112 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >112 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <135 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 135: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <135 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >135 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >135 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <29 connection closed.
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <29 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 29: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <29 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >29 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >29 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <152 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 152: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <152 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >152 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >152 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <65 connection closed.
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <65 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 65: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <65 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >65 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >65 END
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <133 connection closed.
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <133 new auto-negotiating client connection
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: 133: Client using the ascii protocol
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: <133 get tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >133 sending key tokens/0a8f413b6c46b1816ed45d6cf184a0569675466612292b2c2faee5dd18280534
+Aug 28 18:30:53 SPGM01DRCTRL03 memcached[18550]: >133 END
+Aug 28 18:30:54 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296734 from=::ffff:127.0.0.1
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <51 connection closed.
+Aug 28 18:30:54 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296734 duration=0(sec)
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <85 get tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >85 sending key tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >85 END
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <98 connection closed.
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <44 get tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >44 sending key tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >44 END
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <91 connection closed.
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/1f721af2ed1cc12ead2e35f8262197915fbc403eda25175d7b9317cde1c6d361
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <156 connection closed.
+Aug 28 18:30:54 SPGM01DRCTRL03 memcached[18550]: <150 connection closed.
+Aug 28 18:30:57 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296760 from=::ffff:127.0.0.1
+Aug 28 18:30:57 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296760 duration=0(sec)
+Aug 28 18:30:58 SPGM01DRCTRL03 memcached[18550]: <182 connection closed.
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: <34 get tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >34 END
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: <34 set tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f 0 300 5480
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >34 STORED
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: <55 get tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >55 sending key tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >55 END
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/4bebcf120b906b761fb781d7d14bb2b36c11fc1dc9b2d3691aaaa5b79383184f
+Aug 28 18:30:59 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:31:00 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296797 from=::ffff:127.0.0.1
+Aug 28 18:31:00 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296797 duration=0(sec)
+Aug 28 18:31:01 SPGM01DRCTRL03 systemd[1]: Started Session 35063 of user oam.
+-- Subject: Unit session-35063.scope has finished start-up
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit session-35063.scope has finished starting up.
+-- 
+-- The start-up result is done.
+Aug 28 18:31:01 SPGM01DRCTRL03 systemd[1]: Started Session 35064 of user oam.
+-- Subject: Unit session-35064.scope has finished start-up
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit session-35064.scope has finished starting up.
+-- 
+-- The start-up result is done.
+Aug 28 18:31:01 SPGM01DRCTRL03 CROND[296832]: (oam) CMD (/u01/oam/oam-agent/bin/process start)
+Aug 28 18:31:01 SPGM01DRCTRL03 CROND[296833]: (oam) CMD (sudo /u01/script/duplicated/run.sh > /dev/null 2>&1)
+Aug 28 18:31:01 SPGM01DRCTRL03 sudo[296834]: [1;39m     oam : TTY=unknown ; PWD=/home/oam ; USER=root ; COMMAND=/u01/script/duplicated/run.sh[0m
+Aug 28 18:31:01 SPGM01DRCTRL03 sudo[296834]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Aug 28 18:31:01 SPGM01DRCTRL03 polkitd[17709]: [1;39mUnregistered Authentication Agent for unix-process:292387:80740848 (system bus name :1.464968, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)[0m
+Aug 28 18:31:01 SPGM01DRCTRL03 vt_admin[296905]: [cmdlog] root [124335]: systemctl restart httpd24-httpd.service  [130] []
+Aug 28 18:31:01 SPGM01DRCTRL03 sudo[296834]: pam_unix(sudo:session): session closed for user root
+Aug 28 18:31:01 SPGM01DRCTRL03 crond[18737]: postdrop: warning: unable to look up public/pickup: No such file or directory
+Aug 28 18:31:01 SPGM01DRCTRL03 postfix/postdrop[296902]: [1;39mwarning: unable to look up public/pickup: No such file or directory[0m
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <92 connection closed.
+Aug 28 18:31:01 SPGM01DRCTRL03 vt_admin[296917]: [cmdlog] root [124335]: systemctl restart httpd24-httpd.service  [130] []
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <51 new auto-negotiating client connection
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: 51: Client using the ascii protocol
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <51 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >51 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >51 END
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <91 new auto-negotiating client connection
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: 91: Client using the ascii protocol
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <91 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >91 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >91 END
+Aug 28 18:31:01 SPGM01DRCTRL03 vt_admin[296926]: [cmdlog] root [124335]: systemctl restart httpd24-httpd.service  [130] []
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <115 connection closed.
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <92 new auto-negotiating client connection
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: 92: Client using the ascii protocol
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <92 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >92 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >92 END
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <98 new auto-negotiating client connection
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: 98: Client using the ascii protocol
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <98 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >98 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >98 END
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <98 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >98 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: >98 END
+Aug 28 18:31:01 SPGM01DRCTRL03 memcached[18550]: <123 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <164 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <115 new auto-negotiating client connection
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: 115: Client using the ascii protocol
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <115 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >115 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >115 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <51 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <51 new auto-negotiating client connection
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: 51: Client using the ascii protocol
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <51 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >51 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >51 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <123 new auto-negotiating client connection
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: 123: Client using the ascii protocol
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <123 get tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >123 sending key tokens/7cf6f1008510bfca33658d0389905820d89cf7e7a80828fdfe59842124ba77e3
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >123 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <34 get tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >34 sending key tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >34 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <31 get tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >31 sending key tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >31 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <47 get tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >47 sending key tokens/074ea38958951c06fb4aec1a5bc8dce5a8aba30186f0823ef5abec3485069b8e
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: >47 END
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <111 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <38 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <112 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <103 connection closed.
+Aug 28 18:31:02 SPGM01DRCTRL03 memcached[18550]: <45 connection closed.
+Aug 28 18:31:03 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296956 from=::ffff:127.0.0.1
+Aug 28 18:31:03 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296956 duration=0(sec)
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <67 get tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >67 sending key tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >67 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <55 get tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >55 sending key tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >55 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <82 get tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >82 sending key tokens/0bf07e919aaf4705dc951504bc5432211a3008b1bdef18258b4d47ffcaaf5d2c
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >82 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <70 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <38 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 38: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <38 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >38 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >38 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <45 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 45: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <45 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >45 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <72 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <70 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 70: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <70 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >70 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >70 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <45 set tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7 0 300 5478
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >45 STORED
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <72 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 72: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <72 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >72 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >72 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <87 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <87 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 87: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <87 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >87 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >87 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <162 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <103 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 103: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <103 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >103 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >103 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <111 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 111: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <111 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >111 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >111 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <112 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 112: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <112 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >112 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >112 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <150 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 150: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <150 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >150 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >150 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <156 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 156: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <156 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >156 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >156 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <171 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <162 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 162: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <162 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >162 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >162 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <137 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <137 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 137: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <137 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >137 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >137 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <156 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <156 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 156: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <156 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >156 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >156 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <68 connection closed.
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <68 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 68: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <68 get tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >68 sending key tokens/65184768249f9809014f750e261ace014098e41a4a25209e587b25447a6b2e39
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >68 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <164 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 164: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <164 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >164 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >164 END
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <167 new auto-negotiating client connection
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: 167: Client using the ascii protocol
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: <167 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >167 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:05 SPGM01DRCTRL03 memcached[18550]: >167 END
+Aug 28 18:31:06 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=296996 from=::ffff:127.0.0.1
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <162 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <162 new auto-negotiating client connection
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: 162: Client using the ascii protocol
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <162 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >162 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >162 END
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <51 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <51 new auto-negotiating client connection
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: 51: Client using the ascii protocol
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <51 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >51 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >51 END
+Aug 28 18:31:06 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=296996 duration=0(sec)
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <171 new auto-negotiating client connection
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: 171: Client using the ascii protocol
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <171 get tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >171 sending key tokens/e08963ab932cb19713cb7f408e5a4ff4c03aca3cf33ad5d6a355c394f0f33be7
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: >171 END
+Aug 28 18:31:06 SPGM01DRCTRL03 polkitd[17709]: [1;39mRegistered Authentication Agent for unix-process:297004:80749626 (system bus name :1.465020 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)[0m
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <127 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <51 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <43 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <121 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <158 connection closed.
+Aug 28 18:31:06 SPGM01DRCTRL03 memcached[18550]: <122 connection closed.
+Aug 28 18:31:08 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service stop-sigterm timed out. Killing.[0m
+Aug 28 18:31:08 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service: main process exited, code=killed, status=9/KILL[0m
+Aug 28 18:31:08 SPGM01DRCTRL03 systemd[1]: Stopped The Apache HTTP Server.
+-- Subject: Unit httpd24-httpd.service has finished shutting down
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit httpd24-httpd.service has finished shutting down.
+Aug 28 18:31:08 SPGM01DRCTRL03 systemd[1]: [1;39mUnit httpd24-httpd.service entered failed state.[0m
+Aug 28 18:31:08 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service failed.[0m
+Aug 28 18:31:08 SPGM01DRCTRL03 polkitd[17709]: [1;39mUnregistered Authentication Agent for unix-process:297004:80749626 (system bus name :1.465020, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)[0m
+Aug 28 18:31:08 SPGM01DRCTRL03 vt_admin[297051]: [cmdlog] root [124335]: systemctl stop httpd24-httpd.service  [0] []
+Aug 28 18:31:08 SPGM01DRCTRL03 vt_admin[297060]: [cmdlog] root [124335]: systemctl stop httpd24-httpd.service  [0] []
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <87 connection closed.
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <43 new auto-negotiating client connection
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: 43: Client using the ascii protocol
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <43 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >43 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >43 END
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <51 new auto-negotiating client connection
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: 51: Client using the ascii protocol
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <51 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >51 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >51 END
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <156 connection closed.
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <87 new auto-negotiating client connection
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: 87: Client using the ascii protocol
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <87 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >87 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >87 END
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <121 new auto-negotiating client connection
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: 121: Client using the ascii protocol
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: <121 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >121 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:08 SPGM01DRCTRL03 memcached[18550]: >121 END
+Aug 28 18:31:09 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=297086 from=::ffff:127.0.0.1
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <143 connection closed.
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <122 new auto-negotiating client connection
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: 122: Client using the ascii protocol
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <122 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >122 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >122 END
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <87 connection closed.
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <87 new auto-negotiating client connection
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: 87: Client using the ascii protocol
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <87 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >87 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >87 END
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <62 connection closed.
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <62 new auto-negotiating client connection
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: 62: Client using the ascii protocol
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <62 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >62 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >62 END
+Aug 28 18:31:09 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=297086 duration=0(sec)
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <127 new auto-negotiating client connection
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: 127: Client using the ascii protocol
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: <127 get tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >127 sending key tokens/aed7f479630ebd77c7363a3e5652eb6434f84c67ff2fef3b78e13a6752a8e13e
+Aug 28 18:31:09 SPGM01DRCTRL03 memcached[18550]: >127 END
+Aug 28 18:31:09 SPGM01DRCTRL03 vt_admin[297101]: [cmdlog] root [124335]: systemctl stop httpd24-httpd.service  [0] []
+Aug 28 18:31:09 SPGM01DRCTRL03 vt_admin[297110]: [cmdlog] root [124335]: systemctl stop httpd24-httpd.service  [0] []
+Aug 28 18:31:10 SPGM01DRCTRL03 memcached[18550]: <65 connection closed.
+Aug 28 18:31:10 SPGM01DRCTRL03 memcached[18550]: <162 connection closed.
+Aug 28 18:31:11 SPGM01DRCTRL03 memcached[18550]: <177 connection closed.
+Aug 28 18:31:11 SPGM01DRCTRL03 memcached[18550]: <164 connection closed.
+Aug 28 18:31:11 SPGM01DRCTRL03 memcached[18550]: <180 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=297138 from=::ffff:127.0.0.1
+Aug 28 18:31:12 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=297138 duration=0(sec)
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <30 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 sshd[297146]: Did not receive identification string from 10.255.26.130 port 40692
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <148 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 polkitd[17709]: [1;39mRegistered Authentication Agent for unix-process:297147:80750265 (system bus name :1.465021 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <98 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: Starting The Apache HTTP Server...
+-- Subject: Unit httpd24-httpd.service has begun start-up
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit httpd24-httpd.service has begun starting up.
+Aug 28 18:31:12 SPGM01DRCTRL03 httpd-scl-wrapper[297153]: AH00526: Syntax error on line 40 of /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf:
+Aug 28 18:31:12 SPGM01DRCTRL03 httpd-scl-wrapper[297153]: Invalid command '/Direc', perhaps misspelled or defined by a module not included in the server configuration
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service: main process exited, code=exited, status=1/FAILURE[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <81 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 httpd-scl-wrapper[297155]: AH00526: Syntax error on line 40 of /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf:
+Aug 28 18:31:12 SPGM01DRCTRL03 httpd-scl-wrapper[297155]: Invalid command '/Direc', perhaps misspelled or defined by a module not included in the server configuration
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <108 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service: control process exited, code=exited status=1[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: [1;31mFailed to start The Apache HTTP Server.[0m
+-- Subject: Unit httpd24-httpd.service has failed
+-- Defined-By: systemd
+-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- 
+-- Unit httpd24-httpd.service has failed.
+-- 
+-- The result is failed.
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: [1;39mUnit httpd24-httpd.service entered failed state.[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 systemd[1]: [1;39mhttpd24-httpd.service failed.[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 polkitd[17709]: [1;39mUnregistered Authentication Agent for unix-process:297147:80750265 (system bus name :1.465021, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)[0m
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <146 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 vt_admin[297173]: [cmdlog] root [124335]: systemctl start httpd24-httpd.service  [1] []
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <75 connection closed.
+Aug 28 18:31:12 SPGM01DRCTRL03 memcached[18550]: <113 connection closed.
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: <120 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >120 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >120 END
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: <46 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >46 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >46 END
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: <33 get tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >33 sending key tokens/f756aa019cc25e5377315c09ce089958407820ce75ce9237ce3b37304459c5a6
+Aug 28 18:31:13 SPGM01DRCTRL03 memcached[18550]: >33 END
+Aug 28 18:31:14 SPGM01DRCTRL03 vt_admin[297341]: [cmdlog] root [124335]: systemctl start httpd24-httpd.service  [1] []
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: <30 new auto-negotiating client connection
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: 30: Client using the ascii protocol
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: <30 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: >30 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: >30 END
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: <76 connection closed.
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: <65 new auto-negotiating client connection
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: 65: Client using the ascii protocol
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: <65 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: >65 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:14 SPGM01DRCTRL03 memcached[18550]: >65 END
+Aug 28 18:31:15 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=297451 from=::ffff:127.0.0.1
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <75 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 75: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <75 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >75 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >75 END
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <52 connection closed.
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <52 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 52: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <52 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >52 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >52 END
+Aug 28 18:31:15 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=297451 duration=0(sec)
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <76 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 76: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <76 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >76 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >76 END
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <81 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 81: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <81 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >81 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >81 END
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <98 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 98: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <98 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >98 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >98 END
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <108 new auto-negotiating client connection
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: 108: Client using the ascii protocol
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: <108 get tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >108 sending key tokens/6349fce35392fc0273f5acf144b91579a6081bc6da39bc3f83a81e6d0bc107e2
+Aug 28 18:31:15 SPGM01DRCTRL03 memcached[18550]: >108 END
+Aug 28 18:31:16 SPGM01DRCTRL03 memcached[18550]: <68 connection closed.
+Aug 28 18:31:18 SPGM01DRCTRL03 xinetd[18494]: START: mysqlchk pid=297892 from=::ffff:127.0.0.1
+Aug 28 18:31:18 SPGM01DRCTRL03 xinetd[18494]: EXIT: mysqlchk status=0 pid=297892 duration=0(sec)
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <68 new auto-negotiating client connection
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: 68: Client using the ascii protocol
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <68 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >68 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >68 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <123 connection closed.
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <113 new auto-negotiating client connection
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: 113: Client using the ascii protocol
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <113 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >113 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >113 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <115 connection closed.
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <115 new auto-negotiating client connection
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: 115: Client using the ascii protocol
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <115 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >115 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >115 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <123 new auto-negotiating client connection
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: 123: Client using the ascii protocol
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <123 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >123 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >123 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <111 connection closed.
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <111 new auto-negotiating client connection
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: 111: Client using the ascii protocol
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <111 get tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >111 sending key tokens/aa848c6d0c42c1870c9fefc24e74f4efe0d84e2ba26482a24c0454f37e18279c
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >111 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <47 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >47 sending key tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >47 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <53 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >53 sending key tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >53 END
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: <55 get tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >55 sending key tokens/42325ae28608717eeed971469fecae59298c4e8a46d243a33586908532192d72
+Aug 28 18:31:18 SPGM01DRCTRL03 memcached[18550]: >55 END

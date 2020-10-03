@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# We have to re-enable SCL environment, because /sbin/service
+# clears almost all environment variables.
+# Since X_SCLS is cleared as well, we lose information about other
+# collections enabled.
+. /opt/rh/httpd24/service-environment
+for sclname in $HTTPD24_HTTPD_SCLS_ENABLED ; do
+    . /opt/rh/$sclname/enable
+    export X_SCLS="$X_SCLS $sclname"
+done
+
+exec /opt/rh/httpd24/root/usr/sbin/httpd "$@"

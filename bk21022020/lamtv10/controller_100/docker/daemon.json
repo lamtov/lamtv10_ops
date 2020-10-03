@@ -1,0 +1,4 @@
+{
+	"insecure-registries" : ["docker-registry:4000"],
+	"graph":"VAR_LIB_DOCKER"
+}

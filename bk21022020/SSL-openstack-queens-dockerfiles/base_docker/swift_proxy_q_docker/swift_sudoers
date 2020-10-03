@@ -1,0 +1,3 @@
+Defaults:swift !requiretty
+
+swift ALL = (root) NOPASSWD:ALL

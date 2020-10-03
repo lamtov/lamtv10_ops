@@ -1,0 +1,200 @@
+nova.conf
+
+
+============================ BUILDING ====================================
+
+
+
+2019-02-27 10:43:01.709 46516 DEBUG nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Instance 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb has been scheduled to this compute host, the scheduler has made an allocation against this compute node but the instance has yet to start. Skipping heal of allocation: {u'resources': {u'VCPU': 2, u'MEMORY_MB': 2048, u'DISK_GB': 3}}. _remove_deleted_instances_allocations /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:1256
+
+
+
+ Total usable vcpus: 40, total allocated vcpus: 0 _report_final_resource_view /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:839
+2019-02-27 10:43:02.097 46516 INFO nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Final resource view: name=compute04 phys_ram=145019MB used_ram=512MB phys_disk=665GB used_disk=0GB total_vcpus=40 used_vcpus=0 pci_stats=[]
+2019-02-27 10:43:02.245 46516 DEBUG nova.scheduler.client.report [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Refreshing aggregate associations for resource provider 2d969d7e-ce39-4b0a-99ee-a31654e63df0 _ensure_resource_provider /usr/lib/python2.7/dist-packages/nova/scheduler/client/report.py:509
+2019-02-27 10:43:02.312 46516 DEBUG nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Compute_service record updated for compute04:compute04 _update_available_resource /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:779
+2019-02-27 10:43:02.313 46516 DEBUG oslo_concurrency.lockutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Lock "compute_resources" released by "nova.compute.resource_tracker._update_available_resource" :: held 31.589s inner /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:282
+2019-02-27 10:43:02.313 46516 DEBUG oslo_concurrency.lockutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Lock "compute_resources" acquired by "nova.compute.resource_tracker.instance_claim" :: waited 18.685s inner /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:270
+2019-02-27 10:43:02.314 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._poll_unconfirmed_resizes run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.315 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._sync_scheduler_instance_info run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.319 46516 DEBUG nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Memory overhead for 2048 MB instance; 0 MB instance_claim /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:196
+2019-02-27 10:43:02.319 46516 DEBUG nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Disk overhead for 3 GB instance; 0 GB instance_claim /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:199
+2019-02-27 10:43:02.320 46516 DEBUG nova.compute.resource_tracker [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] CPU overhead for 2 vCPUs instance; 0 vCPU(s) instance_claim /usr/lib/python2.7/dist-packages/nova/compute/resource_tracker.py:202
+
+
+
+2019-02-27 10:43:02.355 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Attempting to fit instance cell InstanceNUMACell(cpu_pinning_raw=None,cpu_policy=None,cpu_thread_policy=None,cpu_topology=<?>,cpuset=set([0,1]),cpuset_reserved=None,id=0,memory=2048,pagesize=2048) on host_cell NUMACell(cpu_usage=0,cpuset=set([2,4,6,8,10,12,14,16,18,20,22,26,28,30,32,34,36,38,40,42,44,46]),id=0,memory=72454,memory_usage=0,mempages=[NUMAPagesTopology,NUMAPagesTopology,NUMAPagesTopology],pinned_cpus=set([]),siblings=[set([4,28]),set([2,26]),set([20,44]),set([18,42]),set([16,40]),set([22,46]),set([14,38]),set([12,36]),set([8,32]),set([6,30]),set([10,34])]) _numa_fit_instance_cell /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:983
+2019-02-27 10:43:02.356 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] No pinning requested, considering limitations on usable cpu and memory _numa_fit_instance_cell /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:1012\
+
+2019-02-27 10:43:02.357 46516 INFO nova.compute.claims [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Claim successful on node compute04
+
+
+
+2019-02-27 10:43:02.364 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._poll_rescued_instances run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.364 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._poll_bandwidth_usage run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.365 46516 INFO nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Updating bandwidth usage cache
+2019-02-27 10:43:02.421 46516 INFO nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Bandwidth usage not supported by hypervisor.
+2019-02-27 10:43:02.422 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._run_pending_deletes run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.423 46516 DEBUG nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Cleaning up deleted instances _run_pending_deletes /usr/lib/python2.7/dist-packages/nova/compute/manager.py:7131
+2019-02-27 10:43:02.455 46516 DEBUG nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] There are 0 instances to clean _run_pending_deletes /usr/lib/python2.7/dist-packages/nova/compute/manager.py:7140
+2019-02-27 10:43:02.455 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._check_instance_build_time run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.457 46516 DEBUG oslo_service.periodic_task [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running periodic task ComputeManager._heal_instance_info_cache run_periodic_tasks /usr/local/lib/python2.7/dist-packages/oslo_service/periodic_task.py:215
+2019-02-27 10:43:02.457 46516 DEBUG nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Starting heal instance info cache _heal_instance_info_cache /usr/lib/python2.7/dist-packages/nova/compute/manager.py:6061
+2019-02-27 10:43:02.458 46516 DEBUG nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Rebuilding the list of instances to heal _heal_instance_info_cache /usr/lib/python2.7/dist-packages/nova/compute/manager.py:6065
+
+
+
+========================================= SPAWN =========================================
+
+
+
+
+
+
+2019-02-27 10:43:33.491 46516 DEBUG nova.virt.libvirt.imagebackend [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Image locations are: [{'url': u'rbd://e8c27d02-94dc-4601-94f3-4dd55dc87559/images/706e0be0-af71-4f72-99da-7aa37833ae03/snap', 'metadata': {}}] clone /usr/lib/python2.7/dist-packages/nova/virt/libvirt/imagebackend.py:913
+
+2019-02-27 10:43:33.574 46516 DEBUG nova.virt.libvirt.imagebackend [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Selected location: {'url': u'rbd://e8c27d02-94dc-4601-94f3-4dd55dc87559/images/706e0be0-af71-4f72-99da-7aa37833ae03/snap', 'metadata': {}} clone /usr/lib/python2.7/dist-packages/nova/virt/libvirt/imagebackend.py:922
+
+2019-02-27 10:43:33.575 46516 DEBUG nova.virt.libvirt.storage.rbd_utils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] cloning images/706e0be0-af71-4f72-99da-7aa37833ae03@snap to None/03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb_disk clone /usr/lib/python2.7/dist-packages/nova/virt/libvirt/storage/rbd_utils.py:234
+
+2019-02-27 10:43:33.741 46516 DEBUG oslo_concurrency.lockutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Lock "25b887d85592b3117331fa407f07ca1a6f2c9fab" released by "nova.virt.libvirt.imagebackend.fetch_func_sync" :: held 30.309s inner /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:282
+
+2019-02-27 10:43:33.968 46516 DEBUG nova.virt.libvirt.storage.rbd_utils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] resizing rbd image 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb_disk to 3221225472 resize /usr/lib/python2.7/dist-packages/nova/virt/libvirt/storage/rbd_utils.py:258
+
+2019-02-27 10:43:34.065 46516 DEBUG nova.virt.libvirt.driver [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Ensure instance console log exists: /var/lib/nova/instances/03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb/console.log _ensure_console_log_for_instance /usr/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py:3171
+
+2019-02-27 10:43:36.535 46516 DEBUG nova.network.neutronv2.api [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Successfully created port: d56a7d97-37ef-4341-abd0-24fedbf1cbe5 _create_port_minimal /usr/lib/python2.7/dist-packages/nova/network/neutronv2/api.py:410
+2019-02-27 10:43:37.883 46516 DEBUG nova.network.neutronv2.api [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Successfully updated port: d56a7d97-37ef-4341-abd0-24fedbf1cbe5 _update_port /usr/lib/python2.7/dist-packages/nova/network/neutronv2/api.py:447
+2019-02-27 10:43:37.963 46516 DEBUG oslo_concurrency.lockutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Acquired semaphore "refresh_cache-03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb" lock /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:212
+2019-02-27 10:43:37.964 46516 DEBUG nova.network.neutronv2.api [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] _get_instance_nw_info() _get_instance_nw_info /usr/lib/python2.7/dist-packages/nova/network/neutronv2/api.py:1315
+2019-02-27 10:43:38.067 46516 DEBUG nova.network.neutronv2.api [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Instance cache missing network info. _get_preexisting_port_ids /usr/lib/python2.7/dist-packages/nova/network/neutronv2/api.py:2238
+2019-02-27 10:43:38.228 46516 DEBUG nova.network.base_api [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Updating instance_info_cache with network_info: [{"profile": {}, "ovs_interfaceid": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "preserve_on_delete": false, "network": {"bridge": "br-int", "subnets": [{"ips": [{"meta": {}, "version": 4, "type": "fixed", "floating_ips": [], "address": "172.16.30.157"}], "version": 4, "meta": {"dhcp_server": "172.16.30.142"}, "dns": [{"meta": {}, "version": 4, "type": "dns", "address": "8.8.8.8"}], "routes": [], "cidr": "172.16.30.0/24", "gateway": {"meta": {}, "version": 4, "type": "gateway", "address": "172.16.30.254"}}], "meta": {"injected": false, "tenant_id": "5fcdf48d7c864782883ea13f18201a81", "mtu": 1500}, "id": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8", "label": "mgnt"}, "devname": "tapd56a7d97-37", "vnic_type": "normal", "qbh_params": null, "meta": {}, "details": {"ovs_hybrid_plug": false, "vhostuser_socket": "/run/openvswitch/vhud56a7d97-37", "datapath_type": "netdev", "vhostuser_mode": "server", "port_filter": false, "vhostuser_ovs_plug": true}, "address": "fa:16:3e:a8:a2:26", "active": false, "type": "vhostuser", "id": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "qbg_params": null}] update_instance_cache_with_nw_info /usr/lib/python2.7/dist-packages/nova/network/base_api.py:48
+2019-02-27 10:43:38.285 46516 DEBUG oslo_concurrency.lockutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Releasing semaphore "refresh_cache-03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb" lock /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:225
+
+
+
+Network info 
+
+2019-02-27 10:43:38.286 46516 DEBUG nova.compute.manager [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Instance network_info: |[{"profile": {}, "ovs_interfaceid": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "preserve_on_delete": false, "network": {"bridge": "br-int", "subnets": [{"ips": [{"meta": {}, "version": 4, "type": "fixed", "floating_ips": [], "address": "172.16.30.157"}], "version": 4, "meta": {"dhcp_server": "172.16.30.142"}, "dns": [{"meta": {}, "version": 4, "type": "dns", "address": "8.8.8.8"}], "routes": [], "cidr": "172.16.30.0/24", "gateway": {"meta": {}, "version": 4, "type": "gateway", "address": "172.16.30.254"}}], "meta": {"injected": false, "tenant_id": "5fcdf48d7c864782883ea13f18201a81", "mtu": 1500}, "id": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8", "label": "mgnt"}, "devname": "tapd56a7d97-37", "vnic_type": "normal", "qbh_params": null, "meta": {}, "details": {"ovs_hybrid_plug": false, "vhostuser_socket": "/run/openvswitch/vhud56a7d97-37", "datapath_type": "netdev", "vhostuser_mode": "server", "port_filter": false, "vhostuser_ovs_plug": true}, "address": "fa:16:3e:a8:a2:26", "active": false, "type": "vhostuser", "id": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "qbg_params": null}]| _allocate_network_async /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1417
+2019-02-27 10:43:38.288 46516 DEBUG nova.virt.libvirt.driver [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Start _get_guest_xml network_info=[{"profile": {}, "ovs_interfaceid": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "preserve_on_delete": false, "network": {"bridge": "br-int", "subnets": [{"ips": [{"meta": {}, "version": 4, "type": "fixed", "floating_ips": [], "address": "172.16.30.157"}], "version": 4, "meta": {"dhcp_server": "172.16.30.142"}, "dns": [{"meta": {}, "version": 4, "type": "dns", "address": "8.8.8.8"}], "routes": [], "cidr": "172.16.30.0/24", "gateway": {"meta": {}, "version": 4, "type": "gateway", "address": "172.16.30.254"}}], "meta": {"injected": false, "tenant_id": "5fcdf48d7c864782883ea13f18201a81", "mtu": 1500}, "id": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8", "label": "mgnt"}, "devname": "tapd56a7d97-37", "vnic_type": "normal", "qbh_params": null, "meta": {}, "details": {"ovs_hybrid_plug": false, "vhostuser_socket": "/run/openvswitch/vhud56a7d97-37", "datapath_type": "netdev", "vhostuser_mode": "server", "port_filter": false, "vhostuser_ovs_plug": true}, "address": "fa:16:3e:a8:a2:26", "active": false, "type": "vhostuser", "id": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "qbg_params": null}] disk_info={'disk_bus': 'virtio', 'cdrom_bus': 'ide', 'mapping': {'disk': {'bus': 'virtio', 'boot_index': '1', 'type': 'disk', 'dev': u'vda'}, 'root': {'bus': 'virtio', 'boot_index': '1', 'type': 'disk', 'dev': u'vda'}}} image_meta=ImageMeta(checksum='ba3cd24377dde5dfdd58728894004abb',container_format='bare',created_at=2019-01-07T04:03:32Z,direct_url=<?>,disk_format='raw',id=706e0be0-af71-4f72-99da-7aa37833ae03,min_disk=0,min_ram=0,name='cirros.raw',owner='5fcdf48d7c864782883ea13f18201a81',properties=ImageMetaProps,protected=<?>,size=46137344,status='active',tags=<?>,updated_at=2019-01-07T04:05:01Z,virtual_size=<?>,visibility=<?>) rescue=None block_device_info={'swap': None, 'root_device_name': u'/dev/vda', 'ephemerals': [], 'block_device_mapping': []} _get_guest_xml /usr/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py:5254
+2019-02-27 10:43:38.307 46516 DEBUG nova.virt.libvirt.driver [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] CPU mode 'host-model' model '' was chosen, with extra flags: '' _get_guest_cpu_model_config /usr/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py:3752
+2019-02-27 10:43:38.308 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Getting desirable topologies for flavor Flavor(created_at=2019-02-27T02:13:59Z,deleted=False,deleted_at=None,disabled=False,ephemeral_gb=0,extra_specs={hw:mem_page_size='2MB'},flavorid='fc8a2312-0682-42d6-8df6-4bb52f00af62',id=276,is_public=True,memory_mb=2048,name='lamtv_test',projects=<?>,root_gb=3,rxtx_factor=1.0,swap=0,updated_at=None,vcpu_weight=0,vcpus=2) and image_meta ImageMeta(checksum='ba3cd24377dde5dfdd58728894004abb',container_format='bare',created_at=2019-01-07T04:03:32Z,direct_url=<?>,disk_format='raw',id=706e0be0-af71-4f72-99da-7aa37833ae03,min_disk=0,min_ram=0,name='cirros.raw',owner='5fcdf48d7c864782883ea13f18201a81',properties=ImageMetaProps,protected=<?>,size=46137344,status='active',tags=<?>,updated_at=2019-01-07T04:05:01Z,virtual_size=<?>,visibility=<?>), allow threads: True _get_desirable_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:560
+2019-02-27 10:43:38.309 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Flavor limits 65536:65536:65536 _get_cpu_topology_constraints /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:306
+2019-02-27 10:43:38.310 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Image limits 65536:65536:65536 _get_cpu_topology_constraints /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:317
+2019-02-27 10:43:38.310 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Flavor pref -1:-1:-1 _get_cpu_topology_constraints /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:340
+2019-02-27 10:43:38.311 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Image pref -1:-1:-1 _get_cpu_topology_constraints /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:359
+2019-02-27 10:43:38.312 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Chosen -1:-1:-1 limits 65536:65536:65536 _get_cpu_topology_constraints /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:388
+2019-02-27 10:43:38.312 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Topology preferred VirtCPUTopology(cores=-1,sockets=-1,threads=-1), maximum VirtCPUTopology(cores=65536,sockets=65536,threads=65536) _get_desirable_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:564
+2019-02-27 10:43:38.313 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Build topologies for 2 vcpu(s) 2:2:2 _get_possible_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:427
+2019-02-27 10:43:38.314 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Got 3 possible topologies _get_possible_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:454
+2019-02-27 10:43:38.314 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Possible topologies [VirtCPUTopology(cores=1,sockets=2,threads=1), VirtCPUTopology(cores=2,sockets=1,threads=1), VirtCPUTopology(cores=1,sockets=1,threads=2)] _get_desirable_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:569
+2019-02-27 10:43:38.315 46516 DEBUG nova.virt.hardware [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Sorted desired topologies [VirtCPUTopology(cores=1,sockets=2,threads=1), VirtCPUTopology(cores=2,sockets=1,threads=1), VirtCPUTopology(cores=1,sockets=1,threads=2)] _get_desirable_cpu_topologies /usr/lib/python2.7/dist-packages/nova/virt/hardware.py:595
+2019-02-27 10:43:38.318 46516 DEBUG oslo_concurrency.processutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Running cmd (subprocess): ceph mon dump --format=json --id volumes --conf /etc/ceph/ceph.conf execute /usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py:355
+2019-02-27 10:43:38.663 46516 DEBUG oslo_concurrency.processutils [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] CMD "ceph mon dump --format=json --id volumes --conf /etc/ceph/ceph.conf" returned: 0 in 0.345s execute /usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py:385
+2019-02-27 10:43:38.667 46516 DEBUG nova.virt.libvirt.vif [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] vif_type=vhostuser instance=Instance(access_ip_v4=None,access_ip_v6=None,architecture=None,auto_disk_config=True,availability_zone='nova',cell_name=None,cleaned=False,config_drive='',created_at=2019-02-27T03:42:41Z,default_ephemeral_device=None,default_swap_device=None,deleted=False,deleted_at=None,device_metadata=None,disable_terminate=False,display_description='spaw',display_name='spaw',ec2_ids=EC2Ids,ephemeral_gb=0,ephemeral_key_uuid=None,fault=<?>,flavor=Flavor(276),host='compute04',hostname='spaw',id=2200,image_ref='706e0be0-af71-4f72-99da-7aa37833ae03',info_cache=InstanceInfoCache,instance_type_id=276,kernel_id='',key_data='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt3+OYgOF3QgttGeNfLH1pN1feAIJJu/FlVRpxQKthqY2tC3Cea1mkwgDwtc7F0Kb1j+p3MCtxkmT0/0BDdMSuw1X8C0w2PMlFuBb16b3MfYOkOJVvC/LJVtJHDW4nUK5RLo2kpM4d/wcIP715qZPkxgFEx958CveBIK0IF9uA61f86FwKMXV3pEVWr1CRIF6503WHfYq2ruL8LygnIjLS89mAconXqUXZkgZPhkBn0fmHsGAjEzkAv/pTL/9XRcxVKzwhXo1NlGVXjxFvnTnVgmCYYIh7441kplm6vioF7L0ZD0mosROBScYUy4/qSveg/wXqF1AxwtG21tDkn3Rt Generated-by-Nova',key_name='lamtv',keypairs=KeyPairList,launch_index=0,launched_at=None,launched_on='compute04',locked=False,locked_by=None,memory_mb=2048,metadata={},migration_context=<?>,new_flavor=None,node='compute04',numa_topology=InstanceNUMATopology(UNKNOWN),old_flavor=None,os_type=None,pci_devices=<?>,pci_requests=InstancePCIRequests,power_state=0,progress=0,project_id='5fcdf48d7c864782883ea13f18201a81',ramdisk_id='',reservation_id='r-d61riv50',root_device_name='/dev/vda',root_gb=3,security_groups=SecurityGroupList,services=<?>,shutdown_terminate=False,system_metadata={boot_roles='admin',image_base_image_ref='706e0be0-af71-4f72-99da-7aa37833ae03',image_container_format='bare',image_disk_format='raw',image_min_disk='3',image_min_ram='0',network_allocated='True',owner_project_name='admin',owner_user_name='admin'},tags=TagList,task_state='spawning',terminated_at=None,updated_at=2019-02-27T03:43:03Z,user_data=None,user_id='9ae198e0a5834bc1be482b1f201e5dba',uuid=03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb,vcpu_model=VirtCPUModel,vcpus=2,vm_mode=None,vm_state='building') vif={"profile": {}, "ovs_interfaceid": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "preserve_on_delete": false, "network": {"bridge": "br-int", "subnets": [{"ips": [{"meta": {}, "version": 4, "type": "fixed", "floating_ips": [], "address": "172.16.30.157"}], "version": 4, "meta": {"dhcp_server": "172.16.30.142"}, "dns": [{"meta": {}, "version": 4, "type": "dns", "address": "8.8.8.8"}], "routes": [], "cidr": "172.16.30.0/24", "gateway": {"meta": {}, "version": 4, "type": "gateway", "address": "172.16.30.254"}}], "meta": {"injected": false, "tenant_id": "5fcdf48d7c864782883ea13f18201a81", "mtu": 1500}, "id": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8", "label": "mgnt"}, "devname": "tapd56a7d97-37", "vnic_type": "normal", "qbh_params": null, "meta": {}, "details": {"ovs_hybrid_plug": false, "vhostuser_socket": "/run/openvswitch/vhud56a7d97-37", "datapath_type": "netdev", "vhostuser_mode": "server", "port_filter": false, "vhostuser_ovs_plug": true}, "address": "fa:16:3e:a8:a2:26", "active": false, "type": "vhostuser", "id": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "qbg_params": null} virt_type=kvm get_config /usr/lib/python2.7/dist-packages/nova/virt/libvirt/vif.py:546
+2019-02-27 10:43:38.668 46516 DEBUG nova.network.os_vif_util [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Converting VIF {"profile": {}, "ovs_interfaceid": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "preserve_on_delete": false, "network": {"bridge": "br-int", "subnets": [{"ips": [{"meta": {}, "version": 4, "type": "fixed", "floating_ips": [], "address": "172.16.30.157"}], "version": 4, "meta": {"dhcp_server": "172.16.30.142"}, "dns": [{"meta": {}, "version": 4, "type": "dns", "address": "8.8.8.8"}], "routes": [], "cidr": "172.16.30.0/24", "gateway": {"meta": {}, "version": 4, "type": "gateway", "address": "172.16.30.254"}}], "meta": {"injected": false, "tenant_id": "5fcdf48d7c864782883ea13f18201a81", "mtu": 1500}, "id": "51bcaab9-5f7c-42ec-b78c-2ea8be7190b8", "label": "mgnt"}, "devname": "tapd56a7d97-37", "vnic_type": "normal", "qbh_params": null, "meta": {}, "details": {"ovs_hybrid_plug": false, "vhostuser_socket": "/run/openvswitch/vhud56a7d97-37", "datapath_type": "netdev", "vhostuser_mode": "server", "port_filter": false, "vhostuser_ovs_plug": true}, "address": "fa:16:3e:a8:a2:26", "active": false, "type": "vhostuser", "id": "d56a7d97-37ef-4341-abd0-24fedbf1cbe5", "qbg_params": null} nova_to_osvif_vif /usr/lib/python2.7/dist-packages/nova/network/os_vif_util.py:478
+2019-02-27 10:43:38.670 46516 DEBUG nova.network.os_vif_util [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Converted object VIFVHostUser(active=False,address=fa:16:3e:a8:a2:26,has_traffic_filtering=False,id=d56a7d97-37ef-4341-abd0-24fedbf1cbe5,mode='server',network=Network(51bcaab9-5f7c-42ec-b78c-2ea8be7190b8),path='/run/openvswitch/vhud56a7d97-37',plugin='ovs',port_profile=VIFPortProfileOpenVSwitch,preserve_on_delete=False,vif_name='vhud56a7d97-37') nova_to_osvif_vif /usr/lib/python2.7/dist-packages/nova/network/os_vif_util.py:490
+2019-02-27 10:43:38.678 46516 DEBUG nova.objects.instance [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] Lazy-loading 'pci_devices' on Instance uuid 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb obj_load_attr /usr/lib/python2.7/dist-packages/nova/objects/instance.py:1049
+
+
+
+
+
+create vhost....
+
+nova.virt.libvirt.driver [req-4fbfa223-1b26-4868-9315-2400a9748944 9ae198e0a5834bc1be482b1f201e5dba 5fcdf48d7c864782883ea13f18201a81 - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] End _get_guest_xml xml=<domain type="kvm">
+  <uuid>03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb</uuid>
+  <name>instance-00000898</name>
+  <memory>2097152</memory>
+  <memoryBacking>
+    <hugepages>
+      <page size="2048" nodeset="0" unit="KiB"/>
+    </hugepages>
+  </memoryBacking>
+  <numatune>
+    <memory mode="strict" nodeset="0"/>
+    <memnode cellid="0" mode="strict" nodeset="0"/>
+  </numatune>
+  <vcpu>2</vcpu>
+  <metadata>
+    <nova:instance xmlns:nova="http://openstack.org/xmlns/libvirt/nova/1.0">
+      <nova:package version="16.1.2"/>
+      <nova:name>spaw</nova:name>
+      <nova:creationTime>2019-02-27 03:43:38</nova:creationTime>
+      <nova:flavor name="lamtv_test">
+        <nova:memory>2048</nova:memory>
+        <nova:disk>3</nova:disk>
+        <nova:swap>0</nova:swap>
+....
+
+ Converted object VIFVHostUser(active=False,address=fa:16:3e:a8:a2:26,has_traffic_filtering=False,id=d56a7d97-37ef-4341-abd0-24fedbf1cbe5,mode='server',network=Network(51bcaab9-5f7c-42ec-b78c-2ea8be7190b8),path='/run/openvswitch/vhud56a7d97-37',plugin='ovs',port_profile=VIFPortProfileOpenVSwitch,preserve_on_delete=False,vif_name='vhud56a7d97-37') nova_to_osvif_vif /usr/lib/python2.7/dist-packages/nova/network/os_vif_util.py:490
+
+Plugging vif VIFVHostUser(active=False,address=fa:16:3e:a8:a2:26,has_traffic_filtering=False,id=d56a7d97-37ef-4341-abd0-24fedbf1cbe5,mode='server',network=Network(51bcaab9-5f7c-42ec-b78c-2ea8be7190b8),path='/run/openvswitch/vhud56a7d97-37',plugin='ovs',port_profile=VIFPortProfileOpenVSwitch,preserve_on_delete=False,vif_name='vhud56a7d97-37') plug /usr/local/lib/python2.7/dist-packages/os_vif/__init__.py:76
+
+
+
+ Running cmd (subprocess): ovs-vsctl -- --may-exist add-br br-int -- set Bridge br-int datapath_type=netdev execute /usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py:355
+
+
+Running cmd (subprocess): ovs-vsctl --timeout=120 -- --may-exist add-port br-int vhud56a7d97-37 -- set Interface vhud56a7d97-37 external-ids:iface-id=d56a7d97-37ef-4341-abd0-24fedbf1cbe5 external-ids:iface-status=active external-ids:attached-mac=fa:16:3e:a8:a2:26 external-ids:vm-uuid=03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb type=dpdkvhostuserclient options:vhost-server-path=/run/openvswitch/vhud56a7d97-37 execute /usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py:355
+
+Running cmd (subprocess): ovs-vsctl --timeout=120 -- set interface vhud56a7d97-37 mtu_request=1500 execute /usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py:355
+
+Successfully plugged vif VIFVHostUser(active=False,address=fa:16:3e:a8:a2:26,has_traffic_filtering=False,id=d56a7d97-37ef-4341-abd0-24fedbf1cbe5,mode='server',network=Network(51bcaab9-5f7c-42ec-b78c-2ea8be7190b8),path='/run/openvswitch/vhud56a7d97-37',plugin='ovs',port_profile=VIFPortProfileOpenVSwitch,preserve_on_delete=False,vif_name='vhud56a7d97-37')
+
+
+instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Received event network-changed-d56a7d97-37ef-4341-abd0-24fedbf1cbe5 external_instance_event /usr/lib/python2.7/dist-packages/nova/compute/manager.py:7079
+
+Emitting event <LifecycleEvent: 1551239021.01, 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb => Started> emit_event /usr/lib/python2.7/dist-packages/nova/virt/driver.py:1465
+
+
+
+VM Started (Lifecycle Event)
+
+ Instance is running spawn /usr/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py:2910
+  Took 37.65 
+seconds to spawn the instance on the hypervisor.
+
+Instance spawned successfully.
+
+
+
+
+
+
+
+
+
+
+
+2019-02-27 10:43:41.020 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Checking s
+tate _get_power_state /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1187
+2019-02-27 10:43:41.089 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Checking s
+tate _get_power_state /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1187
+2019-02-27 10:43:41.091 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Synchroniz
+ing instance power state after lifecycle event "Started"; current vm_state: building, current task_state: spawning, current DB power_state: 0, VM power_state: 1 handle_lifecycle_event /usr/lib/python2.7/dist-packages/nova/compute/manager.py:10
+91
+2019-02-27 10:43:41.158 46516 INFO nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] During sync
+_power_state the instance has a pending task (spawning). Skip.
+2019-02-27 10:43:41.158 46516 DEBUG nova.virt.driver [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] Emitting event <LifecycleEvent: 1551239021.01, 03a147a7-8984-4a
+04-9cb7-ccc5e5f9f7bb => Paused> emit_event /usr/lib/python2.7/dist-packages/nova/virt/driver.py:1465
+2019-02-27 10:43:41.159 46516 INFO nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] VM Paused (
+Lifecycle Event)
+2019-02-27 10:43:41.214 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Checking s
+tate _get_power_state /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1187
+2019-02-27 10:43:41.218 46516 DEBUG nova.virt.driver [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] Emitting event <LifecycleEvent: 1551239021.01, 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb => Resumed> emit_event /usr/lib/python2.7/dist-packages/nova/virt/driver.py:1465
+2019-02-27 10:43:41.218 46516 INFO nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] VM Resumed (Lifecycle Event)
+2019-02-27 10:43:41.271 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Checking state _get_power_state /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1187
+2019-02-27 10:43:41.274 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Synchronizing instance power state after lifecycle event "Resumed"; current vm_state: active, current task_state: None, current DB power_state: 1, VM power_state: 1 handle_lifecycle_event /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1091
+2019-02-27 10:43:41.285 46516 DEBUG nova.notifications.objects.base [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] Defaulting the value of the field 'projects' to None in FlavorPayload due to 'Cannot call _load_projects on orphaned Flavor object' populate_schema /usr/lib/python2.7/dist-packages/nova/notifications/objects/base.py:125
+2019-02-27 10:43:41.288 46516 INFO nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Took 57.67 seconds to build instance.
+2019-02-27 10:43:41.343 46516 DEBUG nova.virt.driver [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] Emitting event <LifecycleEvent: 1551239021.02, 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb => Resumed> emit_event /usr/lib/python2.7/dist-packages/nova/virt/driver.py:1465
+2019-02-27 10:43:41.343 46516 INFO nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] VM Resumed (Lifecycle Event)
+2019-02-27 10:43:41.346 46516 DEBUG oslo_concurrency.lockutils [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] Lock "03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb" released by "nova.compute.manager._locked_do_build_and_run_instance" :: held 57.973s inner /usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py:282
+2019-02-27 10:43:41.402 46516 DEBUG nova.compute.manager [req-79f46c37-d153-47b1-bae1-7049a93f8af2 b7b6e6d00a77423c8b9627305edcd3e7 738eefc285c846dd86504d0c09bb55de - default default] [instance: 03a147a7-8984-4a04-9cb7-ccc5e5f9f7bb] Checking state _get_power_state /usr/lib/python2.7/dist-packages/nova/compute/manager.py:1187
+
+
+
+
+
+

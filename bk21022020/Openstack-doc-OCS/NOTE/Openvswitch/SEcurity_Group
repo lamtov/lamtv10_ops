@@ -1,0 +1,21 @@
+SEcurity_Group
+
+yum install -y nc
+nc --sctp 10.55.39.73 2905
+nc --sctp -l -p 2905
+
+
+
+nc -l -p 2905
+nc 10.55.39.73 2905
+
+
+
+
+
+
+[redhat7_6]
+name=redhat7_6
+baseurl=http://10.55.39.76:8088/rhel76
+enabled=1
+gpgcheck=0

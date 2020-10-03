@@ -1,0 +1,5 @@
+[docker]
+name=docker
+baseurl=http://172.16.30.89/docker.centos.7.x86_64
+enabled=1
+gpgcheck=0

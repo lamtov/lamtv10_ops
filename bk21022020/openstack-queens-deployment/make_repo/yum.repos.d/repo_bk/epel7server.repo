@@ -1,0 +1,5 @@
+[epel7server]
+name=epel7server
+baseurl=http://172.16.30.89/epel7server
+enabled=1
+gpgcheck=0

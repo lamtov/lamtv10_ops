@@ -1,0 +1,89 @@
+B1: cd /etc/ansible/
+B2: vim inventory/multinode 
+[controller]
+#controller01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+#controller02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+#controller03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[compute_type_1]
+#compute01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+compute02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+#compute03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[compute_type_2]
+
+
+[compute:children]
+compute_type_1
+compute_type_2
+
+[ops_node:children]
+controller
+compute
+
+[os-controller]
+#controller01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+[bk-controller]
+controller02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+controller03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+controller01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+[storage]
+ceph1
+
+
+[all]
+compute02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+[test]
+compute01 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+compute02 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+compute03 ansible_ssh_user=root ansible_ssh_pass="123456@Epc"
+
+
+B3: vim group_vars/all/common.yml
+vim group_vars/all/global.yml
+
+Sua tat ca IP 
+
+vim group_vars/controller/* 
+vim group_vars/compute/* 
+
+
+
+
+B4: 
+Dang nhap vao tat ca cac node sua etc_hosts
+127.0.0.1       localhost
+
+172.16.29.199   os-controller
+172.16.29.199   controller
+172.16.29.193   docker-registry
+172.16.30.193   controller01
+172.16.30.194   controller02
+172.16.30.195   controller03
+
+172.16.30.196   compute01
+172.16.30.197   compute02
+172.16.30.198   compute03
+
+172.16.29.193   repository
+
+
+B5 Dang nhap vao tat ca cac node sua /etc/hostname
+
+xong go reboot
+
+
+B6: vim  ansible_controller.yml
+Bo # o tung role 1 
+
+xong go 'ansible-playbook ansible_controller.yml'
+Roi # lai tung role 1, bo # role tiep theo
+chay lap lai den khi het role
+
+
+
+B7 lam tuong tu voi ansible_compute.yml
+
+
+

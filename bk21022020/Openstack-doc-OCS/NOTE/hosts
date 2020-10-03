@@ -1,0 +1,23 @@
+
+127.0.0.1       localhost
+
+#10.10.1.176    os-controller
+10.10.1.173     ceph01
+10.10.1.174     ceph02
+10.10.1.175     ceph03
+
+#10.10.1.82     docker-registry-fake
+172.16.30.89    docker-registry
+
+172.16.31.247    os-controller
+#172.16.30.83   controller01
+#10.10.1.169     controller02
+#10.10.1.170     controller03
+#10.10.1.171     compute01
+#10.10.1.172     compute02
+
+
+172.16.31.247   controller
+172.16.31.248   compute01
+172.16.31.249   compute02
+172.16.30.89    repository

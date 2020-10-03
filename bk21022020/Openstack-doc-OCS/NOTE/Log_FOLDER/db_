@@ -1,0 +1,35 @@
+db:
+servation_id | launched_at | terminated_at | display_name | display_description | availability_zone | locked | os_type | launched_on | instance_type_id | vm_mode | uuid                                 | architecture | root_device_name | access_ip_v4 | access_ip_v6 | config_drive | task_state | default_ephemeral_device | default_swap_device | progress | auto_disk_config | shutdown_terminate | disable_terminate | root_gb | ephemeral_gb | cell_name | node      | deleted | locked_by | cleaned | ephemeral_key_uuid |
+
+
+
+| 2019-02-27 04:30:28 | 2019-02-27 04:30:32 | NULL       | 2202 |        NULL | 9ae198e0a5834bc1be482b1f201e5dba | 5fcdf48d7c864782883ea13f18201a81 | 706e0be0-af71-4f72-99da-7aa37833ae03 |           |            |            0 | lamtv    | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt3+OYgOF3QgttGeNfLH1pN1feAIJJu/FlVRpxQKthqY2tC3Cea1mkwgDwtc7F0Kb1j+p3MCtxkmT0/0BDdMSuw1X8C0w2PMlFuBb16b3MfYOkOJVvC/LJVtJHDW4nUK5RLo2kpM4d/wcIP715qZPkxgFEx958CveBIK0IF9uA61f86FwKMXV3pEVWr1CRIF6503WHfYq2ruL8LygnIjLS89mAconXqUXZkgZPhkBn0fmHsGAjEzkAv/pTL/9XRcxVKzwhXo1NlGVXjxFvnTnVgmCYYIh7441kplm6vioF7L0ZD0mosROBScYUy4/qSveg/wXqF1AxwtG21tDkn3Rt Generated-by-Nova |           0 | building |      2048 |     2 | schevm   | NULL | NULL      | r-x9yh0rcb     | NULL        | NULL          | schevm       | schevm              | nova              |      0 | NULL    | NULL        |              276 | NULL    | d9c1e39a-3f17-4e66-af17-4e9744d3d63e | NULL         | NULL             | NULL         | NULL         |              | NULL       | NULL                     | NULL                |        0 |                1 |                  0 |                 0 |       3 |            0 | NULL      | NULL |       0 | NULL      |       0 | NULL               |
+
+
+====> Sau scheduler 
+
+
+
+| 2019-02-27 04:30:28 | 2019-02-27 04:30:32 | NULL       | 2202 |        NULL | 9ae198e0a5834bc1be482b1f201e5dba | 5fcdf48d7c864782883ea13f18201a81 | 706e0be0-af71-4f72-99da-7aa37833ae03 |           |            |            0 | lamtv    | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt3+OYgOF3QgttGeNfLH1pN1feAIJJu/FlVRpxQKthqY2tC3Cea1mkwgDwtc7F0Kb1j+p3MCtxkmT0/0BDdMSuw1X8C0w2PMlFuBb16b3MfYOkOJVvC/LJVtJHDW4nUK5RLo2kpM4d/wcIP715qZPkxgFEx958CveBIK0IF9uA61f86FwKMXV3pEVWr1CRIF6503WHfYq2ruL8LygnIjLS89mAconXqUXZkgZPhkBn0fmHsGAjEzkAv/pTL/9XRcxVKzwhXo1NlGVXjxFvnTnVgmCYYIh7441kplm6vioF7L0ZD0mosROBScYUy4/qSveg/wXqF1AxwtG21tDkn3Rt Generated-by-Nova |           0 | building |      2048 |     2 | schevm   | compute04 | NULL      | r-x9yh0rcb     | NULL        | NULL          | schevm       | schevm              | nova              |      0 | NULL    | compute04   |              276 | NULL    | d9c1e39a-3f17-4e66-af17-4e9744d3d63e | NULL         | NULL             | NULL         | NULL         |              | NULL       | NULL                     | NULL                |        0 |                1 |                  0 |                 0 |       3 |            0 | NULL      | compute04 |       0 | NULL      |       0 | NULL 
+
+
+
+
+====> Sau spawn
+| 2019-02-27 04:30:28 | 2019-02-27 04:31:03 | NULL       | 2202 |        NULL | 9ae198e0a5834bc1be482b1f201e5dba | 5fcdf48d7c864782883ea13f18201a81 | 706e0be0-af71-4f72-99da-7aa37833ae03 |           |            |            0 | lamtv    | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt3+OYgOF3QgttGeNfLH1pN1feAIJJu/FlVRpxQKthqY2tC3Cea1mkwgDwtc7F0Kb1j+p3MCtxkmT0/0BDdMSuw1X8C0w2PMlFuBb16b3MfYOkOJVvC/LJVtJHDW4nUK5RLo2kpM4d/wcIP715qZPkxgFEx958CveBIK0IF9uA61f86FwKMXV3pEVWr1CRIF6503WHfYq2ruL8LygnIjLS89mAconXqUXZkgZPhkBn0fmHsGAjEzkAv/pTL/9XRcxVKzwhXo1NlGVXjxFvnTnVgmCYYIh7441kplm6vioF7L0ZD0mosROBScYUy4/qSveg/wXqF1AxwtG21tDkn3Rt Generated-by-Nova |           0 | building |      2048 |     2 | schevm   | compute04 | NULL      | r-x9yh0rcb     | NULL        | NULL          | schevm       | schevm              | nova              |      0 | NULL    | compute04   |              276 | NULL    | d9c1e39a-3f17-4e66-af17-4e9744d3d63e | NULL         | /dev/vda         | NULL         | NULL         |              | spawning   | NULL                     | NULL                |        0 |                1 |                  0 |                 0 |       3 |            0 | NULL      | compute04 |       0 | NULL      |       0 | NULL               |
+
+
+
+====> Done
+
+
+| 2019-02-27 04:30:28 | 2019-02-27 04:31:41 | NULL       | 2202 |        NULL | 9ae198e0a5834bc1be482b1f201e5dba | 5fcdf48d7c864782883ea13f18201a81 | 706e0be0-af71-4f72-99da-7aa37833ae03 |           |            |            0 | lamtv    | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCt3+OYgOF3QgttGeNfLH1pN1feAIJJu/FlVRpxQKthqY2tC3Cea1mkwgDwtc7F0Kb1j+p3MCtxkmT0/0BDdMSuw1X8C0w2PMlFuBb16b3MfYOkOJVvC/LJVtJHDW4nUK5RLo2kpM4d/wcIP715qZPkxgFEx958CveBIK0IF9uA61f86FwKMXV3pEVWr1CRIF6503WHfYq2ruL8LygnIjLS89mAconXqUXZkgZPhkBn0fmHsGAjEzkAv/pTL/9XRcxVKzwhXo1NlGVXjxFvnTnVgmCYYIh7441kplm6vioF7L0ZD0mosROBScYUy4/qSveg/wXqF1AxwtG21tDkn3Rt Generated-by-Nova |           1 | active   |      2048 |     2 | schevm   | compute04 | NULL      | r-x9yh0rcb     | 2019-02-27 04:31:41 | NULL          | schevm       | schevm              | nova              |      0 | NULL    | compute04   |              276 | NULL    | d9c1e39a-3f17-4e66-af17-4e9744d3d63e | NULL         | /dev/vda         | NULL         | NULL         |              | NULL       | NULL                     | NULL                |        0 |                1 |                  0 |                 0 |       3 |            0 | NULL      | compute04 |       0 | NULL      |       0 | NULL               |
+
+
+
+
+
+
+
+
+

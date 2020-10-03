@@ -1,0 +1,18 @@
+# Template my.cnf for PXC
+# Edit to your requirements.
+[client]
+socket=/u01/mysql/run/mysql.sock
+
+[mysqld]
+server-id=1
+datadir=/u01/mysql/data
+socket=/u01/mysql/run/mysql.sock
+log-error=/u01/mysql/log/mysqld.log
+pid-file=/u01/mysql/run/mysqld/mysqld.pid
+log-bin
+log_slave_updates
+expire_logs_days=7
+max_connections = 5000
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0

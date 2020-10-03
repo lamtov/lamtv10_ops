@@ -1,0 +1,55 @@
+FROM conda_centos_ansible
+
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH /opt/conda/bin:$PATH
+
+
+#COPY Anaconda2-2019.10-Linux-x86_64.sh /root/
+#RUN mv ~/Anaconda2-2019.10-Linux-x86_64.sh ~/anaconda.sh
+
+#RUN  /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+#    rm ~/anaconda.sh && \
+#    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+#    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#    echo "conda activate base" >> ~/.bashrc && \
+#    find /opt/conda/ -follow -type f -name '*.a' -delete && \
+#    find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
+#    /opt/conda/bin/conda clean -afy
+
+
+#RUN yum install -y python-keyczar
+#COPY ansible-2.7.4-1.el7.noarch.rpm /root/
+#COPY sshpass-1.06-2.el7.x86_64.rpm /root/
+#COPY python-keyczar-0.71c-2.el7.noarch.rpm /root/
+#RUN yum install -y  /root/python-keyczar-0.71c-2.el7.noarch.rpm
+#RUN yum install -y /root/sshpass-1.06-2.el7.x86_64.rpm 
+#RUN yum install -y /root/ansible-2.7.4-1.el7.noarch.rpm
+
+
+RUN conda install -c anaconda numpy
+RUN conda install -c anaconda flask
+RUN conda install -c anaconda pymysql
+RUN conda install -c conda-forge flask-restplus
+RUN conda install -c conda-forge ansible
+RUN conda install -c anaconda configparser
+RUN conda install -c anaconda sqlalchemy
+RUN conda install -c conda-forge flask-sqlalchemy
+RUN conda install -c conda-forge flask-migrate
+RUN conda install -c anaconda flask-login
+RUN conda install -c conda-forge pytest
+RUN conda install -c conda-forge flask-wtf
+RUN conda install -c conda-forge packaging
+RUN conda install -c conda-forge fabric
+RUN conda install -c anaconda redis
+RUN conda install -c anaconda redis-py
+RUN conda install PyYAML
+RUN conda install pyOpenSSL
+RUN conda install flake8
+RUN conda install -c conda-forge flask-marshmallow
+RUN conda install -c conda-forge marshmallow-sqlalchemy
+RUN pip install ansible==2.7.4
+RUN pip install Werkzeug==0.16.1
+RUN pip install oyaml
+
+
+CMD [ "/bin/bash" ]

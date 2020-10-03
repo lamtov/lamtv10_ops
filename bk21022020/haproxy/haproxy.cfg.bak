@@ -1,0 +1,200 @@
+global
+
+    log /dev/log        local0
+    log /dev/log        local1 notice
+
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     10000
+    user        haproxy
+    group       haproxy
+    daemon
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    #option http-server-close
+    option forwardfor
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    #timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 10000
+
+
+listen stats
+  bind 10.255.26.60:1994
+  mode http
+  stats enable
+  stats uri /
+  stats refresh 15s
+  stats realm Haproxy\ Stats
+  stats auth cloud:GdYc6d8jYwURfAn5A3sc08Ipt5zcanPl
+listen horizon
+  bind 10.255.26.60:443   ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+ # option httpchk GET /check
+ # http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:443 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:443 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:443 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+
+
+
+listen neutron_server
+  bind 10.255.26.60:9696 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:9696 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:9696 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:9696 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+listen cinder_api
+  bind 10.255.26.60:8776 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  #option httpchk GET /
+  #http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o1.controller o1.controller:8776 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:8776 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+  server o3.controller o3.controller:8776 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+listen nova_api
+  bind 10.255.26.60:8774 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]
+  reqadd X-Forwarded-Proto:\ https
+  server o1.controller o1.controller:8774 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:8774 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o3.controller o3.controller:8774 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+listen keystone
+  bind 10.255.26.60:5000 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  #option httpchk GET /
+  #http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:5000 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  #server o3.controller o3.controller:5000 check ssl   verify none
+  #server o2.controller o2.controller:5000 check ssl   verify none
+  #server o1.controller o1.controller:5000 check ssl   verify none
+  server o2.controller o2.controller:5000 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:5000 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+
+
+listen nova_novncproxy
+
+  bind 10.255.26.60:6080 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]|400|404
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:6080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:6080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:6080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+#listen glance_registry
+#  bind 10.255.26.60:9191 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  #option httpchk GET /check
+  #http-check expect rstatus (2|3)[0-9][0-9]
+
+#  reqadd X-Forwarded-Proto:\ https
+#  server o3.controller o3.controller:9191 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+#  server o2.controller o2.controller:9191 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+#  server o1.controller o1.controller:9191 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+
+listen nova_placement_api
+
+  bind 10.255.26.60:8778 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:8778 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:8778 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:8778 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+
+listen glance_api
+  bind 10.255.26.60:9292 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:9292 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:9292 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:9292 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+
+
+
+
+listen nova_metadata
+  bind 10.255.26.60:8775 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:8775 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:8775 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:8775 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+
+listen openstack-exporter
+  bind 10.255.26.60:9181
+  reqadd X-Forwarded-Proto:\ http
+  server o2.controller o2.controller:9180 check inter 3000 rise 2 fall 5
+  server o3.controller o3.controller:9180 check inter 3000 rise 2 fall 5 backup
+  server o1.controller o1.controller:9180 check inter 3000 rise 2 fall 5 backup
+
+
+listen openstack-exporter
+  bind 10.255.26.60:9184
+  reqadd X-Forwarded-Proto:\ http
+  server o3.controller o2.controller:9183 check inter 3000 rise 2 fall 5
+  server o2.controller o3.controller:9183 check inter 3000 rise 2 fall 5 backup
+  server o1.controller o1.controller:9183 check inter 3000 rise 2 fall 5 backup
+
+listen openstack-exporter
+  bind 10.255.26.60:9419
+  reqadd X-Forwarded-Proto:\ http
+  server o2.controller o2.controller:9419 check inter 3000 rise 2 fall 5
+  server o3.controller o3.controller:9419 check inter 3000 rise 2 fall 5 backup
+  server o1.controller o1.controller:9419 check inter 3000 rise 2 fall 5 backup
+
+listen swift_proxy
+  #bind 10.255.26.60:8080
+  #http-request del-header X-Forwarded-Proto
+  #server SPGM01DRCTRL01 10.255.26.100:8080 check inter 2000 rise 2 fall 5
+  #server SPGM01DRCTRL03 10.255.26.103:8080 check inter 2000 rise 2 fall 5
+  #server SPGM01DRCTRL02 10.255.26.101:8080 check inter 2000 rise 2 fall 5
+  bind 10.255.26.60:8080 ssl crt /usr/share/docker/keystone/keystone/ssl/cert_key.pem
+  option httpchk GET /
+  http-check expect rstatus (2|3)[0-9][0-9]|404
+
+  reqadd X-Forwarded-Proto:\ https
+  server o3.controller o3.controller:8080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o2.controller o2.controller:8080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+  server o1.controller o1.controller:8080 check-ssl ssl  crt  /usr/share/docker/keystone/keystone/ssl/cert_key.pem   verify required  ca-file /usr/share/docker/keystone/keystone/ssl/ca-certificates.crt check inter 2000 rise 2 fall 5
+
+

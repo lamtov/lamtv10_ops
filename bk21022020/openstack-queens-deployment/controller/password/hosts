@@ -1,0 +1,68 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+#Common
+10.255.26.60	os-controller
+10.255.26.51	repository	
+10.255.26.51	docker-registry
+
+#Controller
+10.255.26.100	spgm01drctrl01
+10.255.26.101	spgm01drctrl02
+10.255.26.103	spgm01drctrl03
+
+#Compute Type1
+10.255.26.72	spgm01drcomp1
+10.255.26.73	spgm01drcomp2
+10.255.26.74	spgm01drcomp3
+10.255.26.75	spgm01drcomp4
+10.255.26.76	spgm01drcomp5
+10.255.26.77	spgm01drcomp6
+10.255.26.78	spgm01drcomp7
+10.255.26.79	spgm01drcomp8
+10.255.26.80	spgm01drcomp9
+10.255.26.81	spgm01drcomp10
+10.255.26.82	spgm01drcomp11
+10.255.26.83	spgm01drcomp12
+
+#Compute Type2
+10.255.26.84	spgm01drcomp13
+10.255.26.85	spgm01drcomp14
+10.255.26.86	spgm01drcomp15
+10.255.26.87	spgm01drcomp16
+10.255.26.88	spgm01drcomp17
+10.255.26.89	spgm01drcomp18
+10.255.26.90	spgm01drcomp19
+10.255.26.91	spgm01drcomp20
+10.255.26.92	spgm01drcomp21
+10.255.26.93	spgm01drcomp22
+10.255.26.94	spgm01drcomp23
+10.255.26.95	spgm01drcomp24
+10.255.26.96	spgm01drcomp25
+10.255.26.97	spgm01drcomp26
+10.255.26.98	spgm01drcomp27
+10.255.26.99	spgm01drcomp28
+
+10.255.26.104	spgm01draero01
+10.255.26.105	spgm01draero02
+10.255.26.106	spgm01draero03
+10.255.26.107	spgm01draero04
+10.255.26.108	spgm01draero05
+10.255.26.109	spgm01draero06
+10.255.26.110	spgm01draero07
+10.255.26.111	spgm01draero08
+10.255.26.112	spgm01draero09
+10.255.26.113	spgm01draero10
+10.255.26.114	spgm01draero11
+10.255.26.115	spgm01draero12
+10.255.26.116	spgm01draero13
+10.255.26.117	spgm01draero14
+10.255.26.118	spgm01draero15
+10.255.26.119	spgm01draero16
+10.255.26.120	spgm01draero17
+10.255.26.121	spgm01draero18
+10.255.26.122	spgm01draero19
+10.255.26.123	spgm01draero20
+10.255.26.124	spgm01draero21
+10.255.26.125	spgm01draero22
+10.255.26.126	spgm01draero23
