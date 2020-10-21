@@ -65,6 +65,16 @@ GRANT ALL PRIVILEGES ON lamtv10.* TO 'lamtv10'@'localhost' IDENTIFIED BY "lamtv1
 GRANT ALL PRIVILEGES ON lamtv10.* TO 'lamtv10'@'%' IDENTIFIED BY "lamtv10";
 
 
+
+CREATE USER 'lamtv10'@'localhost' IDENTIFIED BY 'lamtv10';
+CREATE USER 'lamtv10'@'%' IDENTIFIED BY 'lamtv10';
+
+GRANT ALL ON *.* TO 'lamtv10'@'localhost';
+GRANT ALL ON *.* TO 'lamtv10'@'%';
+flush privileges;
+
+
+
 docker exec -it mysql bash
 $ mysql -u lamtv10 -p'lamtv10' < /usr/share/docker/mysql/create_database.sql
 
